@@ -1,0 +1,55 @@
+﻿cohort,characteristic,field,unit,summary_type,estimate,q25,q75,nonmissing_n,unavailable_n,denominator,count
+Development,Age,age_at_admit,years,Median (IQR),67.0,48.0,82.0,2838,0,2838,
+Development,Prior Charlson index,charlson_prior_no_age,points,Median (IQR),0.0,0.0,0.0,2838,0,2838,
+Development,Initial total GCS,initial_gcs_total_value,points,Median (IQR),14.0,8.0,15.0,2790,48,2838,
+Development,ICU duration,icu_episode_hours,hours,Median (IQR),45.60388888888889,24.10111111111111,101.83590277777778,2838,0,2838,
+Development,Completed red-cell transfusion,rbc_completed_ml,mL,Median (IQR),0.0,0.0,0.0,2838,0,2838,
+Development,Vasoactive duration,vasopressor_active_hours,hours,Median (IQR),0.0,0.0,0.0,2838,0,2838,
+Development,Invasive ventilation duration,cumulative_invasive_ventilation_hours,hours,Median (IQR),0.0,0.0,14.0,2838,0,2838,
+Development,Modified non-neurologic SOFA,modified_non_neuro_sofa2_total,points,Median (IQR),1.0,1.0,3.0,2838,0,2838,
+Development,Last SpO2,spo2_last,%,Median (IQR),97.0,95.0,98.0,2835,3,2838,
+Development,Last hemoglobin,hemoglobin_last,g/dL,Median (IQR),10.9,9.5,12.4,2661,177,2838,
+Development,Last WBC,wbc_absolute_last,10^9/L,Median (IQR),9.2,7.2,11.6,2661,177,2838,
+Development,Last BUN,bun_last,mg/dL,Median (IQR),15.0,10.0,21.0,2671,167,2838,
+Development,Log2 paired WPR,log2_wpr,log2 ratio,Median (IQR),-4.486672857223994,-4.920008534768996,-4.0520033786924365,2543,295,2838,
+Development,Male sex,gender,%,n (%),62.121212121212125,,,2838,0,2838,1763
+Development,GCS-M 6,gcsm_category,%,n (%),83.82663847780127,,,2838,0,2838,2379
+Development,GCS-M 4-5,gcsm_category,%,n (%),7.470049330514446,,,2838,0,2838,212
+Development,GCS-M 1-3,gcsm_category,%,n (%),1.02184637068358,,,2838,0,2838,29
+Development,GCS-M unassessable,gcsm_category,%,n (%),7.681465821000705,,,2838,0,2838,218
+Development,Non-red-cell transfusion,non_rbc_component_ever,%,n (%),14.587737843551798,,,2838,0,2838,414
+Development,ICP / CSF diversion,icp_monitor_or_csf_diversion_ever,%,n (%),2.3608174770965467,,,2838,0,2838,67
+Development,Cranial operation,cranial_operation_ever,%,n (%),15.29245947850599,,,2838,0,2838,434
+Development,Paired WPR unavailable,wpr_unavailable,%,n (%),10.394644115574348,,,2838,0,2838,295
+Development,Death within 90 days,death_90d,%,n (%),12.649753347427765,,,2838,0,2838,359
+Development,Death within 180 days,death_180d,%,n (%),15.3276955602537,,,2838,0,2838,435
+Development,Any completed red-cell transfusion,rbc_completed_ml,%,n (%),13.883016208597605,,,2838,0,2838,394
+Development,Any invasive ventilation,cumulative_invasive_ventilation_hours,%,n (%),36.222692036645526,,,2838,0,2838,1028
+Development,Any vasoactive exposure,vasopressor_active_hours,%,n (%),11.557434813248767,,,2838,0,2838,328
+Temporal,Age,age_at_admit,years,Median (IQR),69.0,52.0,79.0,406,0,406,
+Temporal,Prior Charlson index,charlson_prior_no_age,points,Median (IQR),0.0,0.0,0.0,406,0,406,
+Temporal,Initial total GCS,initial_gcs_total_value,points,Median (IQR),14.0,9.0,15.0,401,5,406,
+Temporal,ICU duration,icu_episode_hours,hours,Median (IQR),66.41902777777779,32.384652777777774,132.6786111111111,406,0,406,
+Temporal,Completed red-cell transfusion,rbc_completed_ml,mL,Median (IQR),0.0,0.0,0.0,406,0,406,
+Temporal,Vasoactive duration,vasopressor_active_hours,hours,Median (IQR),0.0,0.0,0.0,406,0,406,
+Temporal,Invasive ventilation duration,cumulative_invasive_ventilation_hours,hours,Median (IQR),0.0,0.0,5.995833333333334,406,0,406,
+Temporal,Modified non-neurologic SOFA,modified_non_neuro_sofa2_total,points,Median (IQR),1.0,0.0,3.0,406,0,406,
+Temporal,Last SpO2,spo2_last,%,Median (IQR),97.0,95.0,98.0,406,0,406,
+Temporal,Last hemoglobin,hemoglobin_last,g/dL,Median (IQR),11.0,9.5,12.5,373,33,406,
+Temporal,Last WBC,wbc_absolute_last,10^9/L,Median (IQR),8.7,6.7,11.0,373,33,406,
+Temporal,Last BUN,bun_last,mg/dL,Median (IQR),15.0,10.0,21.0,375,31,406,
+Temporal,Log2 paired WPR,log2_wpr,log2 ratio,Median (IQR),-4.5454774491429335,-4.977571610113583,-4.0566133483135305,334,72,406,
+Temporal,Male sex,gender,%,n (%),65.51724137931035,,,406,0,406,266
+Temporal,GCS-M 6,gcsm_category,%,n (%),82.26600985221675,,,406,0,406,334
+Temporal,GCS-M 4-5,gcsm_category,%,n (%),8.620689655172415,,,406,0,406,35
+Temporal,GCS-M 1-3,gcsm_category,%,n (%),1.2315270935960592,,,406,0,406,5
+Temporal,GCS-M unassessable,gcsm_category,%,n (%),7.8817733990147785,,,406,0,406,32
+Temporal,Non-red-cell transfusion,non_rbc_component_ever,%,n (%),3.9408866995073892,,,406,0,406,16
+Temporal,ICP / CSF diversion,icp_monitor_or_csf_diversion_ever,%,n (%),1.477832512315271,,,406,0,406,6
+Temporal,Cranial operation,cranial_operation_ever,%,n (%),24.38423645320197,,,406,0,406,99
+Temporal,Paired WPR unavailable,wpr_unavailable,%,n (%),17.733990147783253,,,406,0,406,72
+Temporal,Death within 90 days,death_90d,%,n (%),14.532019704433498,,,406,0,406,59
+Temporal,Death within 180 days,death_180d,%,n (%),16.748768472906406,,,406,0,406,68
+Temporal,Any completed red-cell transfusion,rbc_completed_ml,%,n (%),5.41871921182266,,,406,0,406,22
+Temporal,Any invasive ventilation,cumulative_invasive_ventilation_hours,%,n (%),29.064039408866996,,,406,0,406,118
+Temporal,Any vasoactive exposure,vasopressor_active_hours,%,n (%),8.12807881773399,,,406,0,406,33

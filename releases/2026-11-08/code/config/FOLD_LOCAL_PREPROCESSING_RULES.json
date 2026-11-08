@@ -1,0 +1,8 @@
+{
+  "schema_version": "1",
+  "fit_scopes": ["outer_training", "inner_training"],
+  "transform_only_scopes": ["inner_validation", "outer_test", "temporal_validation"],
+  "forbidden_fit_scopes": ["full_development", "outer_test", "temporal_validation"],
+  "operations_requiring_training_only_fit": ["imputation", "winsorization", "scaling", "encoding", "feature_selection"],
+  "status": "FROZEN"
+}

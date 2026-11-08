@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "zero_tolerance_project_failures": ["UPSTREAM_HASH_DRIFT", "PATIENT_FOLD_COLUMN_CHANGE", "OUTCOME_TRUNCATION_INCONSISTENCY", "LEAKAGE", "TEMPORAL_ACCESS", "CORE_DELETION", "OBJECTIVE_TIES_BASELINE_DRIFT", "INVALID_NATIVE_PROBABILITY", "NATIVE_MONOTONICITY_FAILURE", "MISSING_PROVENANCE", "SOFTWARE_VERSION_DRIFT", "REAL_PATIENT_FIT_BEFORE_AUTHORIZATION"],
+  "candidate_minimum_eligible": {"EN": 12, "RSF": 7, "GBST": 10},
+  "candidate_declared": {"EN": 15, "RSF": 8, "GBST": 12},
+  "selected_refit_failure_max": 0,
+  "primary_family_failures": {"M0": "PROJECT_HOLD", "M2_EN": "PROJECT_HOLD"},
+  "support_family_failure": "ALGORITHM_HOLD",
+  "recalibration_failure": "STREAM_HOLD_NATIVE_RETAINED",
+  "bootstrap_failure": "BOOTSTRAP_INTERVALS_HOLD",
+  "execution_error_advances_state": false
+}

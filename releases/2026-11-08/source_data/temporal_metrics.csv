@@ -1,0 +1,414 @@
+﻿cohort,kind,model,prediction,horizon,metric,estimate,lower,upper,direction,source_key
+Temporal,comparison,M1_GBST-M1_EN,native,180,brier,0.002045591447627698,-0.0046033916596189845,0.008217268249039652,Reference minus candidate; positive benefit,comparison|M1_GBST-M0_native|180|brier
+Temporal,comparison,M1_GBST-M1_EN,native,180,logloss,-0.00990094060718022,-0.04214328596412667,0.016063620661426994,Reference minus candidate; positive benefit,comparison|M1_GBST-M0_native|180|logloss
+Temporal,comparison,M1_GBST-M1_EN,native,180,time_auc,0.006743821789070625,-0.019974441433462303,0.033914573204913874,Candidate minus reference; positive benefit,comparison|M1_GBST-M0_native|180|time_auc
+Temporal,comparison,M1_GBST-M1_EN,native,180,uno_c,0.003999049730757043,-0.022473686634129582,0.03119550933652547,Candidate minus reference; positive benefit,comparison|M1_GBST-M0_native|180|uno_c
+Temporal,comparison,M1_GBST-M1_EN,native,90,brier,0.00023573129675875937,-0.006809457652971208,0.006316506491306907,Reference minus candidate; positive benefit,comparison|M1_GBST-M0_native|90|brier
+Temporal,comparison,M1_GBST-M1_EN,native,90,logloss,-0.010178304579045894,-0.0389841788655797,0.01305081469904737,Reference minus candidate; positive benefit,comparison|M1_GBST-M0_native|90|logloss
+Temporal,comparison,M1_GBST-M1_EN,native,90,time_auc,0.0075221022810531,-0.02293410626293336,0.03728757407118046,Candidate minus reference; positive benefit,comparison|M1_GBST-M0_native|90|time_auc
+Temporal,comparison,M1_GBST-M1_EN,recal,180,brier,0.000958537591732464,-0.005371001183867778,0.006576702119676134,Reference minus candidate; positive benefit,comparison|M1_GBST-M0_recal|180|brier
+Temporal,comparison,M1_GBST-M1_EN,recal,180,logloss,-0.01378431963530824,-0.0465599355983324,0.011417308481876158,Reference minus candidate; positive benefit,comparison|M1_GBST-M0_recal|180|logloss
+Temporal,comparison,M1_GBST-M1_EN,recal,180,time_auc,0.006743821789070625,-0.019974441433462303,0.033914573204913874,Candidate minus reference; positive benefit,comparison|M1_GBST-M0_recal|180|time_auc
+Temporal,comparison,M1_GBST-M1_EN,recal,180,uno_c,0.003999049730757043,-0.022473686634129582,0.03119550933652547,Candidate minus reference; positive benefit,comparison|M1_GBST-M0_recal|180|uno_c
+Temporal,comparison,M1_GBST-M1_EN,recal,90,brier,-6.062818181015728e-05,-0.006969695510485142,0.005645587857445425,Reference minus candidate; positive benefit,comparison|M1_GBST-M0_recal|90|brier
+Temporal,comparison,M1_GBST-M1_EN,recal,90,logloss,-0.011788592941358145,-0.04086758902321604,0.011391951783636983,Reference minus candidate; positive benefit,comparison|M1_GBST-M0_recal|90|logloss
+Temporal,comparison,M1_GBST-M1_EN,recal,90,time_auc,0.0075221022810531,-0.02293410626293336,0.03728757407118046,Candidate minus reference; positive benefit,comparison|M1_GBST-M0_recal|90|time_auc
+Temporal,comparison,M1_RSF-M1_EN,native,180,brier,0.000701798522201813,-0.008454784944507639,0.009612826200370381,Reference minus candidate; positive benefit,comparison|M1_RSF-M0_native|180|brier
+Temporal,comparison,M1_RSF-M1_EN,native,180,logloss,0.00853651996994681,-0.018985578983782506,0.0396100232750514,Reference minus candidate; positive benefit,comparison|M1_RSF-M0_native|180|logloss
+Temporal,comparison,M1_RSF-M1_EN,native,180,time_auc,0.00870170553428462,-0.020711550999745677,0.04068516328751855,Candidate minus reference; positive benefit,comparison|M1_RSF-M0_native|180|time_auc
+Temporal,comparison,M1_RSF-M1_EN,native,180,uno_c,0.0025736458663287998,-0.02631237810719592,0.034293981715303,Candidate minus reference; positive benefit,comparison|M1_RSF-M0_native|180|uno_c
+Temporal,comparison,M1_RSF-M1_EN,native,90,brier,-0.0020171700811489196,-0.010619489943857712,0.006488904438850386,Reference minus candidate; positive benefit,comparison|M1_RSF-M0_native|90|brier
+Temporal,comparison,M1_RSF-M1_EN,native,90,logloss,0.0026540287387308292,-0.023412851432569107,0.029223971765361966,Reference minus candidate; positive benefit,comparison|M1_RSF-M0_native|90|logloss
+Temporal,comparison,M1_RSF-M1_EN,native,90,time_auc,0.01138084306159326,-0.023425795073127635,0.04549223485542332,Candidate minus reference; positive benefit,comparison|M1_RSF-M0_native|90|time_auc
+Temporal,comparison,M1_RSF-M1_EN,recal,180,brier,0.0007479866862285384,-0.007374979679170951,0.008687791901145492,Reference minus candidate; positive benefit,comparison|M1_RSF-M0_recal|180|brier
+Temporal,comparison,M1_RSF-M1_EN,recal,180,logloss,0.005743269084384939,-0.018899083626189462,0.031462307044510286,Reference minus candidate; positive benefit,comparison|M1_RSF-M0_recal|180|logloss
+Temporal,comparison,M1_RSF-M1_EN,recal,180,time_auc,0.00870170553428462,-0.020711550999745677,0.04068516328751855,Candidate minus reference; positive benefit,comparison|M1_RSF-M0_recal|180|time_auc
+Temporal,comparison,M1_RSF-M1_EN,recal,180,uno_c,0.0025736458663287998,-0.02631237810719592,0.034293981715303,Candidate minus reference; positive benefit,comparison|M1_RSF-M0_recal|180|uno_c
+Temporal,comparison,M1_RSF-M1_EN,recal,90,brier,-0.0006096232210554969,-0.008592314201913254,0.006656227008226176,Reference minus candidate; positive benefit,comparison|M1_RSF-M0_recal|90|brier
+Temporal,comparison,M1_RSF-M1_EN,recal,90,logloss,0.004874762643334918,-0.02034357759655048,0.028569151995062856,Reference minus candidate; positive benefit,comparison|M1_RSF-M0_recal|90|logloss
+Temporal,comparison,M1_RSF-M1_EN,recal,90,time_auc,0.01138084306159326,-0.023425795073127635,0.04549223485542332,Candidate minus reference; positive benefit,comparison|M1_RSF-M0_recal|90|time_auc
+Temporal,comparison,M2_EN-M1_EN,native,180,brier,0.012619681774058186,0.006618838608578076,0.019060656426228756,Reference minus candidate; positive benefit,comparison|M2_EN-M0_native|180|brier
+Temporal,comparison,M2_EN-M1_EN,native,180,logloss,0.010895054362714152,-0.04759616877567954,0.046692427610209176,Reference minus candidate; positive benefit,comparison|M2_EN-M0_native|180|logloss
+Temporal,comparison,M2_EN-M1_EN,native,180,time_auc,0.025408980160111394,0.0037393564035779012,0.047595514561781634,Candidate minus reference; positive benefit,comparison|M2_EN-M0_native|180|time_auc
+Temporal,comparison,M2_EN-M1_EN,native,180,uno_c,0.024845581248020276,0.004912841008835484,0.045120546138074986,Candidate minus reference; positive benefit,comparison|M2_EN-M0_native|180|uno_c
+Temporal,comparison,M2_EN-M1_EN,native,90,brier,0.01033933142504713,0.004474342302249558,0.016301414783129232,Reference minus candidate; positive benefit,comparison|M2_EN-M0_native|90|brier
+Temporal,comparison,M2_EN-M1_EN,native,90,logloss,0.004394547589036069,-0.05775990009014162,0.04244370541495397,Reference minus candidate; positive benefit,comparison|M2_EN-M0_native|90|logloss
+Temporal,comparison,M2_EN-M1_EN,native,90,time_auc,0.02359204806330284,0.0009073173339036956,0.04678591008771928,Candidate minus reference; positive benefit,comparison|M2_EN-M0_native|90|time_auc
+Temporal,comparison,M2_EN-M1_EN,recal,180,brier,0.011346911632116721,0.005951520228557967,0.016853250282302137,Reference minus candidate; positive benefit,comparison|M2_EN-M0_recal|180|brier
+Temporal,comparison,M2_EN-M1_EN,recal,180,logloss,0.012006979112632044,-0.034504466505415256,0.04061139876863124,Reference minus candidate; positive benefit,comparison|M2_EN-M0_recal|180|logloss
+Temporal,comparison,M2_EN-M1_EN,recal,180,time_auc,0.025452488687782826,0.0037827921536321,0.047646336516107536,Candidate minus reference; positive benefit,comparison|M2_EN-M0_recal|180|time_auc
+Temporal,comparison,M2_EN-M1_EN,recal,180,uno_c,0.024845581248020276,0.004912841008835484,0.045120546138074986,Candidate minus reference; positive benefit,comparison|M2_EN-M0_recal|180|uno_c
+Temporal,comparison,M2_EN-M1_EN,recal,90,brier,0.00954309662190335,0.004332195380504652,0.014972945902993707,Reference minus candidate; positive benefit,comparison|M2_EN-M0_recal|90|brier
+Temporal,comparison,M2_EN-M1_EN,recal,90,logloss,0.005988276116738689,-0.047212899166992825,0.038425978815254155,Reference minus candidate; positive benefit,comparison|M2_EN-M0_recal|90|logloss
+Temporal,comparison,M2_EN-M1_EN,recal,90,time_auc,0.023640892883309728,0.0009392670602621417,0.046833743133085214,Candidate minus reference; positive benefit,comparison|M2_EN-M0_recal|90|time_auc
+Temporal,comparison,M2_GBST-M1_EN_descriptive,native,180,brier,0.01498310755989235,0.004518068636938436,0.025555114439707947,Reference minus candidate; positive benefit,comparison|M2_GBST-M0_descriptive_native|180|brier
+Temporal,comparison,M2_GBST-M1_EN_descriptive,native,180,logloss,0.009812391005538379,-0.05370104253229541,0.05311564408620113,Reference minus candidate; positive benefit,comparison|M2_GBST-M0_descriptive_native|180|logloss
+Temporal,comparison,M2_GBST-M1_EN_descriptive,native,180,time_auc,0.023211799512704467,-0.01433107609233925,0.06187342885718952,Candidate minus reference; positive benefit,comparison|M2_GBST-M0_descriptive_native|180|time_auc
+Temporal,comparison,M2_GBST-M1_EN_descriptive,native,180,uno_c,0.021757206208425695,-0.014954376730467804,0.0577656585179395,Candidate minus reference; positive benefit,comparison|M2_GBST-M0_descriptive_native|180|uno_c
+Temporal,comparison,M2_GBST-M1_EN_descriptive,native,90,brier,0.01107347535098771,0.001229337003175281,0.02113625813015051,Reference minus candidate; positive benefit,comparison|M2_GBST-M0_descriptive_native|90|brier
+Temporal,comparison,M2_GBST-M1_EN_descriptive,native,90,logloss,0.0022413705947509355,-0.06460787676306538,0.04728082543560913,Reference minus candidate; positive benefit,comparison|M2_GBST-M0_descriptive_native|90|logloss
+Temporal,comparison,M2_GBST-M1_EN_descriptive,native,90,time_auc,0.026718116543740567,-0.013150852873616895,0.06524471078201736,Candidate minus reference; positive benefit,comparison|M2_GBST-M0_descriptive_native|90|time_auc
+Temporal,comparison,M2_GBST-M1_EN_descriptive,recal,180,brier,0.01345094520906634,0.0041552536471078615,0.022899672864407722,Reference minus candidate; positive benefit,comparison|M2_GBST-M0_descriptive_recal|180|brier
+Temporal,comparison,M2_GBST-M1_EN_descriptive,recal,180,logloss,0.006834035103952807,-0.05360438584477762,0.047256989409191395,Reference minus candidate; positive benefit,comparison|M2_GBST-M0_descriptive_recal|180|logloss
+Temporal,comparison,M2_GBST-M1_EN_descriptive,recal,180,time_auc,0.02329881656804733,-0.01432946339720314,0.06194640345258354,Candidate minus reference; positive benefit,comparison|M2_GBST-M0_descriptive_recal|180|time_auc
+Temporal,comparison,M2_GBST-M1_EN_descriptive,recal,180,uno_c,0.021757206208425695,-0.014954376730467804,0.0577656585179395,Candidate minus reference; positive benefit,comparison|M2_GBST-M0_descriptive_recal|180|uno_c
+Temporal,comparison,M2_GBST-M1_EN_descriptive,recal,90,brier,0.010424453065287179,0.0010995273059483724,0.01982342486174543,Reference minus candidate; positive benefit,comparison|M2_GBST-M0_descriptive_recal|90|brier
+Temporal,comparison,M2_GBST-M1_EN_descriptive,recal,90,logloss,-5.629440990650991e-05,-0.06739987759449875,0.04494329845435498,Reference minus candidate; positive benefit,comparison|M2_GBST-M0_descriptive_recal|90|logloss
+Temporal,comparison,M2_GBST-M1_EN_descriptive,recal,90,time_auc,0.026791383773750788,-0.013067248003097286,0.06542646470552435,Candidate minus reference; positive benefit,comparison|M2_GBST-M0_descriptive_recal|90|time_auc
+Temporal,comparison,M2_GBST-M1_GBST,native,180,brier,0.012937516112264652,0.0027437371616122618,0.022708116970152833,Reference minus candidate; positive benefit,comparison|M2_GBST-M1_GBST_native|180|brier
+Temporal,comparison,M2_GBST-M1_GBST,native,180,logloss,0.0197133316127186,-0.02052616671188425,0.05239544032033617,Reference minus candidate; positive benefit,comparison|M2_GBST-M1_GBST_native|180|logloss
+Temporal,comparison,M2_GBST-M1_GBST,native,180,time_auc,0.016467977723633842,-0.016421295291045548,0.04968126336421957,Candidate minus reference; positive benefit,comparison|M2_GBST-M1_GBST_native|180|time_auc
+Temporal,comparison,M2_GBST-M1_GBST,native,180,uno_c,0.017758156477668652,-0.012786311105037673,0.0483754428576646,Candidate minus reference; positive benefit,comparison|M2_GBST-M1_GBST_native|180|uno_c
+Temporal,comparison,M2_GBST-M1_GBST,native,90,brier,0.010837744054228951,0.001336544809102966,0.020346419794961275,Reference minus candidate; positive benefit,comparison|M2_GBST-M1_GBST_native|90|brier
+Temporal,comparison,M2_GBST-M1_GBST,native,90,logloss,0.01241967517379683,-0.03634857538757271,0.048845132089696215,Reference minus candidate; positive benefit,comparison|M2_GBST-M1_GBST_native|90|logloss
+Temporal,comparison,M2_GBST-M1_GBST,native,90,time_auc,0.019196014262687466,-0.009780702450482567,0.050845319468676785,Candidate minus reference; positive benefit,comparison|M2_GBST-M1_GBST_native|90|time_auc
+Temporal,comparison,M2_GBST-M1_GBST,recal,180,brier,0.012492407617333876,0.003039817583830416,0.021594059043848902,Reference minus candidate; positive benefit,comparison|M2_GBST-M1_GBST_recal|180|brier
+Temporal,comparison,M2_GBST-M1_GBST,recal,180,logloss,0.020618354739261047,-0.015365986257394257,0.05084335941278139,Reference minus candidate; positive benefit,comparison|M2_GBST-M1_GBST_recal|180|logloss
+Temporal,comparison,M2_GBST-M1_GBST,recal,180,time_auc,0.016554994778976706,-0.016369311093792825,0.049925550474970756,Candidate minus reference; positive benefit,comparison|M2_GBST-M1_GBST_recal|180|time_auc
+Temporal,comparison,M2_GBST-M1_GBST,recal,180,uno_c,0.017758156477668652,-0.012786311105037673,0.0483754428576646,Candidate minus reference; positive benefit,comparison|M2_GBST-M1_GBST_recal|180|uno_c
+Temporal,comparison,M2_GBST-M1_GBST,recal,90,brier,0.010485081247097336,0.001284869715572464,0.019860045940422625,Reference minus candidate; positive benefit,comparison|M2_GBST-M1_GBST_recal|90|brier
+Temporal,comparison,M2_GBST-M1_GBST,recal,90,logloss,0.011732298531451635,-0.036491195965317164,0.0479024548249906,Reference minus candidate; positive benefit,comparison|M2_GBST-M1_GBST_recal|90|logloss
+Temporal,comparison,M2_GBST-M1_GBST,recal,90,time_auc,0.019269281492697687,-0.009471434495236497,0.05086848411586151,Candidate minus reference; positive benefit,comparison|M2_GBST-M1_GBST_recal|90|time_auc
+Temporal,comparison,M2_RSF-M1_EN_descriptive,native,180,brier,0.007722806383079081,-0.0021979515924759785,0.018210711604321476,Reference minus candidate; positive benefit,comparison|M2_RSF-M0_descriptive_native|180|brier
+Temporal,comparison,M2_RSF-M1_EN_descriptive,native,180,logloss,0.022509504989153384,-0.007360756365698201,0.05468160335980858,Reference minus candidate; positive benefit,comparison|M2_RSF-M0_descriptive_native|180|logloss
+Temporal,comparison,M2_RSF-M1_EN_descriptive,native,180,time_auc,0.027758440654368166,-0.005910287429526984,0.06316241953119782,Candidate minus reference; positive benefit,comparison|M2_RSF-M0_descriptive_native|180|time_auc
+Temporal,comparison,M2_RSF-M1_EN_descriptive,native,180,uno_c,0.022133354450427634,-0.009527938073017009,0.055498899872996055,Candidate minus reference; positive benefit,comparison|M2_RSF-M0_descriptive_native|180|uno_c
+Temporal,comparison,M2_RSF-M1_EN_descriptive,native,90,brier,0.004241735663438148,-0.004881082731339697,0.013940734981762565,Reference minus candidate; positive benefit,comparison|M2_RSF-M0_descriptive_native|90|brier
+Temporal,comparison,M2_RSF-M1_EN_descriptive,native,90,logloss,0.015288433820862868,-0.012371274405291179,0.044145160406368816,Reference minus candidate; positive benefit,comparison|M2_RSF-M0_descriptive_native|90|logloss
+Temporal,comparison,M2_RSF-M1_EN_descriptive,native,90,time_auc,0.025496996043569586,-0.01051193098191408,0.06155165896245719,Candidate minus reference; positive benefit,comparison|M2_RSF-M0_descriptive_native|90|time_auc
+Temporal,comparison,M2_RSF-M1_EN_descriptive,recal,180,brier,0.009681528275456985,-3.766908013090873e-05,0.019766329712961727,Reference minus candidate; positive benefit,comparison|M2_RSF-M0_descriptive_recal|180|brier
+Temporal,comparison,M2_RSF-M1_EN_descriptive,recal,180,logloss,0.021139296982545908,-0.010686382926752253,0.05110882384951817,Reference minus candidate; positive benefit,comparison|M2_RSF-M0_descriptive_recal|180|logloss
+Temporal,comparison,M2_RSF-M1_EN_descriptive,recal,180,time_auc,0.027758440654368166,-0.005910287429526984,0.06316241953119782,Candidate minus reference; positive benefit,comparison|M2_RSF-M0_descriptive_recal|180|time_auc
+Temporal,comparison,M2_RSF-M1_EN_descriptive,recal,180,uno_c,0.022133354450427634,-0.009527938073017009,0.055498899872996055,Candidate minus reference; positive benefit,comparison|M2_RSF-M0_descriptive_recal|180|uno_c
+Temporal,comparison,M2_RSF-M1_EN_descriptive,recal,90,brier,0.007711036347085906,-0.0017322110989946582,0.017307174373150776,Reference minus candidate; positive benefit,comparison|M2_RSF-M0_descriptive_recal|90|brier
+Temporal,comparison,M2_RSF-M1_EN_descriptive,recal,90,logloss,0.018219912632712165,-0.013848991072825001,0.04861115170537248,Reference minus candidate; positive benefit,comparison|M2_RSF-M0_descriptive_recal|90|logloss
+Temporal,comparison,M2_RSF-M1_EN_descriptive,recal,90,time_auc,0.025496996043569586,-0.01051193098191408,0.06155165896245719,Candidate minus reference; positive benefit,comparison|M2_RSF-M0_descriptive_recal|90|time_auc
+Temporal,comparison,M2_RSF-M1_RSF,native,180,brier,0.007021007860877268,0.0006903523646188463,0.013645388709439495,Reference minus candidate; positive benefit,comparison|M2_RSF-M1_RSF_native|180|brier
+Temporal,comparison,M2_RSF-M1_RSF,native,180,logloss,0.013972985019206574,-0.005123069130491773,0.03421769606803734,Reference minus candidate; positive benefit,comparison|M2_RSF-M1_RSF_native|180|logloss
+Temporal,comparison,M2_RSF-M1_RSF,native,180,time_auc,0.019056735120083546,-0.013528334774618924,0.053820156576467965,Candidate minus reference; positive benefit,comparison|M2_RSF-M1_RSF_native|180|time_auc
+Temporal,comparison,M2_RSF-M1_RSF,native,180,uno_c,0.019559708584098834,-0.010976576300651792,0.05319022049375125,Candidate minus reference; positive benefit,comparison|M2_RSF-M1_RSF_native|180|uno_c
+Temporal,comparison,M2_RSF-M1_RSF,native,90,brier,0.006258905744587068,1.3373024727934258e-05,0.012517434388193522,Reference minus candidate; positive benefit,comparison|M2_RSF-M1_RSF_native|90|brier
+Temporal,comparison,M2_RSF-M1_RSF,native,90,logloss,0.012634405082132039,-0.007030682726743562,0.03244653247788957,Reference minus candidate; positive benefit,comparison|M2_RSF-M1_RSF_native|90|logloss
+Temporal,comparison,M2_RSF-M1_RSF,native,90,time_auc,0.014116152981976327,-0.022190752091189942,0.051080521877120554,Candidate minus reference; positive benefit,comparison|M2_RSF-M1_RSF_native|90|time_auc
+Temporal,comparison,M2_RSF-M1_RSF,recal,180,brier,0.008933541589228447,0.0011322038908231173,0.016803299965348725,Reference minus candidate; positive benefit,comparison|M2_RSF-M1_RSF_recal|180|brier
+Temporal,comparison,M2_RSF-M1_RSF,recal,180,logloss,0.015396027898160969,-0.01052433104433206,0.04132447203007015,Reference minus candidate; positive benefit,comparison|M2_RSF-M1_RSF_recal|180|logloss
+Temporal,comparison,M2_RSF-M1_RSF,recal,180,time_auc,0.019056735120083546,-0.013528334774618924,0.053820156576467965,Candidate minus reference; positive benefit,comparison|M2_RSF-M1_RSF_recal|180|time_auc
+Temporal,comparison,M2_RSF-M1_RSF,recal,180,uno_c,0.019559708584098834,-0.010976576300651792,0.05319022049375125,Candidate minus reference; positive benefit,comparison|M2_RSF-M1_RSF_recal|180|uno_c
+Temporal,comparison,M2_RSF-M1_RSF,recal,90,brier,0.008320659568141403,-4.768018095830971e-05,0.016853152557085225,Reference minus candidate; positive benefit,comparison|M2_RSF-M1_RSF_recal|90|brier
+Temporal,comparison,M2_RSF-M1_RSF,recal,90,logloss,0.013345149989377247,-0.015317399120759537,0.04196551309760136,Reference minus candidate; positive benefit,comparison|M2_RSF-M1_RSF_recal|90|logloss
+Temporal,comparison,M2_RSF-M1_RSF,recal,90,time_auc,0.014116152981976327,-0.022190752091189942,0.051080521877120554,Candidate minus reference; positive benefit,comparison|M2_RSF-M1_RSF_recal|90|time_auc
+Temporal,comparison,compact10-v-full,native,180,brier,-0.009072609885874286,-0.016772263722290414,-0.00155597025845565,Reference minus candidate; positive benefit,comparison|compact10-v-full|180|brier
+Temporal,comparison,compact10-v-full,native,180,logloss,-0.02272857104641146,-0.042303983902076396,-0.003936005046767523,Reference minus candidate; positive benefit,comparison|compact10-v-full|180|logloss
+Temporal,comparison,compact10-v-full,native,180,time_auc,-0.01276975287156279,-0.0364006261937626,0.011478897681521666,Candidate minus reference; positive benefit,comparison|compact10-v-full|180|time_auc
+Temporal,comparison,compact10-v-full,native,180,uno_c,-0.012313905606588516,-0.03455802560342088,0.010052181139927865,Candidate minus reference; positive benefit,comparison|compact10-v-full|180|uno_c
+Temporal,comparison,compact10-v-full,native,90,brier,-0.008002137499584602,-0.015565788055090072,-0.0006457595534134352,Reference minus candidate; positive benefit,comparison|compact10-v-full|90|brier
+Temporal,comparison,compact10-v-full,native,90,logloss,-0.01908074638754792,-0.03845870916238533,-0.0007166293562176454,Reference minus candidate; positive benefit,comparison|compact10-v-full|90|logloss
+Temporal,comparison,compact10-v-full,native,90,time_auc,-0.011771601621648142,-0.036224746436680534,0.012631051794803245,Candidate minus reference; positive benefit,comparison|compact10-v-full|90|time_auc
+Temporal,comparison,compact14-v-10,native,180,brier,0.0018529373690740203,-0.0003060366112506027,0.004161049543054111,Reference minus candidate; positive benefit,comparison|compact14-v-10|180|brier
+Temporal,comparison,compact14-v-10,native,180,logloss,0.005062000406648837,-0.00037639779811295127,0.010765066562168829,Reference minus candidate; positive benefit,comparison|compact14-v-10|180|logloss
+Temporal,comparison,compact14-v-10,native,180,time_auc,0.00619996519317767,-0.0008554299004605248,0.014235213990498092,Candidate minus reference; positive benefit,comparison|compact14-v-10|180|time_auc
+Temporal,comparison,compact14-v-10,native,180,uno_c,0.006275736458663306,-0.0005257043917712339,0.013843170379788659,Candidate minus reference; positive benefit,comparison|compact14-v-10|180|uno_c
+Temporal,comparison,compact14-v-10,native,90,brier,0.001396661704252386,-0.0007358509428749774,0.003593655883799439,Reference minus candidate; positive benefit,comparison|compact14-v-10|90|brier
+Temporal,comparison,compact14-v-10,native,90,logloss,0.0038315119886218607,-0.0018776731788998759,0.009538383171792408,Reference minus candidate; positive benefit,comparison|compact14-v-10|90|logloss
+Temporal,comparison,compact14-v-10,native,90,time_auc,0.00591022322082746,-0.0016602093447618176,0.014941094781033896,Candidate minus reference; positive benefit,comparison|compact14-v-10|90|time_auc
+Temporal,comparison,compact14-v-full,native,180,brier,-0.007219672516800266,-0.014310948063467667,-0.00016371952954521613,Reference minus candidate; positive benefit,comparison|compact14-v-full|180|brier
+Temporal,comparison,compact14-v-full,native,180,logloss,-0.017666570639762624,-0.03584113270466932,0.00031735418518846303,Reference minus candidate; positive benefit,comparison|compact14-v-full|180|logloss
+Temporal,comparison,compact14-v-full,native,180,time_auc,-0.0065697876783851195,-0.028924048555375538,0.016757331317439957,Candidate minus reference; positive benefit,comparison|compact14-v-full|180|time_auc
+Temporal,comparison,compact14-v-full,native,180,uno_c,-0.00603816914792521,-0.02650132736296227,0.016112097996640283,Candidate minus reference; positive benefit,comparison|compact14-v-full|180|uno_c
+Temporal,comparison,compact14-v-full,native,90,brier,-0.006605475795332216,-0.013375288144102503,0.00032186551462743876,Reference minus candidate; positive benefit,comparison|compact14-v-full|90|brier
+Temporal,comparison,compact14-v-full,native,90,logloss,-0.01524923439892606,-0.032226644718653476,0.002424943852425218,Reference minus candidate; positive benefit,comparison|compact14-v-full|90|logloss
+Temporal,comparison,compact14-v-full,native,90,time_auc,-0.005861378400820683,-0.02874300668543292,0.017696177354971553,Candidate minus reference; positive benefit,comparison|compact14-v-full|90|time_auc
+Temporal,stream,M1_EN,native,180,brier,0.11172317895743365,0.08990461059774014,0.13504760408731348,Not a contrast,stream|M0_native|180|brier
+Temporal,stream,M1_EN,native,180,calibration_curve_0.1,0.15044644323895787,0.10446242731480074,0.20537843181242155,Not a contrast,stream|M0_native|180|calibration_curve_0.1
+Temporal,stream,M1_EN,native,180,calibration_curve_0.25,0.29346001330472354,0.20094407067535794,0.37809655182483914,Not a contrast,stream|M0_native|180|calibration_curve_0.25
+Temporal,stream,M1_EN,native,180,calibration_curve_0.5,0.4470271722727037,0.3413654314940902,0.5792520708105432,Not a contrast,stream|M0_native|180|calibration_curve_0.5
+Temporal,stream,M1_EN,native,180,calibration_curve_0.75,0.6004375450588888,0.44011114024958986,0.8326476206477321,Not a contrast,stream|M0_native|180|calibration_curve_0.75
+Temporal,stream,M1_EN,native,180,calibration_curve_0.9,0.7363256500938593,0.5082364981547834,0.9531367793624614,Not a contrast,stream|M0_native|180|calibration_curve_0.9
+Temporal,stream,M1_EN,native,180,calibration_intercept,0.16533111427225716,-0.17822182969349035,0.47462163130356966,Not a contrast,stream|M0_native|180|calibration_intercept
+Temporal,stream,M1_EN,native,180,calibration_slope,0.7995905592123582,0.5967509662031224,1.0726875705143546,Not a contrast,stream|M0_native|180|calibration_slope
+Temporal,stream,M1_EN,native,180,logloss,0.3597586083435046,0.29851754320144924,0.4259060507400178,Not a contrast,stream|M0_native|180|logloss
+Temporal,stream,M1_EN,native,180,time_auc,0.8153498085624783,0.761145680050452,0.8638911852881883,Not a contrast,stream|M0_native|180|time_auc
+Temporal,stream,M1_EN,native,180,uno_c,0.80582831802344,0.7529103316977086,0.8518162699862397,Not a contrast,stream|M0_native|180|uno_c
+Temporal,stream,M1_EN,native,90,brier,0.09684287179608222,0.07650141395884627,0.11869242362640686,Not a contrast,stream|M0_native|90|brier
+Temporal,stream,M1_EN,native,90,calibration_curve_0.1,0.14218931942329985,0.09651680401862375,0.18998632180746325,Not a contrast,stream|M0_native|90|calibration_curve_0.1
+Temporal,stream,M1_EN,native,90,calibration_curve_0.25,0.300921538851369,0.20690102538796043,0.39348385858465984,Not a contrast,stream|M0_native|90|calibration_curve_0.25
+Temporal,stream,M1_EN,native,90,calibration_curve_0.5,0.4834376862099678,0.35923301128070073,0.6536574499915788,Not a contrast,stream|M0_native|90|calibration_curve_0.5
+Temporal,stream,M1_EN,native,90,calibration_curve_0.75,0.6649195761828803,0.4651416071848955,0.896509123999743,Not a contrast,stream|M0_native|90|calibration_curve_0.75
+Temporal,stream,M1_EN,native,90,calibration_curve_0.9,0.8079686384566233,0.5464468311276396,0.9762815751516495,Not a contrast,stream|M0_native|90|calibration_curve_0.9
+Temporal,stream,M1_EN,native,90,calibration_intercept,0.21600517920325646,-0.14579578365589743,0.5324484350070898,Not a contrast,stream|M0_native|90|calibration_intercept
+Temporal,stream,M1_EN,native,90,calibration_slope,0.8946017431930289,0.6697229974445981,1.2022488289239002,Not a contrast,stream|M0_native|90|calibration_slope
+Temporal,stream,M1_EN,native,90,logloss,0.31859924481483626,0.26054613233301716,0.38211472778118927,Not a contrast,stream|M0_native|90|logloss
+Temporal,stream,M1_EN,native,90,time_auc,0.8318272847164558,0.7754003266079158,0.8807063947916541,Not a contrast,stream|M0_native|90|time_auc
+Temporal,stream,M1_EN,recal,180,brier,0.11123978922786446,0.08985811225391728,0.1338967014195171,Not a contrast,stream|M0_recal|180|brier
+Temporal,stream,M1_EN,recal,180,calibration_curve_0.1,0.13349753764086156,0.08673308947034997,0.19148249263504186,Not a contrast,stream|M0_recal|180|calibration_curve_0.1
+Temporal,stream,M1_EN,recal,180,calibration_curve_0.25,0.30313904961830035,0.20907807286776703,0.3890645651323691,Not a contrast,stream|M0_recal|180|calibration_curve_0.25
+Temporal,stream,M1_EN,recal,180,calibration_curve_0.5,0.4871494163349288,0.37088406031464977,0.6484720914039637,Not a contrast,stream|M0_recal|180|calibration_curve_0.5
+Temporal,stream,M1_EN,recal,180,calibration_curve_0.75,0.6659287023680917,0.47510840297823953,0.9051693730970538,Not a contrast,stream|M0_recal|180|calibration_curve_0.75
+Temporal,stream,M1_EN,recal,180,calibration_curve_0.9,0.8070679805638085,0.5486953068044624,0.9810160202381889,Not a contrast,stream|M0_recal|180|calibration_curve_0.9
+Temporal,stream,M1_EN,recal,180,calibration_intercept,0.16709805194839758,-0.1518104190306104,0.4512283972088713,Not a contrast,stream|M0_recal|180|calibration_intercept
+Temporal,stream,M1_EN,recal,180,calibration_slope,0.956462013973657,0.713827376241945,1.2831378540783835,Not a contrast,stream|M0_recal|180|calibration_slope
+Temporal,stream,M1_EN,recal,180,logloss,0.35658827908754875,0.2990184288144979,0.41809807686817535,Not a contrast,stream|M0_recal|180|logloss
+Temporal,stream,M1_EN,recal,180,time_auc,0.8153498085624783,0.761145680050452,0.8638911852881883,Not a contrast,stream|M0_recal|180|time_auc
+Temporal,stream,M1_EN,recal,180,uno_c,0.80582831802344,0.7529103316977086,0.8518162699862397,Not a contrast,stream|M0_recal|180|uno_c
+Temporal,stream,M1_EN,recal,90,brier,0.09723158303419502,0.07690831201631859,0.11874259085930046,Not a contrast,stream|M0_recal|90|brier
+Temporal,stream,M1_EN,recal,90,calibration_curve_0.1,0.1359619623725929,0.09234400719368614,0.18139457268462295,Not a contrast,stream|M0_recal|90|calibration_curve_0.1
+Temporal,stream,M1_EN,recal,90,calibration_curve_0.25,0.3167251276426966,0.22232439814755736,0.41083324960810147,Not a contrast,stream|M0_recal|90|calibration_curve_0.25
+Temporal,stream,M1_EN,recal,90,calibration_curve_0.5,0.525872204983453,0.38764852233842734,0.7244123693374587,Not a contrast,stream|M0_recal|90|calibration_curve_0.5
+Temporal,stream,M1_EN,recal,90,calibration_curve_0.75,0.7226399447836083,0.4937326307586248,0.9385566902353508,Not a contrast,stream|M0_recal|90|calibration_curve_0.75
+Temporal,stream,M1_EN,recal,90,calibration_curve_0.9,0.8595560864454702,0.5885917504522132,0.989213303367032,Not a contrast,stream|M0_recal|90|calibration_curve_0.9
+Temporal,stream,M1_EN,recal,90,calibration_intercept,0.24092887129881763,-0.1087556390184974,0.5458596030838595,Not a contrast,stream|M0_recal|90|calibration_intercept
+Temporal,stream,M1_EN,recal,90,calibration_slope,1.0165423682881929,0.761011037797898,1.3661239550494293,Not a contrast,stream|M0_recal|90|calibration_slope
+Temporal,stream,M1_EN,recal,90,logloss,0.31844013991337944,0.2624045168834602,0.38125331841148874,Not a contrast,stream|M0_recal|90|logloss
+Temporal,stream,M1_EN,recal,90,time_auc,0.8318272847164558,0.7754003266079158,0.8807063947916541,Not a contrast,stream|M0_recal|90|time_auc
+Temporal,stream,M1_GBST,native,180,brier,0.10967758750980595,0.08846334222493361,0.1330692738484455,Not a contrast,stream|M1_GBST_native|180|brier
+Temporal,stream,M1_GBST,native,180,calibration_curve_0.1,0.12859890278596695,0.07997026996619837,0.18399358466827243,Not a contrast,stream|M1_GBST_native|180|calibration_curve_0.1
+Temporal,stream,M1_GBST,native,180,calibration_curve_0.25,0.3715850379795711,0.2447535856158933,0.46303575265961455,Not a contrast,stream|M1_GBST_native|180|calibration_curve_0.25
+Temporal,stream,M1_GBST,native,180,calibration_curve_0.5,0.4893799930446044,0.3805335933389512,0.6870934248519818,Not a contrast,stream|M1_GBST_native|180|calibration_curve_0.5
+Temporal,stream,M1_GBST,native,180,calibration_curve_0.75,0.5696707435714322,0.40623405685136904,0.9133252189612783,Not a contrast,stream|M1_GBST_native|180|calibration_curve_0.75
+Temporal,stream,M1_GBST,native,180,calibration_curve_0.9,0.6464565579799754,0.4184049858076439,0.9815539018361409,Not a contrast,stream|M1_GBST_native|180|calibration_curve_0.9
+Temporal,stream,M1_GBST,native,180,calibration_intercept,0.19884541251598742,-0.12146902804565032,0.4780642324756699,Not a contrast,stream|M1_GBST_native|180|calibration_intercept
+Temporal,stream,M1_GBST,native,180,calibration_slope,0.9438218239696554,0.5324060461846626,1.3789477674569224,Not a contrast,stream|M1_GBST_native|180|calibration_slope
+Temporal,stream,M1_GBST,native,180,logloss,0.3696595489506848,0.30436683274531223,0.440984758273345,Not a contrast,stream|M1_GBST_native|180|logloss
+Temporal,stream,M1_GBST,native,180,time_auc,0.8220936303515489,0.7674558173856685,0.8690764260249555,Not a contrast,stream|M1_GBST_native|180|time_auc
+Temporal,stream,M1_GBST,native,180,uno_c,0.8098273677541971,0.7581578845136686,0.8549384269720833,Not a contrast,stream|M1_GBST_native|180|uno_c
+Temporal,stream,M1_GBST,native,90,brier,0.09660714049932347,0.07612236389252842,0.11821590902911343,Not a contrast,stream|M1_GBST_native|90|brier
+Temporal,stream,M1_GBST,native,90,calibration_curve_0.1,0.14341322639140766,0.09125118432479079,0.18981775629228392,Not a contrast,stream|M1_GBST_native|90|calibration_curve_0.1
+Temporal,stream,M1_GBST,native,90,calibration_curve_0.25,0.3917179338892618,0.27951131661123185,0.4984697467812642,Not a contrast,stream|M1_GBST_native|90|calibration_curve_0.25
+Temporal,stream,M1_GBST,native,90,calibration_curve_0.5,0.5103416135469389,0.3829845666819377,0.7619173586476019,Not a contrast,stream|M1_GBST_native|90|calibration_curve_0.5
+Temporal,stream,M1_GBST,native,90,calibration_curve_0.75,0.6101118879293429,0.40653230384441935,0.9427607652944734,Not a contrast,stream|M1_GBST_native|90|calibration_curve_0.75
+Temporal,stream,M1_GBST,native,90,calibration_curve_0.9,0.7014459293230831,0.41703025180431846,0.9891376683162375,Not a contrast,stream|M1_GBST_native|90|calibration_curve_0.9
+Temporal,stream,M1_GBST,native,90,calibration_intercept,0.2670401272982083,-0.053197902255485575,0.5507710897494631,Not a contrast,stream|M1_GBST_native|90|calibration_intercept
+Temporal,stream,M1_GBST,native,90,calibration_slope,1.0564210830921221,0.6507793520366842,1.5185082363086237,Not a contrast,stream|M1_GBST_native|90|calibration_slope
+Temporal,stream,M1_GBST,native,90,logloss,0.32877754939388215,0.2657621484908633,0.39647558830045593,Not a contrast,stream|M1_GBST_native|90|logloss
+Temporal,stream,M1_GBST,native,90,time_auc,0.8393493869975089,0.7828818451438389,0.8876153710228509,Not a contrast,stream|M1_GBST_native|90|time_auc
+Temporal,stream,M1_GBST,recal,180,brier,0.11028125163613199,0.08892747469456183,0.13373257568276598,Not a contrast,stream|M1_GBST_recal|180|brier
+Temporal,stream,M1_GBST,recal,180,calibration_curve_0.1,0.131652335850793,0.08270464685431382,0.18645923180046903,Not a contrast,stream|M1_GBST_recal|180|calibration_curve_0.1
+Temporal,stream,M1_GBST,recal,180,calibration_curve_0.25,0.38171482728742645,0.25503991825527933,0.4759546857926006,Not a contrast,stream|M1_GBST_recal|180|calibration_curve_0.25
+Temporal,stream,M1_GBST,recal,180,calibration_curve_0.5,0.4974186225266432,0.38349940838346364,0.7176795138445764,Not a contrast,stream|M1_GBST_recal|180|calibration_curve_0.5
+Temporal,stream,M1_GBST,recal,180,calibration_curve_0.75,0.5809359848256717,0.4084805875501914,0.9302438317909107,Not a contrast,stream|M1_GBST_recal|180|calibration_curve_0.75
+Temporal,stream,M1_GBST,recal,180,calibration_curve_0.9,0.6600594961358587,0.4208783966197416,0.9866221410447681,Not a contrast,stream|M1_GBST_recal|180|calibration_curve_0.9
+Temporal,stream,M1_GBST,recal,180,calibration_intercept,0.23745181502254714,-0.07544085085753496,0.5129941463218061,Not a contrast,stream|M1_GBST_recal|180|calibration_intercept
+Temporal,stream,M1_GBST,recal,180,calibration_slope,0.9845877151536978,0.5554019191129876,1.438507776138294,Not a contrast,stream|M1_GBST_recal|180|calibration_slope
+Temporal,stream,M1_GBST,recal,180,logloss,0.370372598722857,0.30532874507865965,0.4414883476383931,Not a contrast,stream|M1_GBST_recal|180|logloss
+Temporal,stream,M1_GBST,recal,180,time_auc,0.8220936303515489,0.7674558173856685,0.8690764260249555,Not a contrast,stream|M1_GBST_recal|180|time_auc
+Temporal,stream,M1_GBST,recal,180,uno_c,0.8098273677541971,0.7581578845136686,0.8549384269720833,Not a contrast,stream|M1_GBST_recal|180|uno_c
+Temporal,stream,M1_GBST,recal,90,brier,0.09729221121600518,0.07667554261502504,0.11925646548352964,Not a contrast,stream|M1_GBST_recal|90|brier
+Temporal,stream,M1_GBST,recal,90,calibration_curve_0.1,0.1539999951900235,0.09856010210474526,0.20093831779028848,Not a contrast,stream|M1_GBST_recal|90|calibration_curve_0.1
+Temporal,stream,M1_GBST,recal,90,calibration_curve_0.25,0.40103620789628797,0.28939829260911665,0.5106064682267544,Not a contrast,stream|M1_GBST_recal|90|calibration_curve_0.25
+Temporal,stream,M1_GBST,recal,90,calibration_curve_0.5,0.5177534110689088,0.38517236200537686,0.783432196317594,Not a contrast,stream|M1_GBST_recal|90|calibration_curve_0.5
+Temporal,stream,M1_GBST,recal,90,calibration_curve_0.75,0.6187691335594151,0.40722507793526114,0.9507315664259205,Not a contrast,stream|M1_GBST_recal|90|calibration_curve_0.75
+Temporal,stream,M1_GBST,recal,90,calibration_curve_0.9,0.7104582496958006,0.41801825765292,0.9909931320554131,Not a contrast,stream|M1_GBST_recal|90|calibration_curve_0.9
+Temporal,stream,M1_GBST,recal,90,calibration_intercept,0.3160715997150494,-0.001423228891821816,0.5981753440366887,Not a contrast,stream|M1_GBST_recal|90|calibration_intercept
+Temporal,stream,M1_GBST,recal,90,calibration_slope,1.0742877257176935,0.6617856117956415,1.5441898940135048,Not a contrast,stream|M1_GBST_recal|90|calibration_slope
+Temporal,stream,M1_GBST,recal,90,logloss,0.3302287328547376,0.26686236853843637,0.3983873746726817,Not a contrast,stream|M1_GBST_recal|90|logloss
+Temporal,stream,M1_GBST,recal,90,time_auc,0.8393493869975089,0.7828818451438389,0.8876153710228509,Not a contrast,stream|M1_GBST_recal|90|time_auc
+Temporal,stream,M1_RSF,native,180,brier,0.11102138043523184,0.09138489442855487,0.13267041197763588,Not a contrast,stream|M1_RSF_native|180|brier
+Temporal,stream,M1_RSF,native,180,calibration_curve_0.1,0.1179018891651392,0.06987657122425261,0.17528783727544375,Not a contrast,stream|M1_RSF_native|180|calibration_curve_0.1
+Temporal,stream,M1_RSF,native,180,calibration_curve_0.25,0.2608695048277209,0.17707156810775151,0.34954482285133437,Not a contrast,stream|M1_RSF_native|180|calibration_curve_0.25
+Temporal,stream,M1_RSF,native,180,calibration_curve_0.5,0.6367878563436532,0.470323596383956,0.801496963542018,Not a contrast,stream|M1_RSF_native|180|calibration_curve_0.5
+Temporal,stream,M1_RSF,native,180,calibration_curve_0.75,0.9043258014598086,0.6638428068718093,0.9844955320558421,Not a contrast,stream|M1_RSF_native|180|calibration_curve_0.75
+Temporal,stream,M1_RSF,native,180,calibration_curve_0.9,0.9807542676920513,0.8062512272998841,0.9990063055669388,Not a contrast,stream|M1_RSF_native|180|calibration_curve_0.9
+Temporal,stream,M1_RSF,native,180,calibration_intercept,0.1648745929550478,-0.12936798890749546,0.4341102378775646,Not a contrast,stream|M1_RSF_native|180|calibration_intercept
+Temporal,stream,M1_RSF,native,180,calibration_slope,1.1923752046894385,0.9062804751708552,1.5510194037141447,Not a contrast,stream|M1_RSF_native|180|calibration_slope
+Temporal,stream,M1_RSF,native,180,logloss,0.3512220883735578,0.2992286247565247,0.41000279840557907,Not a contrast,stream|M1_RSF_native|180|logloss
+Temporal,stream,M1_RSF,native,180,time_auc,0.8240515140967629,0.7695398363307792,0.8722774023110822,Not a contrast,stream|M1_RSF_native|180|time_auc
+Temporal,stream,M1_RSF,native,180,uno_c,0.8084019638897688,0.7589382835925496,0.8535956038662477,Not a contrast,stream|M1_RSF_native|180|uno_c
+Temporal,stream,M1_RSF,native,90,brier,0.09886004187723114,0.07922733580399356,0.11912781327032791,Not a contrast,stream|M1_RSF_native|90|brier
+Temporal,stream,M1_RSF,native,90,calibration_curve_0.1,0.10569899933252054,0.06391181064598836,0.14910744805937465,Not a contrast,stream|M1_RSF_native|90|calibration_curve_0.1
+Temporal,stream,M1_RSF,native,90,calibration_curve_0.25,0.32072264837425557,0.2300061374188833,0.41506794168211514,Not a contrast,stream|M1_RSF_native|90|calibration_curve_0.25
+Temporal,stream,M1_RSF,native,90,calibration_curve_0.5,0.6507204462107083,0.4462006729242511,0.8350914792214876,Not a contrast,stream|M1_RSF_native|90|calibration_curve_0.5
+Temporal,stream,M1_RSF,native,90,calibration_curve_0.75,0.8801848385588722,0.5684173162751636,0.9823302746226614,Not a contrast,stream|M1_RSF_native|90|calibration_curve_0.75
+Temporal,stream,M1_RSF,native,90,calibration_curve_0.9,0.9666299153331023,0.6731779583773696,0.9984209722967944,Not a contrast,stream|M1_RSF_native|90|calibration_curve_0.9
+Temporal,stream,M1_RSF,native,90,calibration_intercept,0.21925138162402558,-0.08072845794508308,0.4921945394055412,Not a contrast,stream|M1_RSF_native|90|calibration_intercept
+Temporal,stream,M1_RSF,native,90,calibration_slope,1.3070932183389437,1.0203246151111307,1.704161857985306,Not a contrast,stream|M1_RSF_native|90|calibration_slope
+Temporal,stream,M1_RSF,native,90,logloss,0.31594521607610543,0.2627730196382352,0.3726724575792893,Not a contrast,stream|M1_RSF_native|90|logloss
+Temporal,stream,M1_RSF,native,90,time_auc,0.8432081277780491,0.792381050748403,0.8896675084175083,Not a contrast,stream|M1_RSF_native|90|time_auc
+Temporal,stream,M1_RSF,recal,180,brier,0.11049180254163592,0.09053401310296867,0.13298092535085987,Not a contrast,stream|M1_RSF_recal|180|brier
+Temporal,stream,M1_RSF,recal,180,calibration_curve_0.1,0.13346498929773903,0.08640274029051999,0.18958343936262437,Not a contrast,stream|M1_RSF_recal|180|calibration_curve_0.1
+Temporal,stream,M1_RSF,recal,180,calibration_curve_0.25,0.26630667040222805,0.18209487573300162,0.3538300269707113,Not a contrast,stream|M1_RSF_recal|180|calibration_curve_0.25
+Temporal,stream,M1_RSF,recal,180,calibration_curve_0.5,0.5770131152947066,0.43481725280820327,0.7270602181589731,Not a contrast,stream|M1_RSF_recal|180|calibration_curve_0.5
+Temporal,stream,M1_RSF,recal,180,calibration_curve_0.75,0.846906399655359,0.6078494023515397,0.962938050712379,Not a contrast,stream|M1_RSF_recal|180|calibration_curve_0.75
+Temporal,stream,M1_RSF,recal,180,calibration_curve_0.9,0.9573261384608608,0.7455658473062491,0.9961590337730777,Not a contrast,stream|M1_RSF_recal|180|calibration_curve_0.9
+Temporal,stream,M1_RSF,recal,180,calibration_intercept,0.23678111469322727,-0.07671961531687745,0.5278526469862117,Not a contrast,stream|M1_RSF_recal|180|calibration_intercept
+Temporal,stream,M1_RSF,recal,180,calibration_slope,0.9908319981341701,0.7530949074801702,1.288855763789361,Not a contrast,stream|M1_RSF_recal|180|calibration_slope
+Temporal,stream,M1_RSF,recal,180,logloss,0.3508450100031638,0.2940513135140817,0.4146061812614973,Not a contrast,stream|M1_RSF_recal|180|logloss
+Temporal,stream,M1_RSF,recal,180,time_auc,0.8240515140967629,0.7695398363307792,0.8722774023110822,Not a contrast,stream|M1_RSF_recal|180|time_auc
+Temporal,stream,M1_RSF,recal,180,uno_c,0.8084019638897688,0.7589382835925496,0.8535956038662477,Not a contrast,stream|M1_RSF_recal|180|uno_c
+Temporal,stream,M1_RSF,recal,90,brier,0.09784120625525052,0.07835971591522939,0.11870115656925546,Not a contrast,stream|M1_RSF_recal|90|brier
+Temporal,stream,M1_RSF,recal,90,calibration_curve_0.1,0.13193951498029743,0.08422092806205139,0.18533218054077605,Not a contrast,stream|M1_RSF_recal|90|calibration_curve_0.1
+Temporal,stream,M1_RSF,recal,90,calibration_curve_0.25,0.3127289619880184,0.22300905147566644,0.40663507040119773,Not a contrast,stream|M1_RSF_recal|90|calibration_curve_0.25
+Temporal,stream,M1_RSF,recal,90,calibration_curve_0.5,0.5750091327643182,0.4130771729713384,0.7426732013047919,Not a contrast,stream|M1_RSF_recal|90|calibration_curve_0.5
+Temporal,stream,M1_RSF,recal,90,calibration_curve_0.75,0.8007919051729745,0.5230818713489592,0.9509410183614764,Not a contrast,stream|M1_RSF_recal|90|calibration_curve_0.75
+Temporal,stream,M1_RSF,recal,90,calibration_curve_0.9,0.9227409186273833,0.6091982132759574,0.9925502556128661,Not a contrast,stream|M1_RSF_recal|90|calibration_curve_0.9
+Temporal,stream,M1_RSF,recal,90,calibration_intercept,0.29037839037547675,-0.03422247074368383,0.5886870632149385,Not a contrast,stream|M1_RSF_recal|90|calibration_intercept
+Temporal,stream,M1_RSF,recal,90,calibration_slope,1.0374370177739696,0.8098294047734195,1.3525895229499285,Not a contrast,stream|M1_RSF_recal|90|calibration_slope
+Temporal,stream,M1_RSF,recal,90,logloss,0.3135653772700445,0.2569668277202421,0.37542569540381726,Not a contrast,stream|M1_RSF_recal|90|logloss
+Temporal,stream,M1_RSF,recal,90,time_auc,0.8432081277780491,0.792381050748403,0.8896675084175083,Not a contrast,stream|M1_RSF_recal|90|time_auc
+Temporal,stream,M2_EN,native,180,brier,0.09910349718337547,0.07875126888292242,0.12132691989037656,Not a contrast,stream|M2_EN_native|180|brier
+Temporal,stream,M2_EN,native,180,calibration_curve_0.1,0.12716505296147465,0.07780493859462391,0.18185348779464247,Not a contrast,stream|M2_EN_native|180|calibration_curve_0.1
+Temporal,stream,M2_EN,native,180,calibration_curve_0.25,0.3046193637761283,0.18300302985686187,0.3824071382285947,Not a contrast,stream|M2_EN_native|180|calibration_curve_0.25
+Temporal,stream,M2_EN,native,180,calibration_curve_0.5,0.4343812421296697,0.329600466299431,0.6299161657058546,Not a contrast,stream|M2_EN_native|180|calibration_curve_0.5
+Temporal,stream,M2_EN,native,180,calibration_curve_0.75,0.5283902344591088,0.3864144006093716,0.9201011718742238,Not a contrast,stream|M2_EN_native|180|calibration_curve_0.75
+Temporal,stream,M2_EN,native,180,calibration_curve_0.9,0.6189216326023513,0.43523462891186027,0.9884676287485307,Not a contrast,stream|M2_EN_native|180|calibration_curve_0.9
+Temporal,stream,M2_EN,native,180,calibration_intercept,0.052101710690899625,-0.29269348039806103,0.3613855174737883,Not a contrast,stream|M2_EN_native|180|calibration_intercept
+Temporal,stream,M2_EN,native,180,calibration_slope,0.7496114852797363,0.3964261680988527,1.2214699116514984,Not a contrast,stream|M2_EN_native|180|calibration_slope
+Temporal,stream,M2_EN,native,180,logloss,0.34886355398079044,0.27501399217851447,0.44008213616203784,Not a contrast,stream|M2_EN_native|180|logloss
+Temporal,stream,M2_EN,native,180,time_auc,0.8407587887225897,0.7888108656503064,0.8865063413653859,Not a contrast,stream|M2_EN_native|180|time_auc
+Temporal,stream,M2_EN,native,180,uno_c,0.8306738992714603,0.7811629277909486,0.8745380395692518,Not a contrast,stream|M2_EN_native|180|uno_c
+Temporal,stream,M2_EN,native,90,brier,0.0865035403710351,0.06681605980198041,0.10682531619091039,Not a contrast,stream|M2_EN_native|90|brier
+Temporal,stream,M2_EN,native,90,calibration_curve_0.1,0.13428614992508453,0.08020826298183888,0.18339457390180378,Not a contrast,stream|M2_EN_native|90|calibration_curve_0.1
+Temporal,stream,M2_EN,native,90,calibration_curve_0.25,0.31810744604592195,0.19989939718025163,0.40975101883726905,Not a contrast,stream|M2_EN_native|90|calibration_curve_0.25
+Temporal,stream,M2_EN,native,90,calibration_curve_0.5,0.43527244659773684,0.3188836979783611,0.7103102877898889,Not a contrast,stream|M2_EN_native|90|calibration_curve_0.5
+Temporal,stream,M2_EN,native,90,calibration_curve_0.75,0.5291430331684454,0.37287087411212205,0.9488561989323433,Not a contrast,stream|M2_EN_native|90|calibration_curve_0.75
+Temporal,stream,M2_EN,native,90,calibration_curve_0.9,0.6209601184109976,0.4124324181747737,0.9936201111539319,Not a contrast,stream|M2_EN_native|90|calibration_curve_0.9
+Temporal,stream,M2_EN,native,90,calibration_intercept,0.10371611832376301,-0.2605484942830831,0.4206127367311868,Not a contrast,stream|M2_EN_native|90|calibration_intercept
+Temporal,stream,M2_EN,native,90,calibration_slope,0.7858321730957332,0.3975273989841687,1.341264295866245,Not a contrast,stream|M2_EN_native|90|calibration_slope
+Temporal,stream,M2_EN,native,90,logloss,0.3142046972258002,0.24064369652485626,0.40463827144842585,Not a contrast,stream|M2_EN_native|90|logloss
+Temporal,stream,M2_EN,native,90,time_auc,0.8554193327797587,0.8043242963978442,0.9013886314729974,Not a contrast,stream|M2_EN_native|90|time_auc
+Temporal,stream,M2_EN,recal,180,brier,0.09989287759574773,0.07979185515830615,0.12230950028105779,Not a contrast,stream|M2_EN_recal|180|brier
+Temporal,stream,M2_EN,recal,180,calibration_curve_0.1,0.11122587144228493,0.06450021003710113,0.17127224506126612,Not a contrast,stream|M2_EN_recal|180|calibration_curve_0.1
+Temporal,stream,M2_EN,recal,180,calibration_curve_0.25,0.325707939688979,0.20600876560928086,0.41135873941226847,Not a contrast,stream|M2_EN_recal|180|calibration_curve_0.25
+Temporal,stream,M2_EN,recal,180,calibration_curve_0.5,0.46978628415782464,0.3557106415107839,0.7698271639281568,Not a contrast,stream|M2_EN_recal|180|calibration_curve_0.5
+Temporal,stream,M2_EN,recal,180,calibration_curve_0.75,0.5836599828050515,0.4165311711340941,0.9751341099692095,Not a contrast,stream|M2_EN_recal|180|calibration_curve_0.75
+Temporal,stream,M2_EN,recal,180,calibration_curve_0.9,0.6892406111244411,0.46344005059796345,0.9979592068213428,Not a contrast,stream|M2_EN_recal|180|calibration_curve_0.9
+Temporal,stream,M2_EN,recal,180,calibration_intercept,0.10731391415137977,-0.22147959296152128,0.3915167271308883,Not a contrast,stream|M2_EN_recal|180|calibration_intercept
+Temporal,stream,M2_EN,recal,180,calibration_slope,0.9261972292629641,0.48981215730348504,1.5092111808510698,Not a contrast,stream|M2_EN_recal|180|calibration_slope
+Temporal,stream,M2_EN,recal,180,logloss,0.3445812999749167,0.2772606721851197,0.420164796039163,Not a contrast,stream|M2_EN_recal|180|logloss
+Temporal,stream,M2_EN,recal,180,time_auc,0.8408022972502611,0.7888629796061567,0.8865283313391024,Not a contrast,stream|M2_EN_recal|180|time_auc
+Temporal,stream,M2_EN,recal,180,uno_c,0.8306738992714603,0.7811629277909486,0.8745380395692518,Not a contrast,stream|M2_EN_recal|180|uno_c
+Temporal,stream,M2_EN,recal,90,brier,0.08768848641229167,0.06755356337017718,0.108353614088968,Not a contrast,stream|M2_EN_recal|90|brier
+Temporal,stream,M2_EN,recal,90,calibration_curve_0.1,0.13510356170746088,0.08092241147328719,0.18417056403111662,Not a contrast,stream|M2_EN_recal|90|calibration_curve_0.1
+Temporal,stream,M2_EN,recal,90,calibration_curve_0.25,0.34180844208301875,0.23345621016945076,0.44126003233410926,Not a contrast,stream|M2_EN_recal|90|calibration_curve_0.25
+Temporal,stream,M2_EN,recal,90,calibration_curve_0.5,0.4648938733932199,0.33762438464799255,0.8185115127146869,Not a contrast,stream|M2_EN_recal|90|calibration_curve_0.5
+Temporal,stream,M2_EN,recal,90,calibration_curve_0.75,0.5732690319243272,0.3906465664019278,0.9803725793202235,Not a contrast,stream|M2_EN_recal|90|calibration_curve_0.75
+Temporal,stream,M2_EN,recal,90,calibration_curve_0.9,0.6750375452830897,0.43631172408299645,0.998313653423382,Not a contrast,stream|M2_EN_recal|90|calibration_curve_0.9
+Temporal,stream,M2_EN,recal,90,calibration_intercept,0.1872665730422474,-0.16036169487576624,0.48858641476948905,Not a contrast,stream|M2_EN_recal|90|calibration_intercept
+Temporal,stream,M2_EN,recal,90,calibration_slope,0.9087067966032696,0.4596857450508154,1.550987625813115,Not a contrast,stream|M2_EN_recal|90|calibration_slope
+Temporal,stream,M2_EN,recal,90,logloss,0.31245186379664075,0.24351135259256473,0.3930894718855988,Not a contrast,stream|M2_EN_recal|90|logloss
+Temporal,stream,M2_EN,recal,90,time_auc,0.8554681775997656,0.8043276079302932,0.9015828832845966,Not a contrast,stream|M2_EN_recal|90|time_auc
+Temporal,stream,M2_GBST,native,180,brier,0.0967400713975413,0.07618576872224768,0.11915903466890972,Not a contrast,stream|M2_GBST_native|180|brier
+Temporal,stream,M2_GBST,native,180,calibration_curve_0.1,0.12917498181630546,0.07732117635855006,0.18473748879176324,Not a contrast,stream|M2_GBST_native|180|calibration_curve_0.1
+Temporal,stream,M2_GBST,native,180,calibration_curve_0.25,0.33891527333866533,0.18716741242068405,0.41998547854662754,Not a contrast,stream|M2_GBST_native|180|calibration_curve_0.25
+Temporal,stream,M2_GBST,native,180,calibration_curve_0.5,0.4777210722215601,0.36500450277268925,0.6549698583406086,Not a contrast,stream|M2_GBST_native|180|calibration_curve_0.5
+Temporal,stream,M2_GBST,native,180,calibration_curve_0.75,0.5578743060384835,0.42318517046640075,0.9265068999631334,Not a contrast,stream|M2_GBST_native|180|calibration_curve_0.75
+Temporal,stream,M2_GBST,native,180,calibration_curve_0.9,0.6313361835564862,0.4622028612284604,0.9897995437130711,Not a contrast,stream|M2_GBST_native|180|calibration_curve_0.9
+Temporal,stream,M2_GBST,native,180,calibration_intercept,0.0876017698826674,-0.25803948760869333,0.3972921499128786,Not a contrast,stream|M2_GBST_native|180|calibration_intercept
+Temporal,stream,M2_GBST,native,180,calibration_slope,0.811402957278205,0.39049135635424354,1.259678947636734,Not a contrast,stream|M2_GBST_native|180|calibration_slope
+Temporal,stream,M2_GBST,native,180,logloss,0.3499462173379662,0.27370423360804225,0.4451400223017729,Not a contrast,stream|M2_GBST_native|180|logloss
+Temporal,stream,M2_GBST,native,180,time_auc,0.8385616080751828,0.778192280429822,0.888332936541778,Not a contrast,stream|M2_GBST_native|180|time_auc
+Temporal,stream,M2_GBST,native,180,uno_c,0.8275855242318657,0.7724606209712345,0.8752340083800515,Not a contrast,stream|M2_GBST_native|180|uno_c
+Temporal,stream,M2_GBST,native,90,brier,0.08576939644509451,0.06577420721904001,0.10614060448356809,Not a contrast,stream|M2_GBST_native|90|brier
+Temporal,stream,M2_GBST,native,90,calibration_curve_0.1,0.15127692032442996,0.08368503592840214,0.2066396469169449,Not a contrast,stream|M2_GBST_native|90|calibration_curve_0.1
+Temporal,stream,M2_GBST,native,90,calibration_curve_0.25,0.37161524060730605,0.23887215314696333,0.46429319069951847,Not a contrast,stream|M2_GBST_native|90|calibration_curve_0.25
+Temporal,stream,M2_GBST,native,90,calibration_curve_0.5,0.47810488533372214,0.3551509109672935,0.7293816718343055,Not a contrast,stream|M2_GBST_native|90|calibration_curve_0.5
+Temporal,stream,M2_GBST,native,90,calibration_curve_0.75,0.540796923319415,0.40375967933657775,0.9476843908013625,Not a contrast,stream|M2_GBST_native|90|calibration_curve_0.75
+Temporal,stream,M2_GBST,native,90,calibration_curve_0.9,0.6019613636359799,0.4414966067107766,0.992140133352205,Not a contrast,stream|M2_GBST_native|90|calibration_curve_0.9
+Temporal,stream,M2_GBST,native,90,calibration_intercept,0.17262817702675434,-0.18854649141166643,0.48300319583921236,Not a contrast,stream|M2_GBST_native|90|calibration_intercept
+Temporal,stream,M2_GBST,native,90,calibration_slope,0.8424574763891993,0.3807531308740969,1.36378926071588,Not a contrast,stream|M2_GBST_native|90|calibration_slope
+Temporal,stream,M2_GBST,native,90,logloss,0.3163578742200853,0.23957277628759543,0.40996516149600826,Not a contrast,stream|M2_GBST_native|90|logloss
+Temporal,stream,M2_GBST,native,90,time_auc,0.8585454012601964,0.8005748948419649,0.9070802943999924,Not a contrast,stream|M2_GBST_native|90|time_auc
+Temporal,stream,M2_GBST,recal,180,brier,0.09778884401879812,0.07672135323740037,0.1210208762894467,Not a contrast,stream|M2_GBST_recal|180|brier
+Temporal,stream,M2_GBST,recal,180,calibration_curve_0.1,0.14294342560471182,0.08633687517562919,0.19786489459416323,Not a contrast,stream|M2_GBST_recal|180|calibration_curve_0.1
+Temporal,stream,M2_GBST,recal,180,calibration_curve_0.25,0.3666942608465023,0.21728429505663818,0.4557614733190968,Not a contrast,stream|M2_GBST_recal|180|calibration_curve_0.25
+Temporal,stream,M2_GBST,recal,180,calibration_curve_0.5,0.4988793712689472,0.3810504684055456,0.7383130355757894,Not a contrast,stream|M2_GBST_recal|180|calibration_curve_0.5
+Temporal,stream,M2_GBST,recal,180,calibration_curve_0.75,0.5817983173611663,0.4349102223526883,0.9599651115018666,Not a contrast,stream|M2_GBST_recal|180|calibration_curve_0.75
+Temporal,stream,M2_GBST,recal,180,calibration_curve_0.9,0.6594704786105092,0.4791779533937913,0.9956625136047231,Not a contrast,stream|M2_GBST_recal|180|calibration_curve_0.9
+Temporal,stream,M2_GBST,recal,180,calibration_intercept,0.2098160286002326,-0.12730168602310993,0.5058049617865161,Not a contrast,stream|M2_GBST_recal|180|calibration_intercept
+Temporal,stream,M2_GBST,recal,180,calibration_slope,0.8787815847349663,0.42291762662816157,1.3642822620315422,Not a contrast,stream|M2_GBST_recal|180|calibration_slope
+Temporal,stream,M2_GBST,recal,180,logloss,0.34975424398359595,0.27493174636005685,0.4418198604166815,Not a contrast,stream|M2_GBST_recal|180|logloss
+Temporal,stream,M2_GBST,recal,180,time_auc,0.8386486251305256,0.7783749110454111,0.8884364308484817,Not a contrast,stream|M2_GBST_recal|180|time_auc
+Temporal,stream,M2_GBST,recal,180,uno_c,0.8275855242318657,0.7724606209712345,0.8752340083800515,Not a contrast,stream|M2_GBST_recal|180|uno_c
+Temporal,stream,M2_GBST,recal,90,brier,0.08680712996890784,0.06629953327738486,0.10792551147624233,Not a contrast,stream|M2_GBST_recal|90|brier
+Temporal,stream,M2_GBST,recal,90,calibration_curve_0.1,0.17722032357721765,0.09786344987956444,0.2339106094460418,Not a contrast,stream|M2_GBST_recal|90|calibration_curve_0.1
+Temporal,stream,M2_GBST,recal,90,calibration_curve_0.25,0.39050749253444944,0.262529994228447,0.4893391875181294,Not a contrast,stream|M2_GBST_recal|90|calibration_curve_0.25
+Temporal,stream,M2_GBST,recal,90,calibration_curve_0.5,0.4863835103051654,0.3632656439962647,0.7737549723446212,Not a contrast,stream|M2_GBST_recal|90|calibration_curve_0.5
+Temporal,stream,M2_GBST,recal,90,calibration_curve_0.75,0.5493242434162338,0.408423898511566,0.9588784445626178,Not a contrast,stream|M2_GBST_recal|90|calibration_curve_0.75
+Temporal,stream,M2_GBST,recal,90,calibration_curve_0.9,0.6107066479857335,0.44713371563907084,0.9940130031736297,Not a contrast,stream|M2_GBST_recal|90|calibration_curve_0.9
+Temporal,stream,M2_GBST,recal,90,calibration_intercept,0.29711577382366144,-0.062417567341178336,0.6056801991941456,Not a contrast,stream|M2_GBST_recal|90|calibration_intercept
+Temporal,stream,M2_GBST,recal,90,calibration_slope,0.8500364920962826,0.3841785075388816,1.3760583449228951,Not a contrast,stream|M2_GBST_recal|90|calibration_slope
+Temporal,stream,M2_GBST,recal,90,logloss,0.31849643432328595,0.24054879076310992,0.4123488195790937,Not a contrast,stream|M2_GBST_recal|90|logloss
+Temporal,stream,M2_GBST,recal,90,time_auc,0.8586186684902066,0.8006688254778032,0.9072591971728887,Not a contrast,stream|M2_GBST_recal|90|time_auc
+Temporal,stream,M2_RSF,native,180,brier,0.10400037257435457,0.08526991451147348,0.12485367943202004,Not a contrast,stream|M2_RSF_native|180|brier
+Temporal,stream,M2_RSF,native,180,calibration_curve_0.1,0.0969112438407322,0.05617581220050443,0.16195049612164628,Not a contrast,stream|M2_RSF_native|180|calibration_curve_0.1
+Temporal,stream,M2_RSF,native,180,calibration_curve_0.25,0.19170814437012912,0.11752425794429852,0.26586649590434713,Not a contrast,stream|M2_RSF_native|180|calibration_curve_0.25
+Temporal,stream,M2_RSF,native,180,calibration_curve_0.5,0.7187269070086435,0.5582019482725867,0.8691222159409402,Not a contrast,stream|M2_RSF_native|180|calibration_curve_0.5
+Temporal,stream,M2_RSF,native,180,calibration_curve_0.75,0.9716171104976058,0.8639147954474651,0.9973734098334133,Not a contrast,stream|M2_RSF_native|180|calibration_curve_0.75
+Temporal,stream,M2_RSF,native,180,calibration_curve_0.9,0.9978242315963833,0.9681667726316519,0.9999538855457889,Not a contrast,stream|M2_RSF_native|180|calibration_curve_0.9
+Temporal,stream,M2_RSF,native,180,calibration_intercept,0.06323219466718788,-0.21980266183932234,0.32832813034926855,Not a contrast,stream|M2_RSF_native|180|calibration_intercept
+Temporal,stream,M2_RSF,native,180,calibration_slope,1.306013598140554,0.9889619937984443,1.7407192100112627,Not a contrast,stream|M2_RSF_native|180|calibration_slope
+Temporal,stream,M2_RSF,native,180,logloss,0.3372491033543512,0.2867305131564743,0.39324140060673973,Not a contrast,stream|M2_RSF_native|180|logloss
+Temporal,stream,M2_RSF,native,180,time_auc,0.8431082492168465,0.7885134012486573,0.8912257602341749,Not a contrast,stream|M2_RSF_native|180|time_auc
+Temporal,stream,M2_RSF,native,180,uno_c,0.8279616724738676,0.7751674537660703,0.8742953486801566,Not a contrast,stream|M2_RSF_native|180|uno_c
+Temporal,stream,M2_RSF,native,90,brier,0.09260113613264408,0.07427180493121005,0.11182877631751872,Not a contrast,stream|M2_RSF_native|90|brier
+Temporal,stream,M2_RSF,native,90,calibration_curve_0.1,0.07652381030856717,0.04306124532606033,0.12266365711913674,Not a contrast,stream|M2_RSF_native|90|calibration_curve_0.1
+Temporal,stream,M2_RSF,native,90,calibration_curve_0.25,0.2527305546733601,0.17169475592470498,0.32902362312528427,Not a contrast,stream|M2_RSF_native|90|calibration_curve_0.25
+Temporal,stream,M2_RSF,native,90,calibration_curve_0.5,0.7634401476889592,0.573206984110281,0.9150832851136125,Not a contrast,stream|M2_RSF_native|90|calibration_curve_0.5
+Temporal,stream,M2_RSF,native,90,calibration_curve_0.75,0.9701561145242161,0.8414067920516447,0.9977613413316779,Not a contrast,stream|M2_RSF_native|90|calibration_curve_0.75
+Temporal,stream,M2_RSF,native,90,calibration_curve_0.9,0.9969553516313641,0.9522078235512448,0.9999457786621432,Not a contrast,stream|M2_RSF_native|90|calibration_curve_0.9
+Temporal,stream,M2_RSF,native,90,calibration_intercept,0.12566547463567537,-0.17278576823942793,0.4005086799001697,Not a contrast,stream|M2_RSF_native|90|calibration_intercept
+Temporal,stream,M2_RSF,native,90,calibration_slope,1.3883527580487525,1.047167119785462,1.8858543402678958,Not a contrast,stream|M2_RSF_native|90|calibration_slope
+Temporal,stream,M2_RSF,native,90,logloss,0.3033108109939734,0.2529914024796798,0.3578153064633045,Not a contrast,stream|M2_RSF_native|90|logloss
+Temporal,stream,M2_RSF,native,90,time_auc,0.8573242807600254,0.799858531745617,0.9052772730501762,Not a contrast,stream|M2_RSF_native|90|time_auc
+Temporal,stream,M2_RSF,recal,180,brier,0.10155826095240747,0.08158104101411508,0.12289885818481083,Not a contrast,stream|M2_RSF_recal|180|brier
+Temporal,stream,M2_RSF,recal,180,calibration_curve_0.1,0.10488111967314069,0.06299540629419068,0.16049932674450987,Not a contrast,stream|M2_RSF_recal|180|calibration_curve_0.1
+Temporal,stream,M2_RSF,recal,180,calibration_curve_0.25,0.21740715443300548,0.13843099749119234,0.2941792872856249,Not a contrast,stream|M2_RSF_recal|180|calibration_curve_0.25
+Temporal,stream,M2_RSF,recal,180,calibration_curve_0.5,0.6028910317092101,0.4680494950904594,0.7515999281215735,Not a contrast,stream|M2_RSF_recal|180|calibration_curve_0.5
+Temporal,stream,M2_RSF,recal,180,calibration_curve_0.75,0.9068110836282427,0.7405984481868686,0.9813375616396105,Not a contrast,stream|M2_RSF_recal|180|calibration_curve_0.75
+Temporal,stream,M2_RSF,recal,180,calibration_curve_0.9,0.9842201818074164,0.9016674792213487,0.9989747726072528,Not a contrast,stream|M2_RSF_recal|180|calibration_curve_0.9
+Temporal,stream,M2_RSF,recal,180,calibration_intercept,0.2228864316378705,-0.08740794071982193,0.5270086466654824,Not a contrast,stream|M2_RSF_recal|180|calibration_intercept
+Temporal,stream,M2_RSF,recal,180,calibration_slope,0.9349941210045934,0.7080122694229747,1.2462061889564426,Not a contrast,stream|M2_RSF_recal|180|calibration_slope
+Temporal,stream,M2_RSF,recal,180,logloss,0.33544898210500285,0.27381066915475455,0.4034813332277473,Not a contrast,stream|M2_RSF_recal|180|logloss
+Temporal,stream,M2_RSF,recal,180,time_auc,0.8431082492168465,0.7885134012486573,0.8912257602341749,Not a contrast,stream|M2_RSF_recal|180|time_auc
+Temporal,stream,M2_RSF,recal,180,uno_c,0.8279616724738676,0.7751674537660703,0.8742953486801566,Not a contrast,stream|M2_RSF_recal|180|uno_c
+Temporal,stream,M2_RSF,recal,90,brier,0.08952054668710911,0.07098653235014059,0.10963465461648714,Not a contrast,stream|M2_RSF_recal|90|brier
+Temporal,stream,M2_RSF,recal,90,calibration_curve_0.1,0.10271264118361875,0.05710761299507446,0.15508154641912011,Not a contrast,stream|M2_RSF_recal|90|calibration_curve_0.1
+Temporal,stream,M2_RSF,recal,90,calibration_curve_0.25,0.25897386890753515,0.17834478633727963,0.33600925401658227,Not a contrast,stream|M2_RSF_recal|90|calibration_curve_0.25
+Temporal,stream,M2_RSF,recal,90,calibration_curve_0.5,0.6063900821214376,0.4553918961974407,0.7679928554086886,Not a contrast,stream|M2_RSF_recal|90|calibration_curve_0.5
+Temporal,stream,M2_RSF,recal,90,calibration_curve_0.75,0.877142308119717,0.685818654037461,0.9745363259515705,Not a contrast,stream|M2_RSF_recal|90|calibration_curve_0.75
+Temporal,stream,M2_RSF,recal,90,calibration_curve_0.9,0.9706627759779376,0.8427048270735555,0.9978223565855554,Not a contrast,stream|M2_RSF_recal|90|calibration_curve_0.9
+Temporal,stream,M2_RSF,recal,90,calibration_intercept,0.2819955785128724,-0.049812232442449166,0.6053973599431591,Not a contrast,stream|M2_RSF_recal|90|calibration_intercept
+Temporal,stream,M2_RSF,recal,90,calibration_slope,0.9217119443184486,0.6952025956247704,1.2519977070393875,Not a contrast,stream|M2_RSF_recal|90|calibration_slope
+Temporal,stream,M2_RSF,recal,90,logloss,0.3002202272806673,0.24060070857508348,0.36867817183238244,Not a contrast,stream|M2_RSF_recal|90|logloss
+Temporal,stream,M2_RSF,recal,90,time_auc,0.8573242807600254,0.799858531745617,0.9052772730501762,Not a contrast,stream|M2_RSF_recal|90|time_auc
+Temporal,stream,compact10,native,180,brier,0.10581268128341559,0.08418239030946072,0.128783604672686,Not a contrast,stream|compact10_native|180|brier
+Temporal,stream,compact10,native,180,calibration_curve_0.1,0.1401716883353504,0.08622006773975675,0.18809204905927912,Not a contrast,stream|compact10_native|180|calibration_curve_0.1
+Temporal,stream,compact10,native,180,calibration_curve_0.25,0.36846467713699904,0.2537221910970925,0.4532175634825157,Not a contrast,stream|compact10_native|180|calibration_curve_0.25
+Temporal,stream,compact10,native,180,calibration_curve_0.5,0.4604506688046367,0.3654734582616621,0.6603007842811587,Not a contrast,stream|compact10_native|180|calibration_curve_0.5
+Temporal,stream,compact10,native,180,calibration_curve_0.75,0.5203376113754422,0.40197596129385554,0.8784804735937516,Not a contrast,stream|compact10_native|180|calibration_curve_0.75
+Temporal,stream,compact10,native,180,calibration_curve_0.9,0.5796457183129575,0.43406985838426,0.9661073649790354,Not a contrast,stream|compact10_native|180|calibration_curve_0.9
+Temporal,stream,compact10,native,180,calibration_intercept,0.19238935968725066,-0.1405590363851202,0.4840007362311432,Not a contrast,stream|compact10_native|180|calibration_intercept
+Temporal,stream,compact10,native,180,calibration_slope,0.7548398032861146,0.32125422913535334,1.2593804439347533,Not a contrast,stream|compact10_native|180|calibration_slope
+Temporal,stream,compact10,native,180,logloss,0.3726747883843777,0.29586867279050477,0.4677908843193284,Not a contrast,stream|compact10_native|180|logloss
+Temporal,stream,compact10,native,180,time_auc,0.82579185520362,0.7659492447148784,0.8771374445753267,Not a contrast,stream|compact10_native|180|time_auc
+Temporal,stream,compact10,native,180,uno_c,0.8152716186252772,0.7593895191036342,0.862637702980439,Not a contrast,stream|compact10_native|180|uno_c
+Temporal,stream,compact10,native,90,brier,0.09377153394467912,0.07262583029799902,0.11597534432779827,Not a contrast,stream|compact10_native|90|brier
+Temporal,stream,compact10,native,90,calibration_curve_0.1,0.16174500688067922,0.09820345233750065,0.20882332680410234,Not a contrast,stream|compact10_native|90|calibration_curve_0.1
+Temporal,stream,compact10,native,90,calibration_curve_0.25,0.3950339455933286,0.2898750799828086,0.4914491114063243,Not a contrast,stream|compact10_native|90|calibration_curve_0.25
+Temporal,stream,compact10,native,90,calibration_curve_0.5,0.46432476393011435,0.3661212645553822,0.695867641982834,Not a contrast,stream|compact10_native|90|calibration_curve_0.5
+Temporal,stream,compact10,native,90,calibration_curve_0.75,0.5186477108612462,0.39791519084669835,0.8883586745181842,Not a contrast,stream|compact10_native|90|calibration_curve_0.75
+Temporal,stream,compact10,native,90,calibration_curve_0.9,0.5725333608277853,0.4258869631637949,0.9666527752629221,Not a contrast,stream|compact10_native|90|calibration_curve_0.9
+Temporal,stream,compact10,native,90,calibration_intercept,0.2575487317058562,-0.09315746263518519,0.5582367292293492,Not a contrast,stream|compact10_native|90|calibration_intercept
+Temporal,stream,compact10,native,90,calibration_slope,0.7959964273057962,0.3285935576233014,1.3828160365525977,Not a contrast,stream|compact10_native|90|calibration_slope
+Temporal,stream,compact10,native,90,logloss,0.33543862060763324,0.25856382490873914,0.42802282209332426,Not a contrast,stream|compact10_native|90|logloss
+Temporal,stream,compact10,native,90,time_auc,0.8467737996385483,0.7847908790024094,0.8991145214473774,Not a contrast,stream|compact10_native|90|time_auc
+Temporal,stream,compact14,native,180,brier,0.10395974391434157,0.08273192667965704,0.12650750050217438,Not a contrast,stream|compact14_native|180|brier
+Temporal,stream,compact14,native,180,calibration_curve_0.1,0.14123186138723443,0.08683587148706524,0.1927011261661694,Not a contrast,stream|compact14_native|180|calibration_curve_0.1
+Temporal,stream,compact14,native,180,calibration_curve_0.25,0.36397804910237896,0.2361295325010829,0.4470061327148983,Not a contrast,stream|compact14_native|180|calibration_curve_0.25
+Temporal,stream,compact14,native,180,calibration_curve_0.5,0.46257334336242584,0.3618164893835308,0.6651455844948,Not a contrast,stream|compact14_native|180|calibration_curve_0.5
+Temporal,stream,compact14,native,180,calibration_curve_0.75,0.5243113245672709,0.40346133016986413,0.8989281530095803,Not a contrast,stream|compact14_native|180|calibration_curve_0.75
+Temporal,stream,compact14,native,180,calibration_curve_0.9,0.5853030674192726,0.4335636551125366,0.9778054070396687,Not a contrast,stream|compact14_native|180|calibration_curve_0.9
+Temporal,stream,compact14,native,180,calibration_intercept,0.16357556277269678,-0.16954085607175132,0.4577795795442492,Not a contrast,stream|compact14_native|180|calibration_intercept
+Temporal,stream,compact14,native,180,calibration_slope,0.7854446241650621,0.3325910832985661,1.2831595412179484,Not a contrast,stream|compact14_native|180|calibration_slope
+Temporal,stream,compact14,native,180,logloss,0.36761278797772884,0.28978506289674294,0.4635110134487898,Not a contrast,stream|compact14_native|180|logloss
+Temporal,stream,compact14,native,180,time_auc,0.8319918203967976,0.774440935648453,0.8818201359484862,Not a contrast,stream|compact14_native|180|time_auc
+Temporal,stream,compact14,native,180,uno_c,0.8215473550839405,0.7669682952878755,0.867145519792112,Not a contrast,stream|compact14_native|180|uno_c
+Temporal,stream,compact14,native,90,brier,0.09237487224042673,0.07184336265610476,0.11425869958626039,Not a contrast,stream|compact14_native|90|brier
+Temporal,stream,compact14,native,90,calibration_curve_0.1,0.15988384198988342,0.09568271005179513,0.20865339030780633,Not a contrast,stream|compact14_native|90|calibration_curve_0.1
+Temporal,stream,compact14,native,90,calibration_curve_0.25,0.39186791933035586,0.2798221081168122,0.486881439030454,Not a contrast,stream|compact14_native|90|calibration_curve_0.25
+Temporal,stream,compact14,native,90,calibration_curve_0.5,0.4659955798256124,0.36428518809127997,0.7163712890939723,Not a contrast,stream|compact14_native|90|calibration_curve_0.5
+Temporal,stream,compact14,native,90,calibration_curve_0.75,0.5204562204425561,0.39582774048594827,0.9170307289413235,Not a contrast,stream|compact14_native|90|calibration_curve_0.75
+Temporal,stream,compact14,native,90,calibration_curve_0.9,0.5744349704159885,0.42323303749171587,0.9808315215595558,Not a contrast,stream|compact14_native|90|calibration_curve_0.9
+Temporal,stream,compact14,native,90,calibration_intercept,0.23018468316909058,-0.1170063487131727,0.528245732311848,Not a contrast,stream|compact14_native|90|calibration_intercept
+Temporal,stream,compact14,native,90,calibration_slope,0.8226710969561013,0.3416150139054249,1.41007324411131,Not a contrast,stream|compact14_native|90|calibration_slope
+Temporal,stream,compact14,native,90,logloss,0.3316071086190114,0.2549120441959167,0.4231297537855677,Not a contrast,stream|compact14_native|90|logloss
+Temporal,stream,compact14,native,90,time_auc,0.8526840228593757,0.7932445713895948,0.9020033808479531,Not a contrast,stream|compact14_native|90|time_auc

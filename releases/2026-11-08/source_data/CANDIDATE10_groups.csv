@@ -1,0 +1,10 @@
+﻿candidate,group,selected
+CANDIDATE10,age,True
+CANDIDATE10,bun_last,True
+CANDIDATE10,initial_gcs,True
+CANDIDATE10,spo2_last,True
+CANDIDATE10,terminal_gcsm,True
+CANDIDATE10,wpr,True
+CANDIDATE10,wbc_absolute_last,True
+CANDIDATE10,charlson,True
+CANDIDATE10,hemoglobin_last,True

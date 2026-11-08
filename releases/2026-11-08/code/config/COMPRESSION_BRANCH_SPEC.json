@@ -1,0 +1,8 @@
+{
+  "schema_version": "1.0",
+  "branch": "PENDING",
+  "compression_authorized": false,
+  "temporal_authorized": false,
+  "later_options": ["NOT_LAUNCHED", "LAUNCHED_AND_LOCKED"],
+  "task05_action": "FREEZE_ONLY_DO_NOT_LAUNCH"
+}

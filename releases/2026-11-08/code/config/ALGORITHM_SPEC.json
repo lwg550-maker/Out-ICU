@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "training_horizon_days": 180,
+  "shared_dimensions": {"c2_columns": 20, "signals": 41, "extension_columns": 157, "maximum_m2_columns": 177},
+  "M0": {"objective": "cox_partial_likelihood", "ties": "efron", "baseline": "breslow", "candidate_n": 1, "M1_EN_alias": true, "M1_EN_additional_fit_n": 0},
+  "M2_EN": {
+    "backend": "lifelines.CoxPHFitter", "backend_version": "0.30.0", "baseline_estimation_method": "breslow", "ties": "efron",
+    "external_standardization_ddof": 0, "core_penalty_factor": 0, "active_extension_penalty_factor": 1,
+    "alphas": [0.1, 0.5, 0.9], "lambda_ratios": [1.0, 0.25, 0.0625, 0.015625, 0.00390625], "candidate_n": 15,
+    "candidate_identity": ["alpha", "lambda_ratio"], "nonzero_extension_abs_beta_gt": 1e-8,
+    "mapping": {"s": "sqrt(n/(n-1))", "r": "(1-a)/s^2+a/s", "q": "(E/n)*lambda*r", "a_backend": "(a/s)/r", "penalizer": "q*penalty_factors"},
+    "strict_reference_tolerances": {"kkt_infinity_norm_max": 1e-5, "objective_absolute_difference_max": 1e-7, "coefficient_max_absolute_difference": 1e-4, "risk_90_180_max_absolute_difference": 1e-5}
+  },
+  "RSF": {
+    "backend": "sksurv.ensemble.RandomSurvivalForest", "backend_version": "0.28.0", "candidate_n": 8,
+    "n_estimators": 1000, "bootstrap": true, "max_depth": null, "mtry_rules": ["ceil(sqrt(p))", "ceil(p/3)"],
+    "sample_fractions": [0.632, 0.8], "min_samples_leaf": [32, 96], "terminal_chf": "nelson_aalen", "forest_chf": "arithmetic_mean_tree_chf"
+  },
+  "GBST": {
+    "backend": "sksurv.ensemble.GradientBoostingSurvivalAnalysis", "backend_version": "0.28.0", "loss": "coxph", "candidate_n": 12,
+    "max_depth": [1, 2, 3], "learning_rate": [0.03, 0.07], "n_estimators": [250, 500], "subsample": 0.8,
+    "max_features": 1.0, "min_samples_leaf": 64, "early_stopping": false, "risk_baseline": "training_partition_breslow"
+  },
+  "selection_metric": "pooled_inner_native_180d_brier",
+  "selection_tolerance": 1e-8
+}

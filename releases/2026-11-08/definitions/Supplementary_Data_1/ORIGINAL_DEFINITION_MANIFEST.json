@@ -1,0 +1,208 @@
+{
+  "purpose": "Exact non-patient definition and unpopulated SQL copies",
+  "files": [
+    {
+      "file": "CORE_VARIABLE_DICTIONARY.csv",
+      "source_relative_to_Project_B": "inputs/frozen/07_P002_DESIGN_DICTIONARY.csv",
+      "sha256": "7e28c1e2ffc11e4fc1d7dbef6364e1fb0c7444e9656dba224ed06324266c5581",
+      "bytes": 5872,
+      "byte_identical_to_source": true,
+      "utf8_readable": true,
+      "structured_parse_pass": true,
+      "patient_literal_scan_pass": true
+    },
+    {
+      "file": "CORE_MATRIX_SPEC.csv",
+      "source_relative_to_Project_B": "inputs/frozen/08_P004_MATRIX_SPEC.csv",
+      "sha256": "24d85ac7539d8b41bece5846fd3a5a0a59ef8b51a73322bb88e0ec8c0145f282",
+      "bytes": 1876,
+      "byte_identical_to_source": true,
+      "utf8_readable": true,
+      "structured_parse_pass": true,
+      "patient_literal_scan_pass": true
+    },
+    {
+      "file": "EXTENDED_VARIABLE_REGISTRY_A1_FROZEN.csv",
+      "source_relative_to_Project_B": "config/EXTENDED_VARIABLE_REGISTRY_A1_FROZEN.csv",
+      "sha256": "a8ed017d941c7edd58a3c2f14926f278cab80ceb9f4eebb0773bcdae861904a9",
+      "bytes": 31692,
+      "byte_identical_to_source": true,
+      "utf8_readable": true,
+      "structured_parse_pass": true,
+      "patient_literal_scan_pass": true
+    },
+    {
+      "file": "EXTENDED_REPRESENTATION_SPEC.csv",
+      "source_relative_to_Project_B": "config/EXTENDED_REPRESENTATION_SPEC.csv",
+      "sha256": "d8b9e30bcf5ff581900179ca74f0a73f531576f1b6e8d3338ca695a32eaba50a",
+      "bytes": 18202,
+      "byte_identical_to_source": true,
+      "utf8_readable": true,
+      "structured_parse_pass": true,
+      "patient_literal_scan_pass": true
+    },
+    {
+      "file": "SOURCE_TIME_CONTRACTS.csv",
+      "source_relative_to_Project_B": "config/A2_EXPECTED_SOURCE_CONTRACTS.csv",
+      "sha256": "87ce9c229078a3479e8c9e59b7214d8f208c47fba346f24104ee3c7bf9023bb2",
+      "bytes": 28000,
+      "byte_identical_to_source": true,
+      "utf8_readable": true,
+      "structured_parse_pass": true,
+      "patient_literal_scan_pass": true
+    },
+    {
+      "file": "CLINICAL_DOMAIN_MAP.csv",
+      "source_relative_to_Project_B": "config/CLINICAL_DOMAIN_MAP.csv",
+      "sha256": "94ef116e649fd59da23fc532a796c121b65a0118dc9e9fe1e196423d5738e244",
+      "bytes": 2836,
+      "byte_identical_to_source": true,
+      "utf8_readable": true,
+      "structured_parse_pass": true,
+      "patient_literal_scan_pass": true
+    },
+    {
+      "file": "INITIAL_NEURO_ASSESSABILITY_RULES.csv",
+      "source_relative_to_Project_B": "config/INITIAL_NEURO_ASSESSABILITY_RULES.csv",
+      "sha256": "23c12fbb79c9a6665481765a628db058cfe037bb645838bbdfe3cc11b7d921c6",
+      "bytes": 784,
+      "byte_identical_to_source": true,
+      "utf8_readable": true,
+      "structured_parse_pass": true,
+      "patient_literal_scan_pass": true
+    },
+    {
+      "file": "PREPROCESSING_SPEC.json",
+      "source_relative_to_Project_B": "config/PREPROCESSING_SPEC.json",
+      "sha256": "0ef8aab19905e44e579db482ca17aa3d10390388dafbd2f7b629a456a08d34e6",
+      "bytes": 1000,
+      "byte_identical_to_source": true,
+      "utf8_readable": true,
+      "structured_parse_pass": true,
+      "patient_literal_scan_pass": true
+    },
+    {
+      "file": "FOLD_LOCAL_PREPROCESSING_RULES.json",
+      "source_relative_to_Project_B": "config/FOLD_LOCAL_PREPROCESSING_RULES.json",
+      "sha256": "a79da1ec5d6f913c9340350bafe9e057352ddee597393e85925e862e4191c0c6",
+      "bytes": 396,
+      "byte_identical_to_source": true,
+      "utf8_readable": true,
+      "structured_parse_pass": true,
+      "patient_literal_scan_pass": true
+    },
+    {
+      "file": "A3_VALUE_EXTRACTION_SPEC.csv",
+      "source_relative_to_Project_B": "config/A3_VALUE_EXTRACTION_SPEC.csv",
+      "sha256": "831353463208ef67dffa5a63266b1398f085496b55eb61c8a08212e08ef8149b",
+      "bytes": 1217,
+      "byte_identical_to_source": true,
+      "utf8_readable": true,
+      "structured_parse_pass": true,
+      "patient_literal_scan_pass": true
+    },
+    {
+      "file": "A4_FIELD_DICTIONARY.csv",
+      "source_relative_to_Project_B": "config/A4_FIELD_DICTIONARY.csv",
+      "sha256": "845cd8abe3a986b7e606b5d48102aa28eba00fd1c19b3527692af1b5add25087",
+      "bytes": 34616,
+      "byte_identical_to_source": true,
+      "utf8_readable": true,
+      "structured_parse_pass": true,
+      "patient_literal_scan_pass": true
+    },
+    {
+      "file": "COMPACT_MANUAL_INPUT_SPEC.json",
+      "source_relative_to_Project_B": "config/COMPACT_MANUAL_INPUT_SPEC.json",
+      "sha256": "a8d0e61f5e3ee8b8017c6b4cf20dc25aa8351d35042679a5cc2cd0c712b2eaf5",
+      "bytes": 113666,
+      "byte_identical_to_source": true,
+      "utf8_readable": true,
+      "structured_parse_pass": true,
+      "patient_literal_scan_pass": true
+    },
+    {
+      "file": "MANUAL_INPUT_DICTIONARY.json",
+      "source_relative_to_Project_B": "audit/cohort_correction_20261105/candidate10_review/MANUAL_INPUT_DICTIONARY.json",
+      "sha256": "3b18905ce0e2ee560bb41e9d39e8d1b231a22d8dad77e49490d03b0b41306718",
+      "bytes": 15245,
+      "byte_identical_to_source": true,
+      "utf8_readable": true,
+      "structured_parse_pass": true,
+      "patient_literal_scan_pass": true
+    },
+    {
+      "file": "COHORT_OUTCOME.sql",
+      "source_relative_to_Project_B": "manuscript/paper_improvement_2026-11-05/final/attachments/Supplementary_Data_1/COHORT_OUTCOME.sql",
+      "sha256": "f1f2925ec7d762ba8d6261acdd3c488d725fcec787afaf6762e3209e1320a50d",
+      "bytes": 5543,
+      "byte_identical_to_source": true,
+      "utf8_readable": true,
+      "structured_parse_pass": true,
+      "patient_literal_scan_pass": true
+    },
+    {
+      "file": "CORE_BASELINE_COURSE.sql",
+      "source_relative_to_Project_B": "manuscript/paper_improvement_2026-11-05/final/attachments/Supplementary_Data_1/CORE_BASELINE_COURSE.sql",
+      "sha256": "d32b376af861e19d160358b1d6d5e23c6561f5424ccb46166d56d2353e619c2d",
+      "bytes": 9685,
+      "byte_identical_to_source": true,
+      "utf8_readable": true,
+      "structured_parse_pass": true,
+      "patient_literal_scan_pass": true
+    },
+    {
+      "file": "CORE_VENTILATION.sql",
+      "source_relative_to_Project_B": "manuscript/paper_improvement_2026-11-05/final/attachments/Supplementary_Data_1/CORE_VENTILATION.sql",
+      "sha256": "9543ce24f1a3d0a8bdff68f643c306793185ab8bd2d2d2c3e2f71d89c69b6e5e",
+      "bytes": 5418,
+      "byte_identical_to_source": true,
+      "utf8_readable": true,
+      "structured_parse_pass": true,
+      "patient_literal_scan_pass": true
+    },
+    {
+      "file": "CORE_NEURO_WPR.sql",
+      "source_relative_to_Project_B": "manuscript/paper_improvement_2026-11-05/final/attachments/Supplementary_Data_1/CORE_NEURO_WPR.sql",
+      "sha256": "3cc0734931084de54845de0ce9c60d61a32b597a90b1c86752924b5e1646477e",
+      "bytes": 8489,
+      "byte_identical_to_source": true,
+      "utf8_readable": true,
+      "structured_parse_pass": true,
+      "patient_literal_scan_pass": true
+    },
+    {
+      "file": "MODIFIED_NON_NEURO_SOFA.sql",
+      "source_relative_to_Project_B": "manuscript/paper_improvement_2026-11-05/final/attachments/Supplementary_Data_1/MODIFIED_NON_NEURO_SOFA.sql",
+      "sha256": "e1402a16d33a43b63402fb50d620483662c3a8f68cfc729ba9c81f44eb6be35b",
+      "bytes": 18332,
+      "byte_identical_to_source": true,
+      "utf8_readable": true,
+      "structured_parse_pass": true,
+      "patient_literal_scan_pass": true
+    },
+    {
+      "file": "EXTENSION_AUDIT_TEMPLATE.sql",
+      "source_relative_to_Project_B": "manuscript/paper_improvement_2026-11-05/final/attachments/Supplementary_Data_1/EXTENSION_AUDIT_TEMPLATE.sql",
+      "sha256": "dd7b7124e9bc3b213dd571c42f0beb3808133a77e4c260233f5d1ce3e86f733e",
+      "bytes": 22088,
+      "byte_identical_to_source": true,
+      "utf8_readable": true,
+      "structured_parse_pass": true,
+      "patient_literal_scan_pass": true
+    },
+    {
+      "file": "EXTENSION_EXTRACTION_TEMPLATE.sql",
+      "source_relative_to_Project_B": "manuscript/paper_improvement_2026-11-05/final/attachments/Supplementary_Data_1/EXTENSION_EXTRACTION_TEMPLATE.sql",
+      "sha256": "0d5e63194df82f5999b5aa85cb79c4f62466a3890473c26ac25cdfabd467eace",
+      "bytes": 32638,
+      "byte_identical_to_source": true,
+      "utf8_readable": true,
+      "structured_parse_pass": true,
+      "patient_literal_scan_pass": true
+    }
+  ],
+  "current_a3_distinct_from_old_template": false,
+  "corrected_cohort_requires_restricted_researcher_adjudication": true,
+  "patient_data_included": false
+}

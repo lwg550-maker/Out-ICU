@@ -1,0 +1,9 @@
+{
+  "schema_version": "1.0",
+  "horizons_days": [90, 180],
+  "native_probability_clipping": false,
+  "calculation_copy_clipping": {"allowed_purposes": ["logloss", "logit"], "lower": 1e-6, "upper": 0.999999},
+  "recalibrator": {"type": "unpenalized_logistic", "training_source": "inner_oof_only", "formula": "logit(Y_t)=a_t+b_t*logit(p_t)", "outer_update": false},
+  "monotonicity": {"native_violation": "NATIVE_MONOTONICITY_FAILURE", "recalibrated_projection": false},
+  "evaluation": {"intercept": "offset_logistic_slope_1", "slope": "joint_intercept_slope", "curve_knots_percentiles": [5, 35, 65, 95], "curve_spline_df": 3, "knots_refit_each_bootstrap": true}
+}

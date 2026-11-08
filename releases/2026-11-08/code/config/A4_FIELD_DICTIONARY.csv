@@ -1,0 +1,188 @@
+table_name,column_order,column_name,role,data_type,source_file,source_field,generation_rule,unit,missing_rule,fold_learned_parameter,allowed_model_scope,status
+DEVELOPMENT_INDEX_OUTCOME,1,subject_id,identity,integer,inputs/frozen/01_FORMAL_PREFIT_MASTER_N3245.csv,subject_id,copy frozen field,,not_a_predictor,none,joining_only,PASS
+DEVELOPMENT_INDEX_OUTCOME,2,hadm_id,identity,integer,inputs/frozen/01_FORMAL_PREFIT_MASTER_N3245.csv,hadm_id,copy frozen field,,not_a_predictor,none,joining_only,PASS
+DEVELOPMENT_INDEX_OUTCOME,3,episode_start,audit_only,datetime,inputs/frozen/01_FORMAL_PREFIT_MASTER_N3245.csv,episode_start,copy frozen field,,not_a_predictor,none,joining_only,PASS
+DEVELOPMENT_INDEX_OUTCOME,4,t0,audit_only,datetime,inputs/frozen/01_FORMAL_PREFIT_MASTER_N3245.csv,t0,copy frozen field,,not_a_predictor,none,joining_only,PASS
+DEVELOPMENT_INDEX_OUTCOME,5,admin_90_eligible,audit_only,integer,inputs/frozen/01_FORMAL_PREFIT_MASTER_N3245.csv,admin_90_eligible,copy frozen field,,not_a_predictor,none,joining_only,PASS
+DEVELOPMENT_INDEX_OUTCOME,6,admin_180_eligible,audit_only,integer,inputs/frozen/01_FORMAL_PREFIT_MASTER_N3245.csv,admin_180_eligible,copy frozen field,,not_a_predictor,none,joining_only,PASS
+DEVELOPMENT_INDEX_OUTCOME,7,death_90d,outcome,integer,inputs/frozen/01_FORMAL_PREFIT_MASTER_N3245.csv,death_90d,copy frozen field,,not_a_predictor,none,folding_only,PASS
+DEVELOPMENT_INDEX_OUTCOME,8,death_180d,outcome,integer,inputs/frozen/01_FORMAL_PREFIT_MASTER_N3245.csv,death_180d,copy frozen field,,not_a_predictor,none,folding_only,PASS
+DEVELOPMENT_INDEX_OUTCOME,9,death_days_after_t0,outcome,integer,inputs/frozen/01_FORMAL_PREFIT_MASTER_N3245.csv,death_days_after_t0,copy frozen field,,not_a_predictor,none,folding_only,PASS
+DEVELOPMENT_C2_RAW,1,subject_id,identity,integer,config/A2_DEVELOPMENT_ID_ALLOWLIST.csv,subject_id,identity spine,,none,none,joining_only,PASS
+DEVELOPMENT_C2_RAW,2,hadm_id,identity,integer,config/A2_DEVELOPMENT_ID_ALLOWLIST.csv,hadm_id,identity spine,,none,none,joining_only,PASS
+DEVELOPMENT_C2_RAW,3,age_at_admit,core_raw,numeric,inputs/frozen/01_FORMAL_PREFIT_MASTER_N3245.csv,age_at_admit,age as continuous linear RCS component | 3-knot restricted cubic spline nonlinear basis; Harrell basis scaled by outer-knot distance squared,raw frozen unit,retain frozen missingness,none | knots at training-fold age quantiles 0.10/0.50/0.90,M0_M1_M2,PASS
+DEVELOPMENT_C2_RAW,4,gender,core_raw,categorical,inputs/frozen/01_FORMAL_PREFIT_MASTER_N3245.csv,gender,1 if F; 0 if M,raw frozen unit,retain frozen missingness,none,M0_M1_M2,PASS
+DEVELOPMENT_C2_RAW,5,charlson_prior_no_age,core_raw,numeric,inputs/frozen/01_FORMAL_PREFIT_MASTER_N3245.csv,charlson_prior_no_age,continuous linear,raw frozen unit,retain frozen missingness,none,M0_M1_M2,PASS
+DEVELOPMENT_C2_RAW,6,rbc_completed_ml,core_raw,numeric,inputs/frozen/01_FORMAL_PREFIT_MASTER_N3245.csv,rbc_completed_ml,ln(1+x),raw frozen unit,retain frozen missingness,none,M0_M1_M2,PASS
+DEVELOPMENT_C2_RAW,7,non_rbc_component_ever,core_raw,numeric,inputs/frozen/01_FORMAL_PREFIT_MASTER_N3245.csv,non_rbc_component_ever,binary 0/1,raw frozen unit,retain frozen missingness,none,M0_M1_M2,PASS
+DEVELOPMENT_C2_RAW,8,vasopressor_active_hours,core_raw,numeric,inputs/frozen/01_FORMAL_PREFIT_MASTER_N3245.csv,vasopressor_active_hours,ln(1+x),raw frozen unit,retain frozen missingness,none,M0_M1_M2,PASS
+DEVELOPMENT_C2_RAW,9,cumulative_invasive_ventilation_hours,core_raw,numeric,inputs/frozen/01_FORMAL_PREFIT_MASTER_N3245.csv,cumulative_invasive_ventilation_hours,ln(1+x),raw frozen unit,retain frozen missingness,none,M0_M1_M2,PASS
+DEVELOPMENT_C2_RAW,10,icp_monitor_or_csf_diversion_ever,core_raw,numeric,inputs/frozen/01_FORMAL_PREFIT_MASTER_N3245.csv,icp_monitor_or_csf_diversion_ever,binary 0/1,raw frozen unit,retain frozen missingness,none,M0_M1_M2,PASS
+DEVELOPMENT_C2_RAW,11,cranial_operation_ever,core_raw,numeric,inputs/frozen/01_FORMAL_PREFIT_MASTER_N3245.csv,cranial_operation_ever,binary 0/1,raw frozen unit,retain frozen missingness,none,M0_M1_M2,PASS
+DEVELOPMENT_C2_RAW,12,icu_episode_hours,core_raw,numeric,inputs/frozen/01_FORMAL_PREFIT_MASTER_N3245.csv,icu_episode_hours,ln(1+x),raw frozen unit,retain frozen missingness,none,M0_M1_M2,PASS
+DEVELOPMENT_C2_RAW,13,modified_non_neuro_sofa2_total,core_raw,numeric,inputs/frozen/01_FORMAL_PREFIT_MASTER_N3245.csv,modified_non_neuro_sofa2_total,continuous linear 0-20,raw frozen unit,retain frozen missingness,none,M0_M1_M2,PASS
+DEVELOPMENT_C2_RAW,14,abnormal_non_neuro_organ_count,core_raw,numeric,inputs/frozen/01_FORMAL_PREFIT_MASTER_N3245.csv,abnormal_non_neuro_organ_count,continuous linear 0-5,raw frozen unit,retain frozen missingness,none,M0_M1_M2,PASS
+DEVELOPMENT_C2_RAW,15,nonreactive_pupil_count,core_raw,numeric,inputs/frozen/01_FORMAL_PREFIT_MASTER_N3245.csv,nonreactive_pupil_count,ordered linear 0/1/2,raw frozen unit,retain frozen missingness,none,M0_M1_M2,PASS
+DEVELOPMENT_C2_RAW,16,pupil_unassessable,core_raw,numeric,inputs/frozen/01_FORMAL_PREFIT_MASTER_N3245.csv,pupil_unassessable,binary 0/1,raw frozen unit,retain frozen missingness,none,M0_M1_M2,PASS
+DEVELOPMENT_C2_RAW,17,gcsm_category,core_raw,numeric,inputs/frozen/01_FORMAL_PREFIT_MASTER_N3245.csv,gcsm_category,1 for 4-5; else 0 | 1 for 1-3; else 0 | 1 for unassessable; else 0,raw frozen unit,retain frozen missingness,none | none | none,M0_M1_M2,PASS
+DEVELOPMENT_C2_RAW,18,log2_wpr,core_raw,numeric,inputs/frozen/01_FORMAL_PREFIT_MASTER_N3245.csv,log2_wpr,observed log2(WBC/platelet); unavailable values replaced only by training-fold median,raw frozen unit,retain frozen missingness,training-fold median log2_wpr,M0_M1_M2,PASS
+DEVELOPMENT_C2_RAW,19,wpr_unavailable,core_raw,numeric,inputs/frozen/01_FORMAL_PREFIT_MASTER_N3245.csv,wpr_unavailable,binary 0/1,raw frozen unit,retain frozen missingness,none,M0_M1_M2,PASS
+DEVELOPMENT_EXTENDED_157,1,subject_id,identity,integer,config/A2_DEVELOPMENT_ID_ALLOWLIST.csv,subject_id,identity spine,,none,none,joining_only,PASS
+DEVELOPMENT_EXTENDED_157,2,hadm_id,identity,integer,config/A2_DEVELOPMENT_ID_ALLOWLIST.csv,hadm_id,identity spine,,none,none,joining_only,PASS
+DEVELOPMENT_EXTENDED_157,3,initial_gcs_total_value,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,initial_gcs_total,first reliable same-time E+V+M,points,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,4,initial_gcs_unassessable,extension_unavailable,binary,data/a3/A3_RAW_VALUE_EXTRACT.csv,initial_gcs_total,1 if no reliable complete assessment,binary,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,5,initial_pupil_nonreactive_count_value,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,initial_pupil_nonreactive_count,first deterministic bilateral pair,count,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,6,initial_pupil_unassessable,extension_unavailable,binary,data/a3/A3_RAW_VALUE_EXTRACT.csv,initial_pupil_nonreactive_count,1 if no complete pair,binary,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,7,icp_early,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,icp_value,numeric,mmHg,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,8,icp_highest,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,icp_value,numeric,mmHg,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,9,icp_last,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,icp_value,numeric,mmHg,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,10,icp_delta_last_minus_early,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,icp_value,numeric,mmHg,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,11,icp_summary_unavailable,extension_unavailable,binary,data/a3/A3_RAW_VALUE_EXTRACT.csv,icp_value,unavailable,binary,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,12,icp_last_freshness_hours,extension_freshness,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,icp_value,freshness,hours,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,13,hours_since_icp_procedure,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,hours_since_icp_procedure,t0-event_time,hours,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,14,icp_procedure_recency_unavailable,extension_unavailable,binary,data/a3/A3_RAW_VALUE_EXTRACT.csv,hours_since_icp_procedure,1 if no qualifying event,binary,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,15,hours_since_cranial_operation,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,hours_since_cranial_operation,t0-event_time,hours,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,16,cranial_operation_recency_unavailable,extension_unavailable,binary,data/a3/A3_RAW_VALUE_EXTRACT.csv,hours_since_cranial_operation,1 if no qualifying event,binary,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,17,invasive_vent_active_t0,extension_binary,binary,data/a3/A3_RAW_VALUE_EXTRACT.csv,invasive_vent_active_t0,visible current support evidence,binary,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,18,hours_since_invasive_vent_end,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,hours_since_invasive_vent_end,t0-last visible stop,hours,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,19,invasive_vent_end_recency_unavailable,extension_unavailable,binary,data/a3/A3_RAW_VALUE_EXTRACT.csv,hours_since_invasive_vent_end,1 if no visible stop,binary,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,20,vasopressor_active_t0,extension_binary,binary,data/a3/A3_RAW_VALUE_EXTRACT.csv,vasopressor_active_t0,last visible 4h state,binary,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,21,hours_since_vasopressor_end,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,hours_since_vasopressor_end,t0-last visible stop,hours,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,22,vasopressor_end_recency_unavailable,extension_unavailable,binary,data/a3/A3_RAW_VALUE_EXTRACT.csv,hours_since_vasopressor_end,1 if no visible stop,binary,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,23,rrt_ever,extension_binary,binary,data/a3/A3_RAW_VALUE_EXTRACT.csv,rrt_ever,rrt_ever,binary,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,24,rrt_active_t0,extension_binary,binary,data/a3/A3_RAW_VALUE_EXTRACT.csv,rrt_active_t0,rrt_active_t0,binary,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,25,hyperosmolar_ever,extension_binary,binary,data/a3/A3_RAW_VALUE_EXTRACT.csv,hyperosmolar_ever,hyperosmolar_ever,binary,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,26,sedative_active_t0,extension_binary,binary,data/a3/A3_RAW_VALUE_EXTRACT.csv,sedative_active_t0,sedative_active_t0,binary,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,27,nmb_active_t0,extension_binary,binary,data/a3/A3_RAW_VALUE_EXTRACT.csv,nmb_active_t0,nmb_active_t0,binary,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,28,heart_rate_early,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,heart_rate,early,bpm,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,29,heart_rate_minimum,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,heart_rate,minimum,bpm,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,30,heart_rate_maximum,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,heart_rate,maximum,bpm,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,31,heart_rate_last,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,heart_rate,last,bpm,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,32,heart_rate_summary_unavailable,extension_unavailable,binary,data/a3/A3_RAW_VALUE_EXTRACT.csv,heart_rate,1 unless all four summaries observed,binary,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,33,heart_rate_last_freshness_hours,extension_freshness,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,heart_rate,t0-last availability_time,hours,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,34,systolic_bp_early,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,systolic_bp,early,mmHg,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,35,systolic_bp_worst,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,systolic_bp,worst,mmHg,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,36,systolic_bp_last,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,systolic_bp,last,mmHg,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,37,systolic_bp_delta_last_minus_early,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,systolic_bp,delta_last_minus_early,mmHg,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,38,systolic_bp_summary_unavailable,extension_unavailable,binary,data/a3/A3_RAW_VALUE_EXTRACT.csv,systolic_bp,1 unless all four summaries observed,binary,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,39,systolic_bp_last_freshness_hours,extension_freshness,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,systolic_bp,t0-last availability_time,hours,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,40,mean_arterial_pressure_early,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,mean_arterial_pressure,early,mmHg,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,41,mean_arterial_pressure_worst,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,mean_arterial_pressure,worst,mmHg,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,42,mean_arterial_pressure_last,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,mean_arterial_pressure,last,mmHg,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,43,mean_arterial_pressure_delta_last_minus_early,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,mean_arterial_pressure,delta_last_minus_early,mmHg,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,44,mean_arterial_pressure_summary_unavailable,extension_unavailable,binary,data/a3/A3_RAW_VALUE_EXTRACT.csv,mean_arterial_pressure,1 unless all four summaries observed,binary,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,45,mean_arterial_pressure_last_freshness_hours,extension_freshness,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,mean_arterial_pressure,t0-last availability_time,hours,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,46,respiratory_rate_early,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,respiratory_rate,early,breaths/min,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,47,respiratory_rate_minimum,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,respiratory_rate,minimum,breaths/min,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,48,respiratory_rate_maximum,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,respiratory_rate,maximum,breaths/min,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,49,respiratory_rate_last,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,respiratory_rate,last,breaths/min,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,50,respiratory_rate_summary_unavailable,extension_unavailable,binary,data/a3/A3_RAW_VALUE_EXTRACT.csv,respiratory_rate,1 unless all four summaries observed,binary,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,51,respiratory_rate_last_freshness_hours,extension_freshness,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,respiratory_rate,t0-last availability_time,hours,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,52,temperature_c_early,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,temperature_c,early,degC,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,53,temperature_c_minimum,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,temperature_c,minimum,degC,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,54,temperature_c_maximum,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,temperature_c,maximum,degC,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,55,temperature_c_last,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,temperature_c,last,degC,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,56,temperature_c_summary_unavailable,extension_unavailable,binary,data/a3/A3_RAW_VALUE_EXTRACT.csv,temperature_c,1 unless all four summaries observed,binary,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,57,temperature_c_last_freshness_hours,extension_freshness,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,temperature_c,t0-last availability_time,hours,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,58,spo2_early,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,spo2,early,%,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,59,spo2_worst,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,spo2,worst,%,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,60,spo2_last,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,spo2,last,%,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,61,spo2_delta_last_minus_early,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,spo2,delta_last_minus_early,%,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,62,spo2_summary_unavailable,extension_unavailable,binary,data/a3/A3_RAW_VALUE_EXTRACT.csv,spo2,1 unless all four summaries observed,binary,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,63,spo2_last_freshness_hours,extension_freshness,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,spo2,t0-last availability_time,hours,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,64,fio2_fraction_early,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,fio2_fraction,early,fraction,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,65,fio2_fraction_worst,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,fio2_fraction,worst,fraction,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,66,fio2_fraction_last,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,fio2_fraction,last,fraction,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,67,fio2_fraction_delta_last_minus_early,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,fio2_fraction,delta_last_minus_early,fraction,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,68,fio2_fraction_summary_unavailable,extension_unavailable,binary,data/a3/A3_RAW_VALUE_EXTRACT.csv,fio2_fraction,1 unless all four summaries observed,binary,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,69,fio2_fraction_last_freshness_hours,extension_freshness,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,fio2_fraction,t0-last availability_time,hours,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,70,peep_cmh2o_early,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,peep_cmh2o,early,cmH2O,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,71,peep_cmh2o_worst,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,peep_cmh2o,worst,cmH2O,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,72,peep_cmh2o_last,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,peep_cmh2o,last,cmH2O,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,73,peep_cmh2o_delta_last_minus_early,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,peep_cmh2o,delta_last_minus_early,cmH2O,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,74,peep_cmh2o_summary_unavailable,extension_unavailable,binary,data/a3/A3_RAW_VALUE_EXTRACT.csv,peep_cmh2o,1 unless all four summaries observed,binary,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,75,peep_cmh2o_last_freshness_hours,extension_freshness,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,peep_cmh2o,t0-last availability_time,hours,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,76,hemoglobin_early,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,hemoglobin,early,g/dL,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,77,hemoglobin_worst,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,hemoglobin,worst,g/dL,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,78,hemoglobin_last,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,hemoglobin,last,g/dL,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,79,hemoglobin_delta_last_minus_early,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,hemoglobin,delta_last_minus_early,g/dL,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,80,hemoglobin_summary_unavailable,extension_unavailable,binary,data/a3/A3_RAW_VALUE_EXTRACT.csv,hemoglobin,1 unless all four summaries observed,binary,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,81,hemoglobin_last_freshness_hours,extension_freshness,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,hemoglobin,t0-last availability_time,hours,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,82,wbc_absolute_early,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,wbc_absolute,early,K/uL,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,83,wbc_absolute_minimum,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,wbc_absolute,minimum,K/uL,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,84,wbc_absolute_maximum,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,wbc_absolute,maximum,K/uL,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,85,wbc_absolute_last,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,wbc_absolute,last,K/uL,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,86,wbc_absolute_summary_unavailable,extension_unavailable,binary,data/a3/A3_RAW_VALUE_EXTRACT.csv,wbc_absolute,1 unless all four summaries observed,binary,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,87,wbc_absolute_last_freshness_hours,extension_freshness,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,wbc_absolute,t0-last availability_time,hours,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,88,platelet_absolute_early,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,platelet_absolute,early,K/uL,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,89,platelet_absolute_worst,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,platelet_absolute,worst,K/uL,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,90,platelet_absolute_last,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,platelet_absolute,last,K/uL,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,91,platelet_absolute_delta_last_minus_early,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,platelet_absolute,delta_last_minus_early,K/uL,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,92,platelet_absolute_summary_unavailable,extension_unavailable,binary,data/a3/A3_RAW_VALUE_EXTRACT.csv,platelet_absolute,1 unless all four summaries observed,binary,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,93,platelet_absolute_last_freshness_hours,extension_freshness,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,platelet_absolute,t0-last availability_time,hours,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,94,sodium_early,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,sodium,early,mEq/L,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,95,sodium_minimum,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,sodium,minimum,mEq/L,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,96,sodium_maximum,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,sodium,maximum,mEq/L,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,97,sodium_last,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,sodium,last,mEq/L,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,98,sodium_summary_unavailable,extension_unavailable,binary,data/a3/A3_RAW_VALUE_EXTRACT.csv,sodium,1 unless all four summaries observed,binary,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,99,sodium_last_freshness_hours,extension_freshness,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,sodium,t0-last availability_time,hours,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,100,potassium_early,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,potassium,early,mEq/L,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,101,potassium_minimum,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,potassium,minimum,mEq/L,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,102,potassium_maximum,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,potassium,maximum,mEq/L,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,103,potassium_last,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,potassium,last,mEq/L,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,104,potassium_summary_unavailable,extension_unavailable,binary,data/a3/A3_RAW_VALUE_EXTRACT.csv,potassium,1 unless all four summaries observed,binary,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,105,potassium_last_freshness_hours,extension_freshness,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,potassium,t0-last availability_time,hours,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,106,bicarbonate_early,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,bicarbonate,early,mEq/L,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,107,bicarbonate_minimum,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,bicarbonate,minimum,mEq/L,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,108,bicarbonate_maximum,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,bicarbonate,maximum,mEq/L,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,109,bicarbonate_last,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,bicarbonate,last,mEq/L,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,110,bicarbonate_summary_unavailable,extension_unavailable,binary,data/a3/A3_RAW_VALUE_EXTRACT.csv,bicarbonate,1 unless all four summaries observed,binary,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,111,bicarbonate_last_freshness_hours,extension_freshness,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,bicarbonate,t0-last availability_time,hours,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,112,bun_early,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,bun,early,mg/dL,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,113,bun_worst,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,bun,worst,mg/dL,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,114,bun_last,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,bun,last,mg/dL,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,115,bun_delta_last_minus_early,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,bun,delta_last_minus_early,mg/dL,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,116,bun_summary_unavailable,extension_unavailable,binary,data/a3/A3_RAW_VALUE_EXTRACT.csv,bun,1 unless all four summaries observed,binary,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,117,bun_last_freshness_hours,extension_freshness,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,bun,t0-last availability_time,hours,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,118,creatinine_early,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,creatinine,early,mg/dL,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,119,creatinine_worst,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,creatinine,worst,mg/dL,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,120,creatinine_last,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,creatinine,last,mg/dL,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,121,creatinine_delta_last_minus_early,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,creatinine,delta_last_minus_early,mg/dL,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,122,creatinine_summary_unavailable,extension_unavailable,binary,data/a3/A3_RAW_VALUE_EXTRACT.csv,creatinine,1 unless all four summaries observed,binary,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,123,creatinine_last_freshness_hours,extension_freshness,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,creatinine,t0-last availability_time,hours,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,124,glucose_early,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,glucose,early,mg/dL,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,125,glucose_minimum,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,glucose,minimum,mg/dL,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,126,glucose_maximum,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,glucose,maximum,mg/dL,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,127,glucose_last,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,glucose,last,mg/dL,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,128,glucose_summary_unavailable,extension_unavailable,binary,data/a3/A3_RAW_VALUE_EXTRACT.csv,glucose,1 unless all four summaries observed,binary,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,129,glucose_last_freshness_hours,extension_freshness,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,glucose,t0-last availability_time,hours,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,130,lactate_early,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,lactate,early,mmol/L,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,131,lactate_worst,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,lactate,worst,mmol/L,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,132,lactate_last,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,lactate,last,mmol/L,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,133,lactate_delta_last_minus_early,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,lactate,delta_last_minus_early,mmol/L,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,134,lactate_summary_unavailable,extension_unavailable,binary,data/a3/A3_RAW_VALUE_EXTRACT.csv,lactate,1 unless all four summaries observed,binary,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,135,lactate_last_freshness_hours,extension_freshness,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,lactate,t0-last availability_time,hours,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,136,inr_early,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,inr,early,ratio,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,137,inr_worst,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,inr,worst,ratio,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,138,inr_last,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,inr,last,ratio,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,139,inr_delta_last_minus_early,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,inr,delta_last_minus_early,ratio,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,140,inr_summary_unavailable,extension_unavailable,binary,data/a3/A3_RAW_VALUE_EXTRACT.csv,inr,1 unless all four summaries observed,binary,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,141,inr_last_freshness_hours,extension_freshness,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,inr,t0-last availability_time,hours,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,142,albumin_early,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,albumin,early,g/dL,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,143,albumin_worst,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,albumin,worst,g/dL,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,144,albumin_last,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,albumin,last,g/dL,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,145,albumin_delta_last_minus_early,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,albumin,delta_last_minus_early,g/dL,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,146,albumin_summary_unavailable,extension_unavailable,binary,data/a3/A3_RAW_VALUE_EXTRACT.csv,albumin,1 unless all four summaries observed,binary,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,147,albumin_last_freshness_hours,extension_freshness,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,albumin,t0-last availability_time,hours,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,148,bilirubin_total_early,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,bilirubin_total,early,mg/dL,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,149,bilirubin_total_worst,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,bilirubin_total,worst,mg/dL,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,150,bilirubin_total_last,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,bilirubin_total,last,mg/dL,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,151,bilirubin_total_delta_last_minus_early,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,bilirubin_total,delta_last_minus_early,mg/dL,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,152,bilirubin_total_summary_unavailable,extension_unavailable,binary,data/a3/A3_RAW_VALUE_EXTRACT.csv,bilirubin_total,1 unless all four summaries observed,binary,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,153,bilirubin_total_last_freshness_hours,extension_freshness,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,bilirubin_total,t0-last availability_time,hours,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,154,gcsm_freshness_hours,extension_freshness,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,gcsm_freshness_hours,t0-frozen availability_time,hours,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,155,pupil_freshness_hours,extension_freshness,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,pupil_freshness_hours,t0-frozen availability_time,hours,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,156,wpr_freshness_hours,extension_freshness,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,wpr_freshness_hours,t0-frozen availability_time,hours,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,157,sofa_rollback_steps,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,sofa_rollback_steps,copy frozen metadata,count,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,158,sofa_observed_domain_n,extension_numeric,numeric,data/a3/A3_RAW_VALUE_EXTRACT.csv,sofa_observed_domain_n,copy frozen metadata,count,retained,fold_local_only,M2,PASS
+DEVELOPMENT_EXTENDED_157,159,sofa_all_domains_unobserved_48h,extension_binary,binary,data/a3/A3_RAW_VALUE_EXTRACT.csv,sofa_all_domains_unobserved_48h,copy frozen metadata,binary,retained,fold_local_only,M2,PASS

@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "common_validity": "GLOBAL_COMMON_VALID",
+  "target_valid_replicates": 2000,
+  "maximum_attempts": 2200,
+  "interval": "percentile_95",
+  "seed_formula": "SHA256('A5BOOT|2026102405|global')",
+  "unit": "patient",
+  "duplicate_multiplicity_retained": true,
+  "metric_then_repeat_average": true,
+  "paired_same_draw": true,
+  "retrain_models": false,
+  "partial_replicate_retention": false,
+  "uno_c_horizon_days": 180,
+  "uno_c_weights_refit_in_resample": true
+}

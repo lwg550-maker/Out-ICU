@@ -1,0 +1,158 @@
+column_name,variable_id,column_role,data_type,generation_rule,window,unit,missing_representation,model_scope,status
+initial_gcs_total_value,initial_gcs_total,numeric,numeric,first reliable same-time E+V+M,first 6h,points,retained,M2,PASS
+initial_gcs_unassessable,initial_gcs_total,unavailable,binary,1 if no reliable complete assessment,first 6h,binary,retained,M2,PASS
+initial_pupil_nonreactive_count_value,initial_pupil_nonreactive_count,numeric,numeric,first deterministic bilateral pair,first 6h,count,retained,M2,PASS
+initial_pupil_unassessable,initial_pupil_nonreactive_count,unavailable,binary,1 if no complete pair,first 6h,binary,retained,M2,PASS
+icp_early,icp_value,numeric,numeric,numeric,frozen trajectory windows,mmHg,retained,M2,PASS
+icp_highest,icp_value,numeric,numeric,numeric,frozen trajectory windows,mmHg,retained,M2,PASS
+icp_last,icp_value,numeric,numeric,numeric,frozen trajectory windows,mmHg,retained,M2,PASS
+icp_delta_last_minus_early,icp_value,numeric,numeric,numeric,frozen trajectory windows,mmHg,retained,M2,PASS
+icp_summary_unavailable,icp_value,unavailable,binary,unavailable,frozen trajectory windows,binary,retained,M2,PASS
+icp_last_freshness_hours,icp_value,freshness,numeric,freshness,frozen trajectory windows,hours,retained,M2,PASS
+hours_since_icp_procedure,hours_since_icp_procedure,numeric,numeric,t0-event_time,latest visible completed event,hours,retained,M2,PASS
+icp_procedure_recency_unavailable,hours_since_icp_procedure,unavailable,binary,1 if no qualifying event,latest visible completed event,binary,retained,M2,PASS
+hours_since_cranial_operation,hours_since_cranial_operation,numeric,numeric,t0-event_time,latest visible completed event,hours,retained,M2,PASS
+cranial_operation_recency_unavailable,hours_since_cranial_operation,unavailable,binary,1 if no qualifying event,latest visible completed event,binary,retained,M2,PASS
+invasive_vent_active_t0,invasive_vent_active_t0,categorical,binary,visible current support evidence,t0,binary,retained,M2,PASS
+hours_since_invasive_vent_end,hours_since_invasive_vent_end,numeric,numeric,t0-last visible stop,pre-t0,hours,retained,M2,PASS
+invasive_vent_end_recency_unavailable,hours_since_invasive_vent_end,unavailable,binary,1 if no visible stop,pre-t0,binary,retained,M2,PASS
+vasopressor_active_t0,vasopressor_active_t0,categorical,binary,last visible 4h state,t0,binary,retained,M2,PASS
+hours_since_vasopressor_end,hours_since_vasopressor_end,numeric,numeric,t0-last visible stop,pre-t0,hours,retained,M2,PASS
+vasopressor_end_recency_unavailable,hours_since_vasopressor_end,unavailable,binary,1 if no visible stop,pre-t0,binary,retained,M2,PASS
+rrt_ever,rrt_ever,categorical,binary,rrt_ever,pre-t0,binary,retained,M2,PASS
+rrt_active_t0,rrt_active_t0,categorical,binary,rrt_active_t0,pre-t0,binary,retained,M2,PASS
+hyperosmolar_ever,hyperosmolar_ever,categorical,binary,hyperosmolar_ever,pre-t0,binary,retained,M2,PASS
+sedative_active_t0,sedative_active_t0,categorical,binary,sedative_active_t0,pre-t0,binary,retained,M2,PASS
+nmb_active_t0,nmb_active_t0,categorical,binary,nmb_active_t0,pre-t0,binary,retained,M2,PASS
+heart_rate_early,heart_rate,numeric,numeric,early,frozen trajectory windows,bpm,retained,M2,PASS
+heart_rate_minimum,heart_rate,numeric,numeric,minimum,frozen trajectory windows,bpm,retained,M2,PASS
+heart_rate_maximum,heart_rate,numeric,numeric,maximum,frozen trajectory windows,bpm,retained,M2,PASS
+heart_rate_last,heart_rate,numeric,numeric,last,frozen trajectory windows,bpm,retained,M2,PASS
+heart_rate_summary_unavailable,heart_rate,unavailable,binary,1 unless all four summaries observed,all windows,binary,retained,M2,PASS
+heart_rate_last_freshness_hours,heart_rate,freshness,numeric,t0-last availability_time,last 48h,hours,retained,M2,PASS
+systolic_bp_early,systolic_bp,numeric,numeric,early,frozen trajectory windows,mmHg,retained,M2,PASS
+systolic_bp_worst,systolic_bp,numeric,numeric,worst,frozen trajectory windows,mmHg,retained,M2,PASS
+systolic_bp_last,systolic_bp,numeric,numeric,last,frozen trajectory windows,mmHg,retained,M2,PASS
+systolic_bp_delta_last_minus_early,systolic_bp,numeric,numeric,delta_last_minus_early,frozen trajectory windows,mmHg,retained,M2,PASS
+systolic_bp_summary_unavailable,systolic_bp,unavailable,binary,1 unless all four summaries observed,all windows,binary,retained,M2,PASS
+systolic_bp_last_freshness_hours,systolic_bp,freshness,numeric,t0-last availability_time,last 48h,hours,retained,M2,PASS
+mean_arterial_pressure_early,mean_arterial_pressure,numeric,numeric,early,frozen trajectory windows,mmHg,retained,M2,PASS
+mean_arterial_pressure_worst,mean_arterial_pressure,numeric,numeric,worst,frozen trajectory windows,mmHg,retained,M2,PASS
+mean_arterial_pressure_last,mean_arterial_pressure,numeric,numeric,last,frozen trajectory windows,mmHg,retained,M2,PASS
+mean_arterial_pressure_delta_last_minus_early,mean_arterial_pressure,numeric,numeric,delta_last_minus_early,frozen trajectory windows,mmHg,retained,M2,PASS
+mean_arterial_pressure_summary_unavailable,mean_arterial_pressure,unavailable,binary,1 unless all four summaries observed,all windows,binary,retained,M2,PASS
+mean_arterial_pressure_last_freshness_hours,mean_arterial_pressure,freshness,numeric,t0-last availability_time,last 48h,hours,retained,M2,PASS
+respiratory_rate_early,respiratory_rate,numeric,numeric,early,frozen trajectory windows,breaths/min,retained,M2,PASS
+respiratory_rate_minimum,respiratory_rate,numeric,numeric,minimum,frozen trajectory windows,breaths/min,retained,M2,PASS
+respiratory_rate_maximum,respiratory_rate,numeric,numeric,maximum,frozen trajectory windows,breaths/min,retained,M2,PASS
+respiratory_rate_last,respiratory_rate,numeric,numeric,last,frozen trajectory windows,breaths/min,retained,M2,PASS
+respiratory_rate_summary_unavailable,respiratory_rate,unavailable,binary,1 unless all four summaries observed,all windows,binary,retained,M2,PASS
+respiratory_rate_last_freshness_hours,respiratory_rate,freshness,numeric,t0-last availability_time,last 48h,hours,retained,M2,PASS
+temperature_c_early,temperature_c,numeric,numeric,early,frozen trajectory windows,degC,retained,M2,PASS
+temperature_c_minimum,temperature_c,numeric,numeric,minimum,frozen trajectory windows,degC,retained,M2,PASS
+temperature_c_maximum,temperature_c,numeric,numeric,maximum,frozen trajectory windows,degC,retained,M2,PASS
+temperature_c_last,temperature_c,numeric,numeric,last,frozen trajectory windows,degC,retained,M2,PASS
+temperature_c_summary_unavailable,temperature_c,unavailable,binary,1 unless all four summaries observed,all windows,binary,retained,M2,PASS
+temperature_c_last_freshness_hours,temperature_c,freshness,numeric,t0-last availability_time,last 48h,hours,retained,M2,PASS
+spo2_early,spo2,numeric,numeric,early,frozen trajectory windows,%,retained,M2,PASS
+spo2_worst,spo2,numeric,numeric,worst,frozen trajectory windows,%,retained,M2,PASS
+spo2_last,spo2,numeric,numeric,last,frozen trajectory windows,%,retained,M2,PASS
+spo2_delta_last_minus_early,spo2,numeric,numeric,delta_last_minus_early,frozen trajectory windows,%,retained,M2,PASS
+spo2_summary_unavailable,spo2,unavailable,binary,1 unless all four summaries observed,all windows,binary,retained,M2,PASS
+spo2_last_freshness_hours,spo2,freshness,numeric,t0-last availability_time,last 48h,hours,retained,M2,PASS
+fio2_fraction_early,fio2_fraction,numeric,numeric,early,frozen trajectory windows,fraction,retained,M2,PASS
+fio2_fraction_worst,fio2_fraction,numeric,numeric,worst,frozen trajectory windows,fraction,retained,M2,PASS
+fio2_fraction_last,fio2_fraction,numeric,numeric,last,frozen trajectory windows,fraction,retained,M2,PASS
+fio2_fraction_delta_last_minus_early,fio2_fraction,numeric,numeric,delta_last_minus_early,frozen trajectory windows,fraction,retained,M2,PASS
+fio2_fraction_summary_unavailable,fio2_fraction,unavailable,binary,1 unless all four summaries observed,all windows,binary,retained,M2,PASS
+fio2_fraction_last_freshness_hours,fio2_fraction,freshness,numeric,t0-last availability_time,last 48h,hours,retained,M2,PASS
+peep_cmh2o_early,peep_cmh2o,numeric,numeric,early,frozen trajectory windows,cmH2O,retained,M2,PASS
+peep_cmh2o_worst,peep_cmh2o,numeric,numeric,worst,frozen trajectory windows,cmH2O,retained,M2,PASS
+peep_cmh2o_last,peep_cmh2o,numeric,numeric,last,frozen trajectory windows,cmH2O,retained,M2,PASS
+peep_cmh2o_delta_last_minus_early,peep_cmh2o,numeric,numeric,delta_last_minus_early,frozen trajectory windows,cmH2O,retained,M2,PASS
+peep_cmh2o_summary_unavailable,peep_cmh2o,unavailable,binary,1 unless all four summaries observed,all windows,binary,retained,M2,PASS
+peep_cmh2o_last_freshness_hours,peep_cmh2o,freshness,numeric,t0-last availability_time,last 48h,hours,retained,M2,PASS
+hemoglobin_early,hemoglobin,numeric,numeric,early,frozen trajectory windows,g/dL,retained,M2,PASS
+hemoglobin_worst,hemoglobin,numeric,numeric,worst,frozen trajectory windows,g/dL,retained,M2,PASS
+hemoglobin_last,hemoglobin,numeric,numeric,last,frozen trajectory windows,g/dL,retained,M2,PASS
+hemoglobin_delta_last_minus_early,hemoglobin,numeric,numeric,delta_last_minus_early,frozen trajectory windows,g/dL,retained,M2,PASS
+hemoglobin_summary_unavailable,hemoglobin,unavailable,binary,1 unless all four summaries observed,all windows,binary,retained,M2,PASS
+hemoglobin_last_freshness_hours,hemoglobin,freshness,numeric,t0-last availability_time,last 48h,hours,retained,M2,PASS
+wbc_absolute_early,wbc_absolute,numeric,numeric,early,frozen trajectory windows,K/uL,retained,M2,PASS
+wbc_absolute_minimum,wbc_absolute,numeric,numeric,minimum,frozen trajectory windows,K/uL,retained,M2,PASS
+wbc_absolute_maximum,wbc_absolute,numeric,numeric,maximum,frozen trajectory windows,K/uL,retained,M2,PASS
+wbc_absolute_last,wbc_absolute,numeric,numeric,last,frozen trajectory windows,K/uL,retained,M2,PASS
+wbc_absolute_summary_unavailable,wbc_absolute,unavailable,binary,1 unless all four summaries observed,all windows,binary,retained,M2,PASS
+wbc_absolute_last_freshness_hours,wbc_absolute,freshness,numeric,t0-last availability_time,last 48h,hours,retained,M2,PASS
+platelet_absolute_early,platelet_absolute,numeric,numeric,early,frozen trajectory windows,K/uL,retained,M2,PASS
+platelet_absolute_worst,platelet_absolute,numeric,numeric,worst,frozen trajectory windows,K/uL,retained,M2,PASS
+platelet_absolute_last,platelet_absolute,numeric,numeric,last,frozen trajectory windows,K/uL,retained,M2,PASS
+platelet_absolute_delta_last_minus_early,platelet_absolute,numeric,numeric,delta_last_minus_early,frozen trajectory windows,K/uL,retained,M2,PASS
+platelet_absolute_summary_unavailable,platelet_absolute,unavailable,binary,1 unless all four summaries observed,all windows,binary,retained,M2,PASS
+platelet_absolute_last_freshness_hours,platelet_absolute,freshness,numeric,t0-last availability_time,last 48h,hours,retained,M2,PASS
+sodium_early,sodium,numeric,numeric,early,frozen trajectory windows,mEq/L,retained,M2,PASS
+sodium_minimum,sodium,numeric,numeric,minimum,frozen trajectory windows,mEq/L,retained,M2,PASS
+sodium_maximum,sodium,numeric,numeric,maximum,frozen trajectory windows,mEq/L,retained,M2,PASS
+sodium_last,sodium,numeric,numeric,last,frozen trajectory windows,mEq/L,retained,M2,PASS
+sodium_summary_unavailable,sodium,unavailable,binary,1 unless all four summaries observed,all windows,binary,retained,M2,PASS
+sodium_last_freshness_hours,sodium,freshness,numeric,t0-last availability_time,last 48h,hours,retained,M2,PASS
+potassium_early,potassium,numeric,numeric,early,frozen trajectory windows,mEq/L,retained,M2,PASS
+potassium_minimum,potassium,numeric,numeric,minimum,frozen trajectory windows,mEq/L,retained,M2,PASS
+potassium_maximum,potassium,numeric,numeric,maximum,frozen trajectory windows,mEq/L,retained,M2,PASS
+potassium_last,potassium,numeric,numeric,last,frozen trajectory windows,mEq/L,retained,M2,PASS
+potassium_summary_unavailable,potassium,unavailable,binary,1 unless all four summaries observed,all windows,binary,retained,M2,PASS
+potassium_last_freshness_hours,potassium,freshness,numeric,t0-last availability_time,last 48h,hours,retained,M2,PASS
+bicarbonate_early,bicarbonate,numeric,numeric,early,frozen trajectory windows,mEq/L,retained,M2,PASS
+bicarbonate_minimum,bicarbonate,numeric,numeric,minimum,frozen trajectory windows,mEq/L,retained,M2,PASS
+bicarbonate_maximum,bicarbonate,numeric,numeric,maximum,frozen trajectory windows,mEq/L,retained,M2,PASS
+bicarbonate_last,bicarbonate,numeric,numeric,last,frozen trajectory windows,mEq/L,retained,M2,PASS
+bicarbonate_summary_unavailable,bicarbonate,unavailable,binary,1 unless all four summaries observed,all windows,binary,retained,M2,PASS
+bicarbonate_last_freshness_hours,bicarbonate,freshness,numeric,t0-last availability_time,last 48h,hours,retained,M2,PASS
+bun_early,bun,numeric,numeric,early,frozen trajectory windows,mg/dL,retained,M2,PASS
+bun_worst,bun,numeric,numeric,worst,frozen trajectory windows,mg/dL,retained,M2,PASS
+bun_last,bun,numeric,numeric,last,frozen trajectory windows,mg/dL,retained,M2,PASS
+bun_delta_last_minus_early,bun,numeric,numeric,delta_last_minus_early,frozen trajectory windows,mg/dL,retained,M2,PASS
+bun_summary_unavailable,bun,unavailable,binary,1 unless all four summaries observed,all windows,binary,retained,M2,PASS
+bun_last_freshness_hours,bun,freshness,numeric,t0-last availability_time,last 48h,hours,retained,M2,PASS
+creatinine_early,creatinine,numeric,numeric,early,frozen trajectory windows,mg/dL,retained,M2,PASS
+creatinine_worst,creatinine,numeric,numeric,worst,frozen trajectory windows,mg/dL,retained,M2,PASS
+creatinine_last,creatinine,numeric,numeric,last,frozen trajectory windows,mg/dL,retained,M2,PASS
+creatinine_delta_last_minus_early,creatinine,numeric,numeric,delta_last_minus_early,frozen trajectory windows,mg/dL,retained,M2,PASS
+creatinine_summary_unavailable,creatinine,unavailable,binary,1 unless all four summaries observed,all windows,binary,retained,M2,PASS
+creatinine_last_freshness_hours,creatinine,freshness,numeric,t0-last availability_time,last 48h,hours,retained,M2,PASS
+glucose_early,glucose,numeric,numeric,early,frozen trajectory windows,mg/dL,retained,M2,PASS
+glucose_minimum,glucose,numeric,numeric,minimum,frozen trajectory windows,mg/dL,retained,M2,PASS
+glucose_maximum,glucose,numeric,numeric,maximum,frozen trajectory windows,mg/dL,retained,M2,PASS
+glucose_last,glucose,numeric,numeric,last,frozen trajectory windows,mg/dL,retained,M2,PASS
+glucose_summary_unavailable,glucose,unavailable,binary,1 unless all four summaries observed,all windows,binary,retained,M2,PASS
+glucose_last_freshness_hours,glucose,freshness,numeric,t0-last availability_time,last 48h,hours,retained,M2,PASS
+lactate_early,lactate,numeric,numeric,early,frozen trajectory windows,mmol/L,retained,M2,PASS
+lactate_worst,lactate,numeric,numeric,worst,frozen trajectory windows,mmol/L,retained,M2,PASS
+lactate_last,lactate,numeric,numeric,last,frozen trajectory windows,mmol/L,retained,M2,PASS
+lactate_delta_last_minus_early,lactate,numeric,numeric,delta_last_minus_early,frozen trajectory windows,mmol/L,retained,M2,PASS
+lactate_summary_unavailable,lactate,unavailable,binary,1 unless all four summaries observed,all windows,binary,retained,M2,PASS
+lactate_last_freshness_hours,lactate,freshness,numeric,t0-last availability_time,last 48h,hours,retained,M2,PASS
+inr_early,inr,numeric,numeric,early,frozen trajectory windows,ratio,retained,M2,PASS
+inr_worst,inr,numeric,numeric,worst,frozen trajectory windows,ratio,retained,M2,PASS
+inr_last,inr,numeric,numeric,last,frozen trajectory windows,ratio,retained,M2,PASS
+inr_delta_last_minus_early,inr,numeric,numeric,delta_last_minus_early,frozen trajectory windows,ratio,retained,M2,PASS
+inr_summary_unavailable,inr,unavailable,binary,1 unless all four summaries observed,all windows,binary,retained,M2,PASS
+inr_last_freshness_hours,inr,freshness,numeric,t0-last availability_time,last 48h,hours,retained,M2,PASS
+albumin_early,albumin,numeric,numeric,early,frozen trajectory windows,g/dL,retained,M2,PASS
+albumin_worst,albumin,numeric,numeric,worst,frozen trajectory windows,g/dL,retained,M2,PASS
+albumin_last,albumin,numeric,numeric,last,frozen trajectory windows,g/dL,retained,M2,PASS
+albumin_delta_last_minus_early,albumin,numeric,numeric,delta_last_minus_early,frozen trajectory windows,g/dL,retained,M2,PASS
+albumin_summary_unavailable,albumin,unavailable,binary,1 unless all four summaries observed,all windows,binary,retained,M2,PASS
+albumin_last_freshness_hours,albumin,freshness,numeric,t0-last availability_time,last 48h,hours,retained,M2,PASS
+bilirubin_total_early,bilirubin_total,numeric,numeric,early,frozen trajectory windows,mg/dL,retained,M2,PASS
+bilirubin_total_worst,bilirubin_total,numeric,numeric,worst,frozen trajectory windows,mg/dL,retained,M2,PASS
+bilirubin_total_last,bilirubin_total,numeric,numeric,last,frozen trajectory windows,mg/dL,retained,M2,PASS
+bilirubin_total_delta_last_minus_early,bilirubin_total,numeric,numeric,delta_last_minus_early,frozen trajectory windows,mg/dL,retained,M2,PASS
+bilirubin_total_summary_unavailable,bilirubin_total,unavailable,binary,1 unless all four summaries observed,all windows,binary,retained,M2,PASS
+bilirubin_total_last_freshness_hours,bilirubin_total,freshness,numeric,t0-last availability_time,last 48h,hours,retained,M2,PASS
+gcsm_freshness_hours,gcsm_freshness_hours,freshness,numeric,t0-frozen availability_time,frozen C2 window,hours,retained,M2,PASS
+pupil_freshness_hours,pupil_freshness_hours,freshness,numeric,t0-frozen availability_time,frozen C2 window,hours,retained,M2,PASS
+wpr_freshness_hours,wpr_freshness_hours,freshness,numeric,t0-frozen availability_time,frozen C2 window,hours,retained,M2,PASS
+sofa_rollback_steps,sofa_rollback_steps,numeric,numeric,copy frozen metadata,selected SOFA window,count,retained,M2,PASS
+sofa_observed_domain_n,sofa_observed_domain_n,numeric,numeric,copy frozen metadata,selected SOFA window,count,retained,M2,PASS
+sofa_all_domains_unobserved_48h,sofa_all_domains_unobserved_48h,categorical,binary,copy frozen metadata,selected SOFA window,binary,retained,M2,PASS

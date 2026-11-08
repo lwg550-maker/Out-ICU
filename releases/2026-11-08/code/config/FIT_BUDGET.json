@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "contexts": 51,
+  "survival_fits_per_context": 286,
+  "survival_fits": 14586,
+  "recalibrators": 612,
+  "trainable_objects": 15198,
+  "development_evaluation_completed": 1440720,
+  "development_evaluation_attempt_ceiling": 1584720,
+  "temporal_evaluation_completed": 144072,
+  "temporal_evaluation_attempt_ceiling": 158472,
+  "max_fit_workers": 12,
+  "estimator_internal_threads": 1,
+  "peak_process_tree_rss_gib": 32,
+  "task_and_future_artifact_disk_gib": 50,
+  "minimum_free_disk_gib": 100,
+  "synthetic_wall_hours": 8,
+  "authorized_development_wall_hours": 96,
+  "authorized_development_cpu_core_hours": 800
+}

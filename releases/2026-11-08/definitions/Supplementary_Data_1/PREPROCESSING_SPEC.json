@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "stage_order": ["coverage", "variance_nzv", "winsorization", "pairwise_complete_redundancy", "representative_selection", "imputation", "scaling"],
+  "core_protected": true,
+  "coverage_minimum": "max(50,ceil(0.05*n_train))",
+  "nzv": {"zero_variance_unique_n_max": 1, "percent_unique_max": 10, "frequency_ratio_gt": 19},
+  "winsorization_percentiles": [1, 99],
+  "redundancy": {"overlap_minimum": "max(50,ceil(0.05*n_train))", "absolute_spearman_ge": 0.95, "absolute_phi_ge": 0.95, "exact_equality_or_complement_first": true},
+  "representative_priority": ["greatest_preimputation_nonmissing_coverage", "earliest_a4_field_dictionary_order", "lexical_name"],
+  "numeric_imputation": "training_median_after_representative_selection",
+  "new_missing_indicators": false,
+  "binary_imputation": false,
+  "binary_missing_failure": "BINARY_CONTRACT_FAILURE",
+  "en_scaling": {"center": "training_mean", "sd_ddof": 0},
+  "tree_scaling": false,
+  "m1_extension_access": false
+}

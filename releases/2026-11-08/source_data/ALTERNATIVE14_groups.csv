@@ -1,0 +1,13 @@
+﻿candidate,group,selected
+ALTERNATIVE14,age,True
+ALTERNATIVE14,bun_last,True
+ALTERNATIVE14,initial_gcs,True
+ALTERNATIVE14,spo2_last,True
+ALTERNATIVE14,terminal_gcsm,True
+ALTERNATIVE14,wpr,True
+ALTERNATIVE14,wbc_absolute_last,True
+ALTERNATIVE14,charlson,True
+ALTERNATIVE14,hemoglobin_last,True
+ALTERNATIVE14,terminal_pupil,True
+ALTERNATIVE14,inr_last,True
+ALTERNATIVE14,sofa,True

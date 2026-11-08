@@ -1,0 +1,11 @@
+{
+  "schema_version": "1",
+  "outer_seed_base": 2026102304,
+  "repeat_n": 10,
+  "fold_n": 5,
+  "stratification_field": "death_180d",
+  "assignment_hash": "SHA256(<repeat_seed>|<death_180d>|<subject_id>|<hadm_id>)",
+  "start_fold_rule": "((repeat_index-1) mod 5)+1",
+  "inner_resampling": "PENDING_A5",
+  "status": "FROZEN"
+}

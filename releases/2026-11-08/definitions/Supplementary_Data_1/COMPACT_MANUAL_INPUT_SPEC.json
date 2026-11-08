@@ -1,0 +1,3126 @@
+{
+  "schema_version": "compact-manual-1.0",
+  "created_date": "2026-11-03",
+  "policy": "Outcome-blind manual feasibility; additive branch; budgets are maxima of actual manual fields; no patient exclusions",
+  "budgets": [
+    6,
+    10,
+    14
+  ],
+  "dictionary_sha256": "845CD8ABE3A986B7E606B5D48102AA28EBA00FD1C19B3527692AF1B5ADD25087",
+  "preprocessing_sha256": "0EF8AAB19905E44E579DB482CA17AA3D10390388DAFBD2F7B629A456A08D34E6",
+  "groups": [
+    {
+      "id": "age",
+      "source": "core",
+      "kind": "age",
+      "raw_columns": [
+        "age_at_admit"
+      ],
+      "model_columns": [
+        "age_linear",
+        "age_rcs_nonlinear"
+      ],
+      "manual_fields": [
+        "age_at_admit"
+      ],
+      "manual_field_count": 1,
+      "binary_columns": [],
+      "order": 0,
+      "source_preparation": "age_at_admit: index admission; event: admittime; availability: admittime; missing: not expected; HOLD if absent",
+      "missing_option": "required; categorical unassessable only where defined",
+      "metadata": [
+        {
+          "column": "age_at_admit",
+          "unit": "years",
+          "generation_rule": "age as continuous linear RCS component | 3-knot restricted cubic spline nonlinear basis; Harrell basis scaled by outer-knot distance squared",
+          "temporal_contract": {
+            "time_window": "index admission",
+            "event_time_rule": "admittime",
+            "availability_time_rule": "admittime",
+            "missing_rule": "not expected; HOLD if absent"
+          },
+          "core_dictionary_path": "inputs/frozen/07_P002_DESIGN_DICTIONARY.csv",
+          "core_dictionary_field": "age_at_admit",
+          "core_dictionary_row": {
+            "ordinal": "1",
+            "layer": "C0",
+            "field": "age_at_admit",
+            "source": "patients + admissions",
+            "itemids_or_codes": "anchor_age/anchor_year",
+            "unit": "years",
+            "time_window": "index admission",
+            "event_time_rule": "admittime",
+            "availability_time_rule": "admittime",
+            "representation": "3-knot RCS; two basis columns",
+            "reference_or_zero_meaning": "continuous",
+            "missing_rule": "not expected; HOLD if absent",
+            "df": "2",
+            "audit_status": "PASS"
+          },
+          "core_matrix_path": "inputs/frozen/08_P004_MATRIX_SPEC.csv",
+          "core_matrix_rows": [
+            {
+              "column_order": "1",
+              "column_name": "age_linear",
+              "layer": "C0",
+              "source_field": "age_at_admit",
+              "generation_rule": "age as continuous linear RCS component",
+              "reference": "NA",
+              "training_fold_learned_parameter": "none",
+              "df": "1"
+            },
+            {
+              "column_order": "2",
+              "column_name": "age_rcs_nonlinear",
+              "layer": "C0",
+              "source_field": "age_at_admit",
+              "generation_rule": "3-knot restricted cubic spline nonlinear basis; Harrell basis scaled by outer-knot distance squared",
+              "reference": "NA",
+              "training_fold_learned_parameter": "knots at training-fold age quantiles 0.10/0.50/0.90",
+              "df": "1"
+            }
+          ]
+        }
+      ],
+      "manual_field_units": {
+        "age_at_admit": "years"
+      }
+    },
+    {
+      "id": "sex",
+      "source": "core",
+      "kind": "sex",
+      "raw_columns": [
+        "gender"
+      ],
+      "model_columns": [
+        "sex_female"
+      ],
+      "manual_fields": [
+        "gender"
+      ],
+      "manual_field_count": 1,
+      "binary_columns": [],
+      "order": 1,
+      "source_preparation": "gender: index admission; event: admittime; availability: admittime; missing: HOLD if outside frozen M/F coding",
+      "missing_option": "required; categorical unassessable only where defined",
+      "metadata": [
+        {
+          "column": "gender",
+          "unit": "M/F",
+          "generation_rule": "1 if F; 0 if M",
+          "temporal_contract": {
+            "time_window": "index admission",
+            "event_time_rule": "admittime",
+            "availability_time_rule": "admittime",
+            "missing_rule": "HOLD if outside frozen M/F coding"
+          },
+          "core_dictionary_path": "inputs/frozen/07_P002_DESIGN_DICTIONARY.csv",
+          "core_dictionary_field": "sex",
+          "core_dictionary_row": {
+            "ordinal": "2",
+            "layer": "C0",
+            "field": "sex",
+            "source": "patients",
+            "itemids_or_codes": "gender",
+            "unit": "binary",
+            "time_window": "index admission",
+            "event_time_rule": "admittime",
+            "availability_time_rule": "admittime",
+            "representation": "female indicator",
+            "reference_or_zero_meaning": "male",
+            "missing_rule": "HOLD if outside frozen M/F coding",
+            "df": "1",
+            "audit_status": "PASS"
+          },
+          "core_matrix_path": "inputs/frozen/08_P004_MATRIX_SPEC.csv",
+          "core_matrix_rows": [
+            {
+              "column_order": "3",
+              "column_name": "sex_female",
+              "layer": "C0",
+              "source_field": "gender",
+              "generation_rule": "1 if F; 0 if M",
+              "reference": "M",
+              "training_fold_learned_parameter": "none",
+              "df": "1"
+            }
+          ]
+        }
+      ],
+      "manual_field_units": {
+        "gender": "M/F"
+      }
+    },
+    {
+      "id": "charlson",
+      "source": "core",
+      "kind": "numeric",
+      "raw_columns": [
+        "charlson_prior_no_age"
+      ],
+      "model_columns": [
+        "charlson_prior_no_age"
+      ],
+      "manual_fields": [
+        "charlson_prior_no_age"
+      ],
+      "manual_field_count": 1,
+      "binary_columns": [],
+      "unit": "points",
+      "order": 2,
+      "source_preparation": "charlson_prior_no_age: prior.dischtime < index.admittime; event: latest qualifying prior dischtime; availability: latest qualifying prior dischtime; missing: no prior admission/mapping=0; never use index diagnosis",
+      "missing_option": "required; categorical unassessable only where defined",
+      "metadata": [
+        {
+          "column": "charlson_prior_no_age",
+          "unit": "points",
+          "generation_rule": "continuous linear",
+          "temporal_contract": {
+            "time_window": "prior.dischtime < index.admittime",
+            "event_time_rule": "latest qualifying prior dischtime",
+            "availability_time_rule": "latest qualifying prior dischtime",
+            "missing_rule": "no prior admission/mapping=0; never use index diagnosis"
+          },
+          "core_dictionary_path": "inputs/frozen/07_P002_DESIGN_DICTIONARY.csv",
+          "core_dictionary_field": "charlson_prior_no_age",
+          "core_dictionary_row": {
+            "ordinal": "3",
+            "layer": "C0",
+            "field": "charlson_prior_no_age",
+            "source": "derived.charlson + prior admissions",
+            "itemids_or_codes": "Quan ICD-9/10 components",
+            "unit": "points",
+            "time_window": "prior.dischtime < index.admittime",
+            "event_time_rule": "latest qualifying prior dischtime",
+            "availability_time_rule": "latest qualifying prior dischtime",
+            "representation": "continuous linear",
+            "reference_or_zero_meaning": "0=no mapped comorbidity in completed prior admissions",
+            "missing_rule": "no prior admission/mapping=0; never use index diagnosis",
+            "df": "1",
+            "audit_status": "PASS"
+          },
+          "core_matrix_path": "inputs/frozen/08_P004_MATRIX_SPEC.csv",
+          "core_matrix_rows": [
+            {
+              "column_order": "4",
+              "column_name": "charlson_prior_no_age",
+              "layer": "C0",
+              "source_field": "charlson_prior_no_age",
+              "generation_rule": "continuous linear",
+              "reference": "NA",
+              "training_fold_learned_parameter": "none",
+              "df": "1"
+            }
+          ]
+        }
+      ],
+      "manual_field_units": {
+        "charlson_prior_no_age": "points"
+      }
+    },
+    {
+      "id": "rbc",
+      "source": "core",
+      "kind": "log1p",
+      "raw_columns": [
+        "rbc_completed_ml"
+      ],
+      "model_columns": [
+        "log1p_rbc_completed_ml"
+      ],
+      "manual_fields": [
+        "rbc_completed_ml"
+      ],
+      "manual_field_count": 1,
+      "binary_columns": [],
+      "unit": "mL",
+      "order": 3,
+      "source_preparation": "rbc_completed_ml: episode_start to t0; event: endtime of latest completed eligible segment; availability: greatest(endtime,storetime); both <=t0; missing: only FinishedRunning; amountuom=mL; no patient deletion",
+      "missing_option": "required; categorical unassessable only where defined",
+      "metadata": [
+        {
+          "column": "rbc_completed_ml",
+          "unit": "mL",
+          "generation_rule": "ln(1+x)",
+          "temporal_contract": {
+            "time_window": "episode_start to t0",
+            "event_time_rule": "endtime of latest completed eligible segment",
+            "availability_time_rule": "greatest(endtime,storetime); both <=t0",
+            "missing_rule": "only FinishedRunning; amountuom=mL; no patient deletion"
+          },
+          "core_dictionary_path": "inputs/frozen/07_P002_DESIGN_DICTIONARY.csv",
+          "core_dictionary_field": "log1p_rbc_completed_ml",
+          "core_dictionary_row": {
+            "ordinal": "4",
+            "layer": "C1",
+            "field": "log1p_rbc_completed_ml",
+            "source": "inputevents",
+            "itemids_or_codes": "225168;226368;227070",
+            "unit": "mL",
+            "time_window": "episode_start to t0",
+            "event_time_rule": "endtime of latest completed eligible segment",
+            "availability_time_rule": "greatest(endtime,storetime); both <=t0",
+            "representation": "log1p(sum completed mL)",
+            "reference_or_zero_meaning": "0=no completed eligible RBC by t0",
+            "missing_rule": "only FinishedRunning; amountuom=mL; no patient deletion",
+            "df": "1",
+            "audit_status": "PASS"
+          },
+          "core_matrix_path": "inputs/frozen/08_P004_MATRIX_SPEC.csv",
+          "core_matrix_rows": [
+            {
+              "column_order": "5",
+              "column_name": "log1p_rbc_completed_ml",
+              "layer": "C1",
+              "source_field": "rbc_completed_ml",
+              "generation_rule": "ln(1+x)",
+              "reference": "NA",
+              "training_fold_learned_parameter": "none",
+              "df": "1"
+            }
+          ]
+        }
+      ],
+      "manual_field_units": {
+        "rbc_completed_ml": "mL"
+      }
+    },
+    {
+      "id": "non_rbc",
+      "source": "core",
+      "kind": "binary",
+      "raw_columns": [
+        "non_rbc_component_ever"
+      ],
+      "model_columns": [
+        "non_rbc_component_ever"
+      ],
+      "manual_fields": [
+        "non_rbc_component_ever"
+      ],
+      "manual_field_count": 1,
+      "binary_columns": [],
+      "unit": "binary",
+      "order": 4,
+      "source_preparation": "non_rbc_component_ever: episode_start to t0; event: latest eligible starttime; availability: storetime<=t0 and event_time<t0; missing: unmeasured is definitionally no confirmed exposure",
+      "missing_option": "required; categorical unassessable only where defined",
+      "metadata": [
+        {
+          "column": "non_rbc_component_ever",
+          "unit": "binary",
+          "generation_rule": "binary 0/1",
+          "temporal_contract": {
+            "time_window": "episode_start to t0",
+            "event_time_rule": "latest eligible starttime",
+            "availability_time_rule": "storetime<=t0 and event_time<t0",
+            "missing_rule": "unmeasured is definitionally no confirmed exposure"
+          },
+          "core_dictionary_path": "inputs/frozen/07_P002_DESIGN_DICTIONARY.csv",
+          "core_dictionary_field": "non_rbc_component_ever",
+          "core_dictionary_row": {
+            "ordinal": "5",
+            "layer": "C1",
+            "field": "non_rbc_component_ever",
+            "source": "inputevents",
+            "itemids_or_codes": "220970;225170;225171;226367;226369;227071",
+            "unit": "binary",
+            "time_window": "episode_start to t0",
+            "event_time_rule": "latest eligible starttime",
+            "availability_time_rule": "storetime<=t0 and event_time<t0",
+            "representation": "binary",
+            "reference_or_zero_meaning": "0=no confirmed eligible FFP/platelet/cryoprecipitate exposure by t0",
+            "missing_rule": "unmeasured is definitionally no confirmed exposure",
+            "df": "1",
+            "audit_status": "PASS"
+          },
+          "core_matrix_path": "inputs/frozen/08_P004_MATRIX_SPEC.csv",
+          "core_matrix_rows": [
+            {
+              "column_order": "6",
+              "column_name": "non_rbc_component_ever",
+              "layer": "C1",
+              "source_field": "non_rbc_component_ever",
+              "generation_rule": "binary 0/1",
+              "reference": "0",
+              "training_fold_learned_parameter": "none",
+              "df": "1"
+            }
+          ]
+        }
+      ],
+      "manual_field_units": {
+        "non_rbc_component_ever": "binary"
+      }
+    },
+    {
+      "id": "vasopressor_hours",
+      "source": "core",
+      "kind": "log1p",
+      "raw_columns": [
+        "vasopressor_active_hours"
+      ],
+      "model_columns": [
+        "log1p_vasopressor_active_hours"
+      ],
+      "manual_fields": [
+        "vasopressor_active_hours"
+      ],
+      "manual_field_count": 1,
+      "binary_columns": [],
+      "unit": "hours",
+      "order": 5,
+      "source_preparation": "vasopressor_active_hours: episode_start to t0; event: union of clipped starttime/endtime intervals; availability: source storetime<=t0; feature available at t0; missing: no separate ever indicator",
+      "missing_option": "required; categorical unassessable only where defined",
+      "metadata": [
+        {
+          "column": "vasopressor_active_hours",
+          "unit": "hours",
+          "generation_rule": "ln(1+x)",
+          "temporal_contract": {
+            "time_window": "episode_start to t0",
+            "event_time_rule": "union of clipped starttime/endtime intervals",
+            "availability_time_rule": "source storetime<=t0; feature available at t0",
+            "missing_rule": "no separate ever indicator"
+          },
+          "core_dictionary_path": "inputs/frozen/07_P002_DESIGN_DICTIONARY.csv",
+          "core_dictionary_field": "log1p_vasopressor_active_hours",
+          "core_dictionary_row": {
+            "ordinal": "6",
+            "layer": "C1",
+            "field": "log1p_vasopressor_active_hours",
+            "source": "inputevents",
+            "itemids_or_codes": "221289;229617;221662;221653;221906;221749;229630;229631;229632;222315;229709;229764",
+            "unit": "hours",
+            "time_window": "episode_start to t0",
+            "event_time_rule": "union of clipped starttime/endtime intervals",
+            "availability_time_rule": "source storetime<=t0; feature available at t0",
+            "representation": "log1p(union hours)",
+            "reference_or_zero_meaning": "0=no confirmed positive-rate nonpaused interval",
+            "missing_rule": "no separate ever indicator",
+            "df": "1",
+            "audit_status": "PASS"
+          },
+          "core_matrix_path": "inputs/frozen/08_P004_MATRIX_SPEC.csv",
+          "core_matrix_rows": [
+            {
+              "column_order": "7",
+              "column_name": "log1p_vasopressor_active_hours",
+              "layer": "C1",
+              "source_field": "vasopressor_active_hours",
+              "generation_rule": "ln(1+x)",
+              "reference": "NA",
+              "training_fold_learned_parameter": "none",
+              "df": "1"
+            }
+          ]
+        }
+      ],
+      "manual_field_units": {
+        "vasopressor_active_hours": "hours"
+      }
+    },
+    {
+      "id": "ventilation_hours",
+      "source": "core",
+      "kind": "log1p",
+      "raw_columns": [
+        "cumulative_invasive_ventilation_hours"
+      ],
+      "model_columns": [
+        "log1p_cumulative_invasive_ventilation_hours"
+      ],
+      "manual_fields": [
+        "cumulative_invasive_ventilation_hours"
+      ],
+      "manual_field_count": 1,
+      "binary_columns": [],
+      "unit": "hours",
+      "order": 6,
+      "source_preparation": "cumulative_invasive_ventilation_hours: episode_start to t0; event: union of positive-pressure evidence intervals; each record supports at most 14h and explicit nonactive truncates; availability: greatest(charttime,storetime)<=t0; final cumulative value available at t0; missing: tracheostomy alone is not positive; 321 candidate segments retained in ledger",
+      "missing_option": "required; categorical unassessable only where defined",
+      "metadata": [
+        {
+          "column": "cumulative_invasive_ventilation_hours",
+          "unit": "hours",
+          "generation_rule": "ln(1+x)",
+          "temporal_contract": {
+            "time_window": "episode_start to t0",
+            "event_time_rule": "union of positive-pressure evidence intervals; each record supports at most 14h and explicit nonactive truncates",
+            "availability_time_rule": "greatest(charttime,storetime)<=t0; final cumulative value available at t0",
+            "missing_rule": "tracheostomy alone is not positive; 321 candidate segments retained in ledger"
+          },
+          "core_dictionary_path": "inputs/frozen/07_P002_DESIGN_DICTIONARY.csv",
+          "core_dictionary_field": "log1p_cumulative_invasive_ventilation_hours",
+          "core_dictionary_row": {
+            "ordinal": "7",
+            "layer": "C1",
+            "field": "log1p_cumulative_invasive_ventilation_hours",
+            "source": "derived ventilation candidates + raw chartevents",
+            "itemids_or_codes": "InvasiveVent/Tracheostomy candidates; 223849;229314;224688;224684;224685;224686;224696;220339;224700;226732",
+            "unit": "hours",
+            "time_window": "episode_start to t0",
+            "event_time_rule": "union of positive-pressure evidence intervals; each record supports at most 14h and explicit nonactive truncates",
+            "availability_time_rule": "greatest(charttime,storetime)<=t0; final cumulative value available at t0",
+            "representation": "log1p(union hours)",
+            "reference_or_zero_meaning": "0=no evidence-confirmed active invasive positive-pressure interval",
+            "missing_rule": "tracheostomy alone is not positive; 321 candidate segments retained in ledger",
+            "df": "1",
+            "audit_status": "PASS"
+          },
+          "core_matrix_path": "inputs/frozen/08_P004_MATRIX_SPEC.csv",
+          "core_matrix_rows": [
+            {
+              "column_order": "8",
+              "column_name": "log1p_cumulative_invasive_ventilation_hours",
+              "layer": "C1",
+              "source_field": "cumulative_invasive_ventilation_hours",
+              "generation_rule": "ln(1+x)",
+              "reference": "NA",
+              "training_fold_learned_parameter": "none",
+              "df": "1"
+            }
+          ]
+        }
+      ],
+      "manual_field_units": {
+        "cumulative_invasive_ventilation_hours": "hours"
+      }
+    },
+    {
+      "id": "icp_procedure",
+      "source": "core",
+      "kind": "binary",
+      "raw_columns": [
+        "icp_monitor_or_csf_diversion_ever"
+      ],
+      "model_columns": [
+        "icp_monitor_or_csf_diversion_ever"
+      ],
+      "manual_fields": [
+        "icp_monitor_or_csf_diversion_ever"
+      ],
+      "manual_field_count": 1,
+      "binary_columns": [],
+      "unit": "binary",
+      "order": 7,
+      "source_preparation": "icp_monitor_or_csf_diversion_ever: episode_start to t0; event: completed endtime; availability: greatest(endtime,storetime)<=t0; missing: absence is no confirmed procedure; no patient deletion",
+      "missing_option": "required; categorical unassessable only where defined",
+      "metadata": [
+        {
+          "column": "icp_monitor_or_csf_diversion_ever",
+          "unit": "binary",
+          "generation_rule": "binary 0/1",
+          "temporal_contract": {
+            "time_window": "episode_start to t0",
+            "event_time_rule": "completed endtime",
+            "availability_time_rule": "greatest(endtime,storetime)<=t0",
+            "missing_rule": "absence is no confirmed procedure; no patient deletion"
+          },
+          "core_dictionary_path": "inputs/frozen/07_P002_DESIGN_DICTIONARY.csv",
+          "core_dictionary_field": "icp_monitor_or_csf_diversion_ever",
+          "core_dictionary_row": {
+            "ordinal": "8",
+            "layer": "C1",
+            "field": "icp_monitor_or_csf_diversion_ever",
+            "source": "procedureevents",
+            "itemids_or_codes": "225456;226124;226474;226475;229518;229521",
+            "unit": "binary",
+            "time_window": "episode_start to t0",
+            "event_time_rule": "completed endtime",
+            "availability_time_rule": "greatest(endtime,storetime)<=t0",
+            "representation": "binary",
+            "reference_or_zero_meaning": "0=no confirmed completed ICP/EVD procedure by t0",
+            "missing_rule": "absence is no confirmed procedure; no patient deletion",
+            "df": "1",
+            "audit_status": "PASS"
+          },
+          "core_matrix_path": "inputs/frozen/08_P004_MATRIX_SPEC.csv",
+          "core_matrix_rows": [
+            {
+              "column_order": "9",
+              "column_name": "icp_monitor_or_csf_diversion_ever",
+              "layer": "C1",
+              "source_field": "icp_monitor_or_csf_diversion_ever",
+              "generation_rule": "binary 0/1",
+              "reference": "0",
+              "training_fold_learned_parameter": "none",
+              "df": "1"
+            }
+          ]
+        }
+      ],
+      "manual_field_units": {
+        "icp_monitor_or_csf_diversion_ever": "binary"
+      }
+    },
+    {
+      "id": "cranial_operation",
+      "source": "core",
+      "kind": "binary",
+      "raw_columns": [
+        "cranial_operation_ever"
+      ],
+      "model_columns": [
+        "cranial_operation_ever"
+      ],
+      "manual_fields": [
+        "cranial_operation_ever"
+      ],
+      "manual_field_count": 1,
+      "binary_columns": [],
+      "unit": "binary",
+      "order": 8,
+      "source_preparation": "cranial_operation_ever: index admission before t0; event: chartdate for earlier dates; time-stamped postoperative radiology for same date; availability: earlier date bounded by chartdate+1d<t0; same-day proxy storetime<=t0; missing: same-day date-only code is not positive; retained in uncertainty ledger",
+      "missing_option": "required; categorical unassessable only where defined",
+      "metadata": [
+        {
+          "column": "cranial_operation_ever",
+          "unit": "binary",
+          "generation_rule": "binary 0/1",
+          "temporal_contract": {
+            "time_window": "index admission before t0",
+            "event_time_rule": "chartdate for earlier dates; time-stamped postoperative radiology for same date",
+            "availability_time_rule": "earlier date bounded by chartdate+1d<t0; same-day proxy storetime<=t0",
+            "missing_rule": "same-day date-only code is not positive; retained in uncertainty ledger"
+          },
+          "core_dictionary_path": "inputs/frozen/07_P002_DESIGN_DICTIONARY.csv",
+          "core_dictionary_field": "cranial_operation_ever",
+          "core_dictionary_row": {
+            "ordinal": "9",
+            "layer": "C1",
+            "field": "cranial_operation_ever",
+            "source": "procedures_icd + d_icd_procedures + time-stamped radiology proxy",
+            "itemids_or_codes": "ICD-9 0123/0124/0125/0131/0139; ICD-10 open/percutaneous drainage/extirpation of intracranial subdural/epidural/subarachnoid or cerebral hemisphere space",
+            "unit": "binary",
+            "time_window": "index admission before t0",
+            "event_time_rule": "chartdate for earlier dates; time-stamped postoperative radiology for same date",
+            "availability_time_rule": "earlier date bounded by chartdate+1d<t0; same-day proxy storetime<=t0",
+            "representation": "binary",
+            "reference_or_zero_meaning": "0=no confirmed completed TBI-related cranial operation before t0",
+            "missing_rule": "same-day date-only code is not positive; retained in uncertainty ledger",
+            "df": "1",
+            "audit_status": "PASS"
+          },
+          "core_matrix_path": "inputs/frozen/08_P004_MATRIX_SPEC.csv",
+          "core_matrix_rows": [
+            {
+              "column_order": "10",
+              "column_name": "cranial_operation_ever",
+              "layer": "C1",
+              "source_field": "cranial_operation_ever",
+              "generation_rule": "binary 0/1",
+              "reference": "0",
+              "training_fold_learned_parameter": "none",
+              "df": "1"
+            }
+          ]
+        }
+      ],
+      "manual_field_units": {
+        "cranial_operation_ever": "binary"
+      }
+    },
+    {
+      "id": "icu_hours",
+      "source": "core",
+      "kind": "log1p",
+      "raw_columns": [
+        "icu_episode_hours"
+      ],
+      "model_columns": [
+        "log1p_icu_episode_hours"
+      ],
+      "manual_fields": [
+        "icu_episode_hours"
+      ],
+      "manual_field_count": 1,
+      "binary_columns": [],
+      "unit": "hours",
+      "order": 9,
+      "source_preparation": "icu_episode_hours: episode_start to t0; event: t0-episode_start; availability: t0; missing: HOLD if episode_start/t0 absent; frozen cohort has none",
+      "missing_option": "required; categorical unassessable only where defined",
+      "metadata": [
+        {
+          "column": "icu_episode_hours",
+          "unit": "hours",
+          "generation_rule": "ln(1+x)",
+          "temporal_contract": {
+            "time_window": "episode_start to t0",
+            "event_time_rule": "t0-episode_start",
+            "availability_time_rule": "t0",
+            "missing_rule": "HOLD if episode_start/t0 absent; frozen cohort has none"
+          },
+          "core_dictionary_path": "inputs/frozen/07_P002_DESIGN_DICTIONARY.csv",
+          "core_dictionary_field": "log1p_icu_episode_hours",
+          "core_dictionary_row": {
+            "ordinal": "10",
+            "layer": "C1",
+            "field": "log1p_icu_episode_hours",
+            "source": "icustays",
+            "itemids_or_codes": "continuous episode; adjacent gap <=6h",
+            "unit": "hours",
+            "time_window": "episode_start to t0",
+            "event_time_rule": "t0-episode_start",
+            "availability_time_rule": "t0",
+            "representation": "log1p(hours)",
+            "reference_or_zero_meaning": "continuous",
+            "missing_rule": "HOLD if episode_start/t0 absent; frozen cohort has none",
+            "df": "1",
+            "audit_status": "PASS"
+          },
+          "core_matrix_path": "inputs/frozen/08_P004_MATRIX_SPEC.csv",
+          "core_matrix_rows": [
+            {
+              "column_order": "11",
+              "column_name": "log1p_icu_episode_hours",
+              "layer": "C1",
+              "source_field": "icu_episode_hours",
+              "generation_rule": "ln(1+x)",
+              "reference": "NA",
+              "training_fold_learned_parameter": "none",
+              "df": "1"
+            }
+          ]
+        }
+      ],
+      "manual_field_units": {
+        "icu_episode_hours": "hours"
+      }
+    },
+    {
+      "id": "sofa",
+      "source": "core",
+      "kind": "sofa",
+      "raw_columns": [
+        "modified_non_neuro_sofa2_total",
+        "abnormal_non_neuro_organ_count"
+      ],
+      "model_columns": [
+        "modified_non_neuro_sofa2_total",
+        "abnormal_non_neuro_organ_count"
+      ],
+      "manual_fields": [
+        "modified_non_neuro_sofa2_total",
+        "abnormal_non_neuro_organ_count"
+      ],
+      "manual_field_count": 2,
+      "binary_columns": [],
+      "source_preparation": "Five non-neurologic organ domains; original selected 24-hour window, up-to-48-hour rollback and unobserved handling; two already computed scores, NOT ordinary SOFA.",
+      "underlying_domains": 5,
+      "order": 10,
+      "missing_option": "required; categorical unassessable only where defined",
+      "metadata": [
+        {
+          "column": "modified_non_neuro_sofa2_total",
+          "unit": "points",
+          "generation_rule": "continuous linear 0-20",
+          "temporal_contract": {
+            "time_window": "selected W0-W6 24h window",
+            "event_time_rule": "domain-specific event times in selected window",
+            "availability_time_rule": "all source availability<=t0",
+            "missing_rule": "W0-W6 all unobserved retained as total=0 with audit flag"
+          },
+          "core_dictionary_path": "inputs/frozen/07_P002_DESIGN_DICTIONARY.csv",
+          "core_dictionary_field": "modified_non_neuro_sofa2_total",
+          "core_dictionary_row": {
+            "ordinal": "11",
+            "layer": "C2",
+            "field": "modified_non_neuro_sofa2_total",
+            "source": "labevents; chartevents; inputevents; outputevents/derived urine; procedureevents/derived RRT; ventilation/support tables",
+            "itemids_or_codes": "SOFA-2 five-domain frozen mapping",
+            "unit": "points",
+            "time_window": "selected W0-W6 24h window",
+            "event_time_rule": "domain-specific event times in selected window",
+            "availability_time_rule": "all source availability<=t0",
+            "representation": "continuous linear 0-20",
+            "reference_or_zero_meaning": "0 can mean observed normal or protocol-assigned unmeasured domain=0",
+            "missing_rule": "W0-W6 all unobserved retained as total=0 with audit flag",
+            "df": "1",
+            "audit_status": "PASS"
+          },
+          "core_matrix_path": "inputs/frozen/08_P004_MATRIX_SPEC.csv",
+          "core_matrix_rows": [
+            {
+              "column_order": "12",
+              "column_name": "modified_non_neuro_sofa2_total",
+              "layer": "C2",
+              "source_field": "modified_non_neuro_sofa2_total",
+              "generation_rule": "continuous linear 0-20",
+              "reference": "NA",
+              "training_fold_learned_parameter": "none",
+              "df": "1"
+            }
+          ]
+        },
+        {
+          "column": "abnormal_non_neuro_organ_count",
+          "unit": "count",
+          "generation_rule": "continuous linear 0-5",
+          "temporal_contract": {
+            "time_window": "selected W0-W6 24h window",
+            "event_time_rule": "same as SOFA total",
+            "availability_time_rule": "same as SOFA total",
+            "missing_rule": "same window as total; no extra missing indicator"
+          },
+          "core_dictionary_path": "inputs/frozen/07_P002_DESIGN_DICTIONARY.csv",
+          "core_dictionary_field": "abnormal_non_neuro_organ_count",
+          "core_dictionary_row": {
+            "ordinal": "12",
+            "layer": "C2",
+            "field": "abnormal_non_neuro_organ_count",
+            "source": "same selected SOFA window",
+            "itemids_or_codes": "five domains",
+            "unit": "count",
+            "time_window": "selected W0-W6 24h window",
+            "event_time_rule": "same as SOFA total",
+            "availability_time_rule": "same as SOFA total",
+            "representation": "continuous linear 0-5",
+            "reference_or_zero_meaning": "0=no scored abnormal domain under protocol representation",
+            "missing_rule": "same window as total; no extra missing indicator",
+            "df": "1",
+            "audit_status": "PASS"
+          },
+          "core_matrix_path": "inputs/frozen/08_P004_MATRIX_SPEC.csv",
+          "core_matrix_rows": [
+            {
+              "column_order": "13",
+              "column_name": "abnormal_non_neuro_organ_count",
+              "layer": "C2",
+              "source_field": "abnormal_non_neuro_organ_count",
+              "generation_rule": "continuous linear 0-5",
+              "reference": "NA",
+              "training_fold_learned_parameter": "none",
+              "df": "1"
+            }
+          ]
+        }
+      ],
+      "manual_field_units": {
+        "modified_non_neuro_sofa2_total": "points",
+        "abnormal_non_neuro_organ_count": "count"
+      }
+    },
+    {
+      "id": "terminal_pupil",
+      "source": "core",
+      "kind": "pupil",
+      "raw_columns": [
+        "nonreactive_pupil_count",
+        "pupil_unassessable"
+      ],
+      "model_columns": [
+        "nonreactive_pupil_count",
+        "pupil_unassessable"
+      ],
+      "manual_fields": [
+        "terminal_pupil"
+      ],
+      "manual_field_count": 1,
+      "binary_columns": [],
+      "order": 11,
+      "source_preparation": "nonreactive_pupil_count: [t0-6h,t0); event: latest anchor and paired opposite side within 30min; availability: greatest(charttime,storetime)<=t0 for both available sides; missing: missing side contributes 0 to count and sets unassessable=1 | pupil_unassessable: [t0-6h,t0); event: same pupil assessment; availability: same pupil assessment; missing: 1 if bilateral pair unavailable/unreliable; patient retained",
+      "missing_option": "One joint category preserves count0/1/2 and unassessable0/1. Missing side contributes0, recorded opposite side retained; unreliable bilateral states retained. Numeric0/1/2 alias complete; unassessable aliases count0+flag1.",
+      "metadata": [
+        {
+          "column": "nonreactive_pupil_count",
+          "unit": "count",
+          "generation_rule": "ordered linear 0/1/2",
+          "temporal_contract": {
+            "time_window": "[t0-6h,t0)",
+            "event_time_rule": "latest anchor and paired opposite side within 30min",
+            "availability_time_rule": "greatest(charttime,storetime)<=t0 for both available sides",
+            "missing_rule": "missing side contributes 0 to count and sets unassessable=1"
+          },
+          "core_dictionary_path": "inputs/frozen/07_P002_DESIGN_DICTIONARY.csv",
+          "core_dictionary_field": "nonreactive_pupil_count",
+          "core_dictionary_row": {
+            "ordinal": "13",
+            "layer": "C2",
+            "field": "nonreactive_pupil_count",
+            "source": "chartevents",
+            "itemids_or_codes": "227121 right;227288 left",
+            "unit": "count",
+            "time_window": "[t0-6h,t0)",
+            "event_time_rule": "latest anchor and paired opposite side within 30min",
+            "availability_time_rule": "greatest(charttime,storetime)<=t0 for both available sides",
+            "representation": "ordered linear 0/1/2",
+            "reference_or_zero_meaning": "0=no recorded Non-reactive side; interpret with unassessable indicator",
+            "missing_rule": "missing side contributes 0 to count and sets unassessable=1",
+            "df": "1",
+            "audit_status": "PASS"
+          },
+          "core_matrix_path": "inputs/frozen/08_P004_MATRIX_SPEC.csv",
+          "core_matrix_rows": [
+            {
+              "column_order": "14",
+              "column_name": "nonreactive_pupil_count",
+              "layer": "C2",
+              "source_field": "nonreactive_pupil_count",
+              "generation_rule": "ordered linear 0/1/2",
+              "reference": "NA",
+              "training_fold_learned_parameter": "none",
+              "df": "1"
+            }
+          ]
+        },
+        {
+          "column": "pupil_unassessable",
+          "unit": "binary",
+          "generation_rule": "binary 0/1",
+          "temporal_contract": {
+            "time_window": "[t0-6h,t0)",
+            "event_time_rule": "same pupil assessment",
+            "availability_time_rule": "same pupil assessment",
+            "missing_rule": "1 if bilateral pair unavailable/unreliable; patient retained"
+          },
+          "core_dictionary_path": "inputs/frozen/07_P002_DESIGN_DICTIONARY.csv",
+          "core_dictionary_field": "pupil_unassessable",
+          "core_dictionary_row": {
+            "ordinal": "14",
+            "layer": "C2",
+            "field": "pupil_unassessable",
+            "source": "chartevents",
+            "itemids_or_codes": "227121;227288",
+            "unit": "binary",
+            "time_window": "[t0-6h,t0)",
+            "event_time_rule": "same pupil assessment",
+            "availability_time_rule": "same pupil assessment",
+            "representation": "binary",
+            "reference_or_zero_meaning": "0=bilateral eligible assessment",
+            "missing_rule": "1 if bilateral pair unavailable/unreliable; patient retained",
+            "df": "1",
+            "audit_status": "PASS"
+          },
+          "core_matrix_path": "inputs/frozen/08_P004_MATRIX_SPEC.csv",
+          "core_matrix_rows": [
+            {
+              "column_order": "15",
+              "column_name": "pupil_unassessable",
+              "layer": "C2",
+              "source_field": "pupil_unassessable",
+              "generation_rule": "binary 0/1",
+              "reference": "0",
+              "training_fold_learned_parameter": "none",
+              "df": "1"
+            }
+          ]
+        }
+      ],
+      "manual_field_units": {
+        "terminal_pupil": "count or unassessable"
+      },
+      "manual_categories": [
+        {
+          "value": "complete_zero_nonreactive",
+          "label": "Complete bilateral assessment; 0 recorded nonreactive side(s)",
+          "canonical": {
+            "nonreactive_pupil_count": 0,
+            "pupil_unassessable": 0
+          }
+        },
+        {
+          "value": "complete_one_nonreactive",
+          "label": "Complete bilateral assessment; 1 recorded nonreactive side(s)",
+          "canonical": {
+            "nonreactive_pupil_count": 1,
+            "pupil_unassessable": 0
+          }
+        },
+        {
+          "value": "complete_two_nonreactive",
+          "label": "Complete bilateral assessment; 2 recorded nonreactive side(s)",
+          "canonical": {
+            "nonreactive_pupil_count": 2,
+            "pupil_unassessable": 0
+          }
+        },
+        {
+          "value": "incomplete_zero_nonreactive",
+          "label": "Incomplete/unreliable bilateral assessment; 0 recorded nonreactive side(s)",
+          "canonical": {
+            "nonreactive_pupil_count": 0,
+            "pupil_unassessable": 1
+          }
+        },
+        {
+          "value": "incomplete_one_nonreactive",
+          "label": "Incomplete/unreliable bilateral assessment; 1 recorded nonreactive side(s)",
+          "canonical": {
+            "nonreactive_pupil_count": 1,
+            "pupil_unassessable": 1
+          }
+        },
+        {
+          "value": "incomplete_two_nonreactive",
+          "label": "Incomplete/unreliable bilateral assessment; 2 recorded nonreactive side(s)",
+          "canonical": {
+            "nonreactive_pupil_count": 2,
+            "pupil_unassessable": 1
+          }
+        }
+      ],
+      "manual_aliases": {
+        "0": "complete_zero_nonreactive",
+        "1": "complete_one_nonreactive",
+        "2": "complete_two_nonreactive",
+        "unassessable": "incomplete_zero_nonreactive"
+      }
+    },
+    {
+      "id": "terminal_gcsm",
+      "source": "core",
+      "kind": "gcsm",
+      "raw_columns": [
+        "gcsm_category"
+      ],
+      "model_columns": [
+        "gcsm_4_5",
+        "gcsm_1_3",
+        "gcsm_unassessable"
+      ],
+      "manual_fields": [
+        "gcsm_category"
+      ],
+      "manual_field_count": 1,
+      "binary_columns": [],
+      "order": 12,
+      "source_preparation": "gcsm_category: [t0-6h,t0); event: latest reliable GCSm charttime; same-time conflict=min; availability: greatest(charttime,storetime)<=t0; treatment sources storetime<=t0; missing: search earlier only within 6h; treatment-interfered/no record combine",
+      "missing_option": "required; categorical unassessable only where defined",
+      "metadata": [
+        {
+          "column": "gcsm_category",
+          "unit": "6/4-5/1-3/unassessable",
+          "generation_rule": "1 for 4-5; else 0 | 1 for 1-3; else 0 | 1 for unassessable; else 0",
+          "temporal_contract": {
+            "time_window": "[t0-6h,t0)",
+            "event_time_rule": "latest reliable GCSm charttime; same-time conflict=min",
+            "availability_time_rule": "greatest(charttime,storetime)<=t0; treatment sources storetime<=t0",
+            "missing_rule": "search earlier only within 6h; treatment-interfered/no record combine"
+          },
+          "core_dictionary_path": "inputs/frozen/07_P002_DESIGN_DICTIONARY.csv",
+          "core_dictionary_field": "gcsm_category",
+          "core_dictionary_row": {
+            "ordinal": "15",
+            "layer": "C2",
+            "field": "gcsm_category",
+            "source": "chartevents + treatment intervals",
+            "itemids_or_codes": "223901; RASS 228096; sedatives 221668/222168/225150/229420; NMB 221555/222062/229233",
+            "unit": "category",
+            "time_window": "[t0-6h,t0)",
+            "event_time_rule": "latest reliable GCSm charttime; same-time conflict=min",
+            "availability_time_rule": "greatest(charttime,storetime)<=t0; treatment sources storetime<=t0",
+            "representation": "four levels: 6 ref;4-5;1-3;unassessable",
+            "reference_or_zero_meaning": "GCSm=6 reference",
+            "missing_rule": "search earlier only within 6h; treatment-interfered/no record combine",
+            "df": "3",
+            "audit_status": "PASS"
+          },
+          "core_matrix_path": "inputs/frozen/08_P004_MATRIX_SPEC.csv",
+          "core_matrix_rows": [
+            {
+              "column_order": "16",
+              "column_name": "gcsm_4_5",
+              "layer": "C2",
+              "source_field": "gcsm_category",
+              "generation_rule": "1 for 4-5; else 0",
+              "reference": "6",
+              "training_fold_learned_parameter": "none",
+              "df": "1"
+            },
+            {
+              "column_order": "17",
+              "column_name": "gcsm_1_3",
+              "layer": "C2",
+              "source_field": "gcsm_category",
+              "generation_rule": "1 for 1-3; else 0",
+              "reference": "6",
+              "training_fold_learned_parameter": "none",
+              "df": "1"
+            },
+            {
+              "column_order": "18",
+              "column_name": "gcsm_unassessable",
+              "layer": "C2",
+              "source_field": "gcsm_category",
+              "generation_rule": "1 for unassessable; else 0",
+              "reference": "6",
+              "training_fold_learned_parameter": "none",
+              "df": "1"
+            }
+          ]
+        }
+      ],
+      "manual_field_units": {
+        "gcsm_category": "6/4-5/1-3/unassessable"
+      }
+    },
+    {
+      "id": "wpr",
+      "source": "core",
+      "kind": "wpr",
+      "raw_columns": [
+        "log2_wpr",
+        "wpr_unavailable"
+      ],
+      "model_columns": [
+        "log2_wpr_imputed",
+        "wpr_unavailable"
+      ],
+      "manual_fields": [
+        "wpr_wbc",
+        "wpr_platelet"
+      ],
+      "manual_field_count": 2,
+      "binary_columns": [],
+      "unit": "10^9/L",
+      "source_preparation": "log2_wpr: [t0-24h,t0); event: latest same-specimen CBC charttime; availability: both storetimes and charttime<=t0; missing: no global imputation; paired positive K/uL values only | wpr_unavailable: [t0-24h,t0); event: same WPR specimen; availability: same WPR specimen; missing: 1=no eligible pair; patient retained",
+      "missing_option": "both paired manual values null",
+      "order": 13,
+      "metadata": [
+        {
+          "column": "log2_wpr",
+          "unit": "log2 dimensionless WBC/platelet ratio",
+          "generation_rule": "observed log2(WBC/platelet); unavailable values replaced only by training-fold median",
+          "temporal_contract": {
+            "time_window": "[t0-24h,t0)",
+            "event_time_rule": "latest same-specimen CBC charttime",
+            "availability_time_rule": "both storetimes and charttime<=t0",
+            "missing_rule": "no global imputation; paired positive K/uL values only"
+          },
+          "core_dictionary_path": "inputs/frozen/07_P002_DESIGN_DICTIONARY.csv",
+          "core_dictionary_field": "log2_wpr",
+          "core_dictionary_row": {
+            "ordinal": "16",
+            "layer": "C2",
+            "field": "log2_wpr",
+            "source": "labevents",
+            "itemids_or_codes": "51301 WBC + 51265 platelet",
+            "unit": "log2 ratio",
+            "time_window": "[t0-24h,t0)",
+            "event_time_rule": "latest same-specimen CBC charttime",
+            "availability_time_rule": "both storetimes and charttime<=t0",
+            "representation": "log2(WBC/platelet)",
+            "reference_or_zero_meaning": "continuous after training-fold median imputation when unavailable",
+            "missing_rule": "no global imputation; paired positive K/uL values only",
+            "df": "1",
+            "audit_status": "PASS"
+          },
+          "core_matrix_path": "inputs/frozen/08_P004_MATRIX_SPEC.csv",
+          "core_matrix_rows": [
+            {
+              "column_order": "19",
+              "column_name": "log2_wpr_imputed",
+              "layer": "C2",
+              "source_field": "log2_wpr",
+              "generation_rule": "observed log2(WBC/platelet); unavailable values replaced only by training-fold median",
+              "reference": "NA",
+              "training_fold_learned_parameter": "training-fold median log2_wpr",
+              "df": "1"
+            }
+          ]
+        },
+        {
+          "column": "wpr_unavailable",
+          "unit": "binary",
+          "generation_rule": "binary 0/1",
+          "temporal_contract": {
+            "time_window": "[t0-24h,t0)",
+            "event_time_rule": "same WPR specimen",
+            "availability_time_rule": "same WPR specimen",
+            "missing_rule": "1=no eligible pair; patient retained"
+          },
+          "core_dictionary_path": "inputs/frozen/07_P002_DESIGN_DICTIONARY.csv",
+          "core_dictionary_field": "wpr_unavailable",
+          "core_dictionary_row": {
+            "ordinal": "17",
+            "layer": "C2",
+            "field": "wpr_unavailable",
+            "source": "labevents",
+            "itemids_or_codes": "51301 + 51265",
+            "unit": "binary",
+            "time_window": "[t0-24h,t0)",
+            "event_time_rule": "same WPR specimen",
+            "availability_time_rule": "same WPR specimen",
+            "representation": "binary",
+            "reference_or_zero_meaning": "0=eligible paired CBC available",
+            "missing_rule": "1=no eligible pair; patient retained",
+            "df": "1",
+            "audit_status": "PASS"
+          },
+          "core_matrix_path": "inputs/frozen/08_P004_MATRIX_SPEC.csv",
+          "core_matrix_rows": [
+            {
+              "column_order": "20",
+              "column_name": "wpr_unavailable",
+              "layer": "C2",
+              "source_field": "wpr_unavailable",
+              "generation_rule": "binary 0/1",
+              "reference": "0",
+              "training_fold_learned_parameter": "none",
+              "df": "1"
+            }
+          ]
+        }
+      ],
+      "manual_field_units": {
+        "wpr_wbc": "10^9/L",
+        "wpr_platelet": "10^9/L"
+      }
+    },
+    {
+      "id": "initial_gcs",
+      "source": "extension",
+      "kind": "initial",
+      "raw_columns": [
+        "initial_gcs_total_value",
+        "initial_gcs_unassessable"
+      ],
+      "model_columns": [
+        "initial_gcs_total_value",
+        "initial_gcs_unassessable"
+      ],
+      "manual_fields": [
+        "initial_gcs_total"
+      ],
+      "manual_field_count": 1,
+      "binary_columns": [
+        "initial_gcs_unassessable"
+      ],
+      "order": 14,
+      "source_preparation": "Original frozen clinical definition; t0-visible events only; enter existing audited summary, not recomputed alternative.",
+      "missing_option": "explicit null (unavailable, never normal)",
+      "metadata": [
+        {
+          "column": "initial_gcs_total_value",
+          "unit": "points",
+          "variable_id": "initial_gcs_total",
+          "legal_range": "3<=value<=15",
+          "last_window": "not_applicable",
+          "event_time": "charttime",
+          "availability_time": "greatest(charttime,storetime)",
+          "t0_inclusion_rule": "episode_start<=event_time<t0 and availability_time<=t0",
+          "generation_rule": "first reliable same-time E+V+M"
+        },
+        {
+          "column": "initial_gcs_unassessable",
+          "unit": "binary",
+          "variable_id": "initial_gcs_total",
+          "legal_range": "3<=value<=15",
+          "last_window": "not_applicable",
+          "event_time": "charttime",
+          "availability_time": "greatest(charttime,storetime)",
+          "t0_inclusion_rule": "episode_start<=event_time<t0 and availability_time<=t0",
+          "generation_rule": "1 if no reliable complete assessment"
+        }
+      ],
+      "manual_field_units": {
+        "initial_gcs_total": "points"
+      }
+    },
+    {
+      "id": "initial_pupil",
+      "source": "extension",
+      "kind": "initial",
+      "raw_columns": [
+        "initial_pupil_nonreactive_count_value",
+        "initial_pupil_unassessable"
+      ],
+      "model_columns": [
+        "initial_pupil_nonreactive_count_value",
+        "initial_pupil_unassessable"
+      ],
+      "manual_fields": [
+        "initial_pupil"
+      ],
+      "manual_field_count": 1,
+      "binary_columns": [
+        "initial_pupil_unassessable"
+      ],
+      "order": 15,
+      "source_preparation": "Original frozen clinical definition; t0-visible events only; enter existing audited summary, not recomputed alternative.",
+      "missing_option": "explicit null (unavailable, never normal)",
+      "metadata": [
+        {
+          "column": "initial_pupil_nonreactive_count_value",
+          "unit": "count",
+          "variable_id": "initial_pupil_nonreactive_count",
+          "legal_range": "0<=value<=2",
+          "last_window": "not_applicable",
+          "event_time": "charttime",
+          "availability_time": "greatest(charttime,storetime)",
+          "t0_inclusion_rule": "episode_start<=event_time<t0 and availability_time<=t0",
+          "generation_rule": "first deterministic bilateral pair"
+        },
+        {
+          "column": "initial_pupil_unassessable",
+          "unit": "binary",
+          "variable_id": "initial_pupil_nonreactive_count",
+          "legal_range": "0<=value<=2",
+          "last_window": "not_applicable",
+          "event_time": "charttime",
+          "availability_time": "greatest(charttime,storetime)",
+          "t0_inclusion_rule": "episode_start<=event_time<t0 and availability_time<=t0",
+          "generation_rule": "1 if no complete pair"
+        }
+      ],
+      "manual_field_units": {
+        "initial_pupil": "count"
+      }
+    },
+    {
+      "id": "icp_last",
+      "source": "extension",
+      "kind": "numeric",
+      "raw_columns": [
+        "icp_last"
+      ],
+      "model_columns": [
+        "icp_last"
+      ],
+      "manual_fields": [
+        "icp_last"
+      ],
+      "manual_field_count": 1,
+      "binary_columns": [],
+      "order": 16,
+      "source_preparation": "Original frozen clinical definition; t0-visible events only; enter existing audited summary, not recomputed alternative.",
+      "missing_option": "explicit null (unavailable, never normal)",
+      "metadata": [
+        {
+          "column": "icp_last",
+          "unit": "mmHg",
+          "variable_id": "icp_value",
+          "legal_range": "-5<=value<=200",
+          "last_window": "[max(episode_start,t0-48h),t0)",
+          "event_time": "charttime",
+          "availability_time": "greatest(charttime,storetime)",
+          "t0_inclusion_rule": "episode_start<=event_time<t0 and availability_time<=t0",
+          "generation_rule": "numeric",
+          "canonical_range": [
+            -5,
+            200
+          ],
+          "canonical_range_rule": "inclusive; frozen A2 source contracts after A3 unit conversion"
+        }
+      ],
+      "manual_field_units": {
+        "icp_last": "mmHg"
+      }
+    },
+    {
+      "id": "invasive_vent_active_t0",
+      "source": "extension",
+      "kind": "binary",
+      "raw_columns": [
+        "invasive_vent_active_t0"
+      ],
+      "model_columns": [
+        "invasive_vent_active_t0"
+      ],
+      "manual_fields": [
+        "invasive_vent_active_t0"
+      ],
+      "manual_field_count": 1,
+      "binary_columns": [
+        "invasive_vent_active_t0"
+      ],
+      "order": 17,
+      "source_preparation": "Original frozen clinical definition; t0-visible events only; enter existing audited summary, not recomputed alternative.",
+      "missing_option": "required; categorical unassessable only where defined",
+      "metadata": [
+        {
+          "column": "invasive_vent_active_t0",
+          "unit": "binary",
+          "variable_id": "invasive_vent_active_t0",
+          "legal_range": "0/1",
+          "last_window": "14h visible state evidence before t0 intersected with authoritative candidate interval",
+          "event_time": "charttime",
+          "availability_time": "greatest(charttime,storetime)",
+          "t0_inclusion_rule": "episode_start<=event_time<t0 and availability_time<=t0",
+          "generation_rule": "visible current support evidence"
+        }
+      ],
+      "manual_field_units": {
+        "invasive_vent_active_t0": "binary"
+      }
+    },
+    {
+      "id": "vasopressor_active_t0",
+      "source": "extension",
+      "kind": "binary",
+      "raw_columns": [
+        "vasopressor_active_t0"
+      ],
+      "model_columns": [
+        "vasopressor_active_t0"
+      ],
+      "manual_fields": [
+        "vasopressor_active_t0"
+      ],
+      "manual_field_count": 1,
+      "binary_columns": [
+        "vasopressor_active_t0"
+      ],
+      "order": 18,
+      "source_preparation": "Original frozen clinical definition; t0-visible events only; enter existing audited summary, not recomputed alternative.",
+      "missing_option": "required; categorical unassessable only where defined",
+      "metadata": [
+        {
+          "column": "vasopressor_active_t0",
+          "unit": "binary",
+          "variable_id": "vasopressor_active_t0",
+          "legal_range": "0/1",
+          "last_window": "4h visible state evidence before t0",
+          "event_time": "starttime/state_time",
+          "availability_time": "greatest(starttime,storetime)",
+          "t0_inclusion_rule": "episode_start<=event_time<t0 and availability_time<=t0",
+          "generation_rule": "last visible 4h state"
+        }
+      ],
+      "manual_field_units": {
+        "vasopressor_active_t0": "binary"
+      }
+    },
+    {
+      "id": "rrt",
+      "source": "extension",
+      "kind": "rrt",
+      "raw_columns": [
+        "rrt_ever",
+        "rrt_active_t0"
+      ],
+      "model_columns": [
+        "rrt_ever",
+        "rrt_active_t0"
+      ],
+      "manual_fields": [
+        "rrt_ever",
+        "rrt_active_t0"
+      ],
+      "manual_field_count": 2,
+      "binary_columns": [
+        "rrt_ever",
+        "rrt_active_t0"
+      ],
+      "order": 19,
+      "source_preparation": "Original frozen clinical definition; t0-visible events only; enter existing audited summary, not recomputed alternative.",
+      "missing_option": "required; categorical unassessable only where defined",
+      "metadata": [
+        {
+          "column": "rrt_ever",
+          "unit": "binary",
+          "variable_id": "rrt_ever",
+          "legal_range": "0/1",
+          "last_window": "[episode_start,t0)",
+          "event_time": "charttime_or_endtime",
+          "availability_time": "greatest(event_time,storetime)",
+          "t0_inclusion_rule": "episode_start<=event_time<t0 and availability_time<=t0",
+          "generation_rule": "rrt_ever"
+        },
+        {
+          "column": "rrt_active_t0",
+          "unit": "binary",
+          "variable_id": "rrt_active_t0",
+          "legal_range": "0/1",
+          "last_window": "4h visible state evidence before t0",
+          "event_time": "state_time",
+          "availability_time": "greatest(state_time,storetime)",
+          "t0_inclusion_rule": "episode_start<=event_time<t0 and availability_time<=t0",
+          "generation_rule": "rrt_active_t0"
+        }
+      ],
+      "manual_field_units": {
+        "rrt_ever": "binary",
+        "rrt_active_t0": "binary"
+      }
+    },
+    {
+      "id": "hyperosmolar_ever",
+      "source": "extension",
+      "kind": "binary",
+      "raw_columns": [
+        "hyperosmolar_ever"
+      ],
+      "model_columns": [
+        "hyperosmolar_ever"
+      ],
+      "manual_fields": [
+        "hyperosmolar_ever"
+      ],
+      "manual_field_count": 1,
+      "binary_columns": [
+        "hyperosmolar_ever"
+      ],
+      "order": 20,
+      "source_preparation": "Original frozen clinical definition; t0-visible events only; enter existing audited summary, not recomputed alternative.",
+      "missing_option": "required; categorical unassessable only where defined",
+      "metadata": [
+        {
+          "column": "hyperosmolar_ever",
+          "unit": "binary",
+          "variable_id": "hyperosmolar_ever",
+          "legal_range": "0/1",
+          "last_window": "[episode_start,t0)",
+          "event_time": "endtime",
+          "availability_time": "greatest(endtime,storetime)",
+          "t0_inclusion_rule": "episode_start<=event_time<t0 and availability_time<=t0",
+          "generation_rule": "hyperosmolar_ever"
+        }
+      ],
+      "manual_field_units": {
+        "hyperosmolar_ever": "binary"
+      }
+    },
+    {
+      "id": "sedative_active_t0",
+      "source": "extension",
+      "kind": "binary",
+      "raw_columns": [
+        "sedative_active_t0"
+      ],
+      "model_columns": [
+        "sedative_active_t0"
+      ],
+      "manual_fields": [
+        "sedative_active_t0"
+      ],
+      "manual_field_count": 1,
+      "binary_columns": [
+        "sedative_active_t0"
+      ],
+      "order": 21,
+      "source_preparation": "Original frozen clinical definition; t0-visible events only; enter existing audited summary, not recomputed alternative.",
+      "missing_option": "required; categorical unassessable only where defined",
+      "metadata": [
+        {
+          "column": "sedative_active_t0",
+          "unit": "binary",
+          "variable_id": "sedative_active_t0",
+          "legal_range": "0/1",
+          "last_window": "4h visible state evidence before t0",
+          "event_time": "starttime/state_time",
+          "availability_time": "greatest(starttime,storetime)",
+          "t0_inclusion_rule": "episode_start<=event_time<t0 and availability_time<=t0",
+          "generation_rule": "sedative_active_t0"
+        }
+      ],
+      "manual_field_units": {
+        "sedative_active_t0": "binary"
+      }
+    },
+    {
+      "id": "nmb_active_t0",
+      "source": "extension",
+      "kind": "binary",
+      "raw_columns": [
+        "nmb_active_t0"
+      ],
+      "model_columns": [
+        "nmb_active_t0"
+      ],
+      "manual_fields": [
+        "nmb_active_t0"
+      ],
+      "manual_field_count": 1,
+      "binary_columns": [
+        "nmb_active_t0"
+      ],
+      "order": 22,
+      "source_preparation": "Original frozen clinical definition; t0-visible events only; enter existing audited summary, not recomputed alternative.",
+      "missing_option": "required; categorical unassessable only where defined",
+      "metadata": [
+        {
+          "column": "nmb_active_t0",
+          "unit": "binary",
+          "variable_id": "nmb_active_t0",
+          "legal_range": "0/1",
+          "last_window": "4h visible state evidence before t0",
+          "event_time": "starttime/state_time",
+          "availability_time": "greatest(starttime,storetime)",
+          "t0_inclusion_rule": "episode_start<=event_time<t0 and availability_time<=t0",
+          "generation_rule": "nmb_active_t0"
+        }
+      ],
+      "manual_field_units": {
+        "nmb_active_t0": "binary"
+      }
+    },
+    {
+      "id": "heart_rate_last",
+      "source": "extension",
+      "kind": "numeric",
+      "raw_columns": [
+        "heart_rate_last"
+      ],
+      "model_columns": [
+        "heart_rate_last"
+      ],
+      "manual_fields": [
+        "heart_rate_last"
+      ],
+      "manual_field_count": 1,
+      "binary_columns": [],
+      "order": 23,
+      "source_preparation": "Original frozen clinical definition; t0-visible events only; enter existing audited summary, not recomputed alternative.",
+      "missing_option": "explicit null (unavailable, never normal)",
+      "metadata": [
+        {
+          "column": "heart_rate_last",
+          "unit": "bpm",
+          "variable_id": "heart_rate",
+          "legal_range": "0<value<=300",
+          "last_window": "[max(episode_start,t0-48h),t0)",
+          "event_time": "charttime",
+          "availability_time": "greatest(charttime,storetime)",
+          "t0_inclusion_rule": "episode_start<=event_time<t0 and availability_time<=t0",
+          "generation_rule": "last",
+          "canonical_range": [
+            0,
+            300
+          ],
+          "canonical_range_rule": "inclusive; frozen A2 source contracts after A3 unit conversion"
+        }
+      ],
+      "manual_field_units": {
+        "heart_rate_last": "bpm"
+      }
+    },
+    {
+      "id": "systolic_bp_last",
+      "source": "extension",
+      "kind": "numeric",
+      "raw_columns": [
+        "systolic_bp_last"
+      ],
+      "model_columns": [
+        "systolic_bp_last"
+      ],
+      "manual_fields": [
+        "systolic_bp_last"
+      ],
+      "manual_field_count": 1,
+      "binary_columns": [],
+      "order": 24,
+      "source_preparation": "Original frozen clinical definition; t0-visible events only; enter existing audited summary, not recomputed alternative.",
+      "missing_option": "explicit null (unavailable, never normal)",
+      "metadata": [
+        {
+          "column": "systolic_bp_last",
+          "unit": "mmHg",
+          "variable_id": "systolic_bp",
+          "legal_range": "0<value<=350",
+          "last_window": "[max(episode_start,t0-48h),t0)",
+          "event_time": "charttime",
+          "availability_time": "greatest(charttime,storetime)",
+          "t0_inclusion_rule": "episode_start<=event_time<t0 and availability_time<=t0",
+          "generation_rule": "last",
+          "canonical_range": [
+            0,
+            350
+          ],
+          "canonical_range_rule": "inclusive; frozen A2 source contracts after A3 unit conversion"
+        }
+      ],
+      "manual_field_units": {
+        "systolic_bp_last": "mmHg"
+      }
+    },
+    {
+      "id": "mean_arterial_pressure_last",
+      "source": "extension",
+      "kind": "numeric",
+      "raw_columns": [
+        "mean_arterial_pressure_last"
+      ],
+      "model_columns": [
+        "mean_arterial_pressure_last"
+      ],
+      "manual_fields": [
+        "mean_arterial_pressure_last"
+      ],
+      "manual_field_count": 1,
+      "binary_columns": [],
+      "order": 25,
+      "source_preparation": "Original frozen clinical definition; t0-visible events only; enter existing audited summary, not recomputed alternative.",
+      "missing_option": "explicit null (unavailable, never normal)",
+      "metadata": [
+        {
+          "column": "mean_arterial_pressure_last",
+          "unit": "mmHg",
+          "variable_id": "mean_arterial_pressure",
+          "legal_range": "0<value<=300",
+          "last_window": "[max(episode_start,t0-48h),t0)",
+          "event_time": "charttime",
+          "availability_time": "greatest(charttime,storetime)",
+          "t0_inclusion_rule": "episode_start<=event_time<t0 and availability_time<=t0",
+          "generation_rule": "last",
+          "canonical_range": [
+            0,
+            300
+          ],
+          "canonical_range_rule": "inclusive; frozen A2 source contracts after A3 unit conversion"
+        }
+      ],
+      "manual_field_units": {
+        "mean_arterial_pressure_last": "mmHg"
+      }
+    },
+    {
+      "id": "respiratory_rate_last",
+      "source": "extension",
+      "kind": "numeric",
+      "raw_columns": [
+        "respiratory_rate_last"
+      ],
+      "model_columns": [
+        "respiratory_rate_last"
+      ],
+      "manual_fields": [
+        "respiratory_rate_last"
+      ],
+      "manual_field_count": 1,
+      "binary_columns": [],
+      "order": 26,
+      "source_preparation": "Original frozen clinical definition; t0-visible events only; enter existing audited summary, not recomputed alternative.",
+      "missing_option": "explicit null (unavailable, never normal)",
+      "metadata": [
+        {
+          "column": "respiratory_rate_last",
+          "unit": "breaths/min",
+          "variable_id": "respiratory_rate",
+          "legal_range": "0<value<=100",
+          "last_window": "[max(episode_start,t0-48h),t0)",
+          "event_time": "charttime",
+          "availability_time": "greatest(charttime,storetime)",
+          "t0_inclusion_rule": "episode_start<=event_time<t0 and availability_time<=t0",
+          "generation_rule": "last",
+          "canonical_range": [
+            0,
+            100
+          ],
+          "canonical_range_rule": "inclusive; frozen A2 source contracts after A3 unit conversion"
+        }
+      ],
+      "manual_field_units": {
+        "respiratory_rate_last": "breaths/min"
+      }
+    },
+    {
+      "id": "temperature_c_last",
+      "source": "extension",
+      "kind": "numeric",
+      "raw_columns": [
+        "temperature_c_last"
+      ],
+      "model_columns": [
+        "temperature_c_last"
+      ],
+      "manual_fields": [
+        "temperature_c_last"
+      ],
+      "manual_field_count": 1,
+      "binary_columns": [],
+      "order": 27,
+      "source_preparation": "Original frozen clinical definition; t0-visible events only; enter existing audited summary, not recomputed alternative.",
+      "missing_option": "explicit null (unavailable, never normal)",
+      "metadata": [
+        {
+          "column": "temperature_c_last",
+          "unit": "degC",
+          "variable_id": "temperature_c",
+          "legal_range": "25<=value_c<=45",
+          "last_window": "[max(episode_start,t0-48h),t0)",
+          "event_time": "charttime",
+          "availability_time": "greatest(charttime,storetime)",
+          "t0_inclusion_rule": "episode_start<=event_time<t0 and availability_time<=t0",
+          "generation_rule": "last",
+          "canonical_range": [
+            25,
+            45
+          ],
+          "canonical_range_rule": "inclusive; frozen A2 source contracts after A3 unit conversion",
+          "source_range_contracts": [
+            {
+              "unit_rule": "temperature_c",
+              "source_range": [
+                25,
+                45
+              ],
+              "canonical_range": [
+                25,
+                45
+              ],
+              "conversion": "identity"
+            },
+            {
+              "unit_rule": "temperature_f",
+              "source_range": [
+                77,
+                113
+              ],
+              "canonical_range": [
+                25,
+                45
+              ],
+              "conversion": "(F-32)*5/9"
+            }
+          ]
+        }
+      ],
+      "manual_field_units": {
+        "temperature_c_last": "degC"
+      }
+    },
+    {
+      "id": "spo2_last",
+      "source": "extension",
+      "kind": "numeric",
+      "raw_columns": [
+        "spo2_last"
+      ],
+      "model_columns": [
+        "spo2_last"
+      ],
+      "manual_fields": [
+        "spo2_last"
+      ],
+      "manual_field_count": 1,
+      "binary_columns": [],
+      "order": 28,
+      "source_preparation": "Original frozen clinical definition; t0-visible events only; enter existing audited summary, not recomputed alternative.",
+      "missing_option": "explicit null (unavailable, never normal)",
+      "metadata": [
+        {
+          "column": "spo2_last",
+          "unit": "%",
+          "variable_id": "spo2",
+          "legal_range": "0<=value<=100",
+          "last_window": "[max(episode_start,t0-48h),t0)",
+          "event_time": "charttime",
+          "availability_time": "greatest(charttime,storetime)",
+          "t0_inclusion_rule": "episode_start<=event_time<t0 and availability_time<=t0",
+          "generation_rule": "last",
+          "canonical_range": [
+            0,
+            100
+          ],
+          "canonical_range_rule": "inclusive; frozen A2 source contracts after A3 unit conversion"
+        }
+      ],
+      "manual_field_units": {
+        "spo2_last": "%"
+      }
+    },
+    {
+      "id": "fio2_fraction_last",
+      "source": "extension",
+      "kind": "numeric",
+      "raw_columns": [
+        "fio2_fraction_last"
+      ],
+      "model_columns": [
+        "fio2_fraction_last"
+      ],
+      "manual_fields": [
+        "fio2_fraction_last"
+      ],
+      "manual_field_count": 1,
+      "binary_columns": [],
+      "order": 29,
+      "source_preparation": "Original frozen clinical definition; t0-visible events only; enter existing audited summary, not recomputed alternative.",
+      "missing_option": "explicit null (unavailable, never normal)",
+      "metadata": [
+        {
+          "column": "fio2_fraction_last",
+          "unit": "fraction",
+          "variable_id": "fio2_fraction",
+          "legal_range": "0.21<=value<=1",
+          "last_window": "[max(episode_start,t0-48h),t0)",
+          "event_time": "charttime",
+          "availability_time": "greatest(charttime,storetime)",
+          "t0_inclusion_rule": "episode_start<=event_time<t0 and availability_time<=t0",
+          "generation_rule": "last",
+          "canonical_range": [
+            0,
+            1
+          ],
+          "canonical_range_rule": "inclusive; frozen A2 source contracts after A3 unit conversion"
+        }
+      ],
+      "manual_field_units": {
+        "fio2_fraction_last": "fraction"
+      }
+    },
+    {
+      "id": "peep_cmh2o_last",
+      "source": "extension",
+      "kind": "numeric",
+      "raw_columns": [
+        "peep_cmh2o_last"
+      ],
+      "model_columns": [
+        "peep_cmh2o_last"
+      ],
+      "manual_fields": [
+        "peep_cmh2o_last"
+      ],
+      "manual_field_count": 1,
+      "binary_columns": [],
+      "order": 30,
+      "source_preparation": "Original frozen clinical definition; t0-visible events only; enter existing audited summary, not recomputed alternative.",
+      "missing_option": "explicit null (unavailable, never normal)",
+      "metadata": [
+        {
+          "column": "peep_cmh2o_last",
+          "unit": "cmH2O",
+          "variable_id": "peep_cmh2o",
+          "legal_range": "0<=value<=50",
+          "last_window": "[max(episode_start,t0-48h),t0)",
+          "event_time": "charttime",
+          "availability_time": "greatest(charttime,storetime)",
+          "t0_inclusion_rule": "episode_start<=event_time<t0 and availability_time<=t0",
+          "generation_rule": "last",
+          "canonical_range": [
+            0,
+            50
+          ],
+          "canonical_range_rule": "inclusive; frozen A2 source contracts after A3 unit conversion"
+        }
+      ],
+      "manual_field_units": {
+        "peep_cmh2o_last": "cmH2O"
+      }
+    },
+    {
+      "id": "hemoglobin_last",
+      "source": "extension",
+      "kind": "numeric",
+      "raw_columns": [
+        "hemoglobin_last"
+      ],
+      "model_columns": [
+        "hemoglobin_last"
+      ],
+      "manual_fields": [
+        "hemoglobin_last"
+      ],
+      "manual_field_count": 1,
+      "binary_columns": [],
+      "order": 31,
+      "source_preparation": "Original frozen clinical definition; t0-visible events only; enter existing audited summary, not recomputed alternative.",
+      "missing_option": "explicit null (unavailable, never normal)",
+      "metadata": [
+        {
+          "column": "hemoglobin_last",
+          "unit": "g/dL",
+          "variable_id": "hemoglobin",
+          "legal_range": "0<value<=30",
+          "last_window": "[max(episode_start,t0-48h),t0)",
+          "event_time": "charttime",
+          "availability_time": "greatest(charttime,storetime)",
+          "t0_inclusion_rule": "episode_start<=event_time<t0 and availability_time<=t0",
+          "generation_rule": "last",
+          "canonical_range": [
+            0,
+            30
+          ],
+          "canonical_range_rule": "inclusive; frozen A2 source contracts after A3 unit conversion"
+        }
+      ],
+      "manual_field_units": {
+        "hemoglobin_last": "g/dL"
+      }
+    },
+    {
+      "id": "wbc_absolute_last",
+      "source": "extension",
+      "kind": "numeric",
+      "raw_columns": [
+        "wbc_absolute_last"
+      ],
+      "model_columns": [
+        "wbc_absolute_last"
+      ],
+      "manual_fields": [
+        "wbc_absolute_last"
+      ],
+      "manual_field_count": 1,
+      "binary_columns": [],
+      "order": 32,
+      "source_preparation": "Original frozen clinical definition; t0-visible events only; enter existing audited summary, not recomputed alternative.",
+      "missing_option": "explicit null (unavailable, never normal)",
+      "metadata": [
+        {
+          "column": "wbc_absolute_last",
+          "unit": "K/uL",
+          "variable_id": "wbc_absolute",
+          "legal_range": "0<value<=500",
+          "last_window": "[max(episode_start,t0-48h),t0)",
+          "event_time": "charttime",
+          "availability_time": "greatest(charttime,storetime)",
+          "t0_inclusion_rule": "episode_start<=event_time<t0 and availability_time<=t0",
+          "generation_rule": "last",
+          "canonical_range": [
+            0,
+            500
+          ],
+          "canonical_range_rule": "inclusive; frozen A2 source contracts after A3 unit conversion"
+        }
+      ],
+      "manual_field_units": {
+        "wbc_absolute_last": "K/uL"
+      }
+    },
+    {
+      "id": "platelet_absolute_last",
+      "source": "extension",
+      "kind": "numeric",
+      "raw_columns": [
+        "platelet_absolute_last"
+      ],
+      "model_columns": [
+        "platelet_absolute_last"
+      ],
+      "manual_fields": [
+        "platelet_absolute_last"
+      ],
+      "manual_field_count": 1,
+      "binary_columns": [],
+      "order": 33,
+      "source_preparation": "Original frozen clinical definition; t0-visible events only; enter existing audited summary, not recomputed alternative.",
+      "missing_option": "explicit null (unavailable, never normal)",
+      "metadata": [
+        {
+          "column": "platelet_absolute_last",
+          "unit": "K/uL",
+          "variable_id": "platelet_absolute",
+          "legal_range": "0<value<=3000",
+          "last_window": "[max(episode_start,t0-48h),t0)",
+          "event_time": "charttime",
+          "availability_time": "greatest(charttime,storetime)",
+          "t0_inclusion_rule": "episode_start<=event_time<t0 and availability_time<=t0",
+          "generation_rule": "last",
+          "canonical_range": [
+            0,
+            3000
+          ],
+          "canonical_range_rule": "inclusive; frozen A2 source contracts after A3 unit conversion"
+        }
+      ],
+      "manual_field_units": {
+        "platelet_absolute_last": "K/uL"
+      }
+    },
+    {
+      "id": "sodium_last",
+      "source": "extension",
+      "kind": "numeric",
+      "raw_columns": [
+        "sodium_last"
+      ],
+      "model_columns": [
+        "sodium_last"
+      ],
+      "manual_fields": [
+        "sodium_last"
+      ],
+      "manual_field_count": 1,
+      "binary_columns": [],
+      "order": 34,
+      "source_preparation": "Original frozen clinical definition; t0-visible events only; enter existing audited summary, not recomputed alternative.",
+      "missing_option": "explicit null (unavailable, never normal)",
+      "metadata": [
+        {
+          "column": "sodium_last",
+          "unit": "mEq/L",
+          "variable_id": "sodium",
+          "legal_range": "80<=value<=220",
+          "last_window": "[max(episode_start,t0-48h),t0)",
+          "event_time": "charttime",
+          "availability_time": "greatest(charttime,storetime)",
+          "t0_inclusion_rule": "episode_start<=event_time<t0 and availability_time<=t0",
+          "generation_rule": "last",
+          "canonical_range": [
+            80,
+            220
+          ],
+          "canonical_range_rule": "inclusive; frozen A2 source contracts after A3 unit conversion"
+        }
+      ],
+      "manual_field_units": {
+        "sodium_last": "mEq/L"
+      }
+    },
+    {
+      "id": "potassium_last",
+      "source": "extension",
+      "kind": "numeric",
+      "raw_columns": [
+        "potassium_last"
+      ],
+      "model_columns": [
+        "potassium_last"
+      ],
+      "manual_fields": [
+        "potassium_last"
+      ],
+      "manual_field_count": 1,
+      "binary_columns": [],
+      "order": 35,
+      "source_preparation": "Original frozen clinical definition; t0-visible events only; enter existing audited summary, not recomputed alternative.",
+      "missing_option": "explicit null (unavailable, never normal)",
+      "metadata": [
+        {
+          "column": "potassium_last",
+          "unit": "mEq/L",
+          "variable_id": "potassium",
+          "legal_range": "1<=value<=15",
+          "last_window": "[max(episode_start,t0-48h),t0)",
+          "event_time": "charttime",
+          "availability_time": "greatest(charttime,storetime)",
+          "t0_inclusion_rule": "episode_start<=event_time<t0 and availability_time<=t0",
+          "generation_rule": "last",
+          "canonical_range": [
+            1,
+            15
+          ],
+          "canonical_range_rule": "inclusive; frozen A2 source contracts after A3 unit conversion"
+        }
+      ],
+      "manual_field_units": {
+        "potassium_last": "mEq/L"
+      }
+    },
+    {
+      "id": "bicarbonate_last",
+      "source": "extension",
+      "kind": "numeric",
+      "raw_columns": [
+        "bicarbonate_last"
+      ],
+      "model_columns": [
+        "bicarbonate_last"
+      ],
+      "manual_fields": [
+        "bicarbonate_last"
+      ],
+      "manual_field_count": 1,
+      "binary_columns": [],
+      "order": 36,
+      "source_preparation": "Original frozen clinical definition; t0-visible events only; enter existing audited summary, not recomputed alternative.",
+      "missing_option": "explicit null (unavailable, never normal)",
+      "metadata": [
+        {
+          "column": "bicarbonate_last",
+          "unit": "mEq/L",
+          "variable_id": "bicarbonate",
+          "legal_range": "1<=value<=80",
+          "last_window": "[max(episode_start,t0-48h),t0)",
+          "event_time": "charttime",
+          "availability_time": "greatest(charttime,storetime)",
+          "t0_inclusion_rule": "episode_start<=event_time<t0 and availability_time<=t0",
+          "generation_rule": "last",
+          "canonical_range": [
+            1,
+            80
+          ],
+          "canonical_range_rule": "inclusive; frozen A2 source contracts after A3 unit conversion"
+        }
+      ],
+      "manual_field_units": {
+        "bicarbonate_last": "mEq/L"
+      }
+    },
+    {
+      "id": "bun_last",
+      "source": "extension",
+      "kind": "numeric",
+      "raw_columns": [
+        "bun_last"
+      ],
+      "model_columns": [
+        "bun_last"
+      ],
+      "manual_fields": [
+        "bun_last"
+      ],
+      "manual_field_count": 1,
+      "binary_columns": [],
+      "order": 37,
+      "source_preparation": "Original frozen clinical definition; t0-visible events only; enter existing audited summary, not recomputed alternative.",
+      "missing_option": "explicit null (unavailable, never normal)",
+      "metadata": [
+        {
+          "column": "bun_last",
+          "unit": "mg/dL",
+          "variable_id": "bun",
+          "legal_range": "0<=value<=300",
+          "last_window": "[max(episode_start,t0-48h),t0)",
+          "event_time": "charttime",
+          "availability_time": "greatest(charttime,storetime)",
+          "t0_inclusion_rule": "episode_start<=event_time<t0 and availability_time<=t0",
+          "generation_rule": "last",
+          "canonical_range": [
+            0,
+            300
+          ],
+          "canonical_range_rule": "inclusive; frozen A2 source contracts after A3 unit conversion"
+        }
+      ],
+      "manual_field_units": {
+        "bun_last": "mg/dL"
+      }
+    },
+    {
+      "id": "creatinine_last",
+      "source": "extension",
+      "kind": "numeric",
+      "raw_columns": [
+        "creatinine_last"
+      ],
+      "model_columns": [
+        "creatinine_last"
+      ],
+      "manual_fields": [
+        "creatinine_last"
+      ],
+      "manual_field_count": 1,
+      "binary_columns": [],
+      "order": 38,
+      "source_preparation": "Original frozen clinical definition; t0-visible events only; enter existing audited summary, not recomputed alternative.",
+      "missing_option": "explicit null (unavailable, never normal)",
+      "metadata": [
+        {
+          "column": "creatinine_last",
+          "unit": "mg/dL",
+          "variable_id": "creatinine",
+          "legal_range": "0<=value<=30",
+          "last_window": "[max(episode_start,t0-48h),t0)",
+          "event_time": "charttime",
+          "availability_time": "greatest(charttime,storetime)",
+          "t0_inclusion_rule": "episode_start<=event_time<t0 and availability_time<=t0",
+          "generation_rule": "last",
+          "canonical_range": [
+            0,
+            30
+          ],
+          "canonical_range_rule": "inclusive; frozen A2 source contracts after A3 unit conversion"
+        }
+      ],
+      "manual_field_units": {
+        "creatinine_last": "mg/dL"
+      }
+    },
+    {
+      "id": "glucose_last",
+      "source": "extension",
+      "kind": "numeric",
+      "raw_columns": [
+        "glucose_last"
+      ],
+      "model_columns": [
+        "glucose_last"
+      ],
+      "manual_fields": [
+        "glucose_last"
+      ],
+      "manual_field_count": 1,
+      "binary_columns": [],
+      "order": 39,
+      "source_preparation": "Original frozen clinical definition; t0-visible events only; enter existing audited summary, not recomputed alternative.",
+      "missing_option": "explicit null (unavailable, never normal)",
+      "metadata": [
+        {
+          "column": "glucose_last",
+          "unit": "mg/dL",
+          "variable_id": "glucose",
+          "legal_range": "1<=value<=2000",
+          "last_window": "[max(episode_start,t0-48h),t0)",
+          "event_time": "charttime",
+          "availability_time": "greatest(charttime,storetime)",
+          "t0_inclusion_rule": "episode_start<=event_time<t0 and availability_time<=t0",
+          "generation_rule": "last",
+          "canonical_range": [
+            1,
+            2000
+          ],
+          "canonical_range_rule": "inclusive; frozen A2 source contracts after A3 unit conversion"
+        }
+      ],
+      "manual_field_units": {
+        "glucose_last": "mg/dL"
+      }
+    },
+    {
+      "id": "lactate_last",
+      "source": "extension",
+      "kind": "numeric",
+      "raw_columns": [
+        "lactate_last"
+      ],
+      "model_columns": [
+        "lactate_last"
+      ],
+      "manual_fields": [
+        "lactate_last"
+      ],
+      "manual_field_count": 1,
+      "binary_columns": [],
+      "order": 40,
+      "source_preparation": "Original frozen clinical definition; t0-visible events only; enter existing audited summary, not recomputed alternative.",
+      "missing_option": "explicit null (unavailable, never normal)",
+      "metadata": [
+        {
+          "column": "lactate_last",
+          "unit": "mmol/L",
+          "variable_id": "lactate",
+          "legal_range": "0<=value<=40",
+          "last_window": "[max(episode_start,t0-48h),t0)",
+          "event_time": "charttime",
+          "availability_time": "greatest(charttime,storetime)",
+          "t0_inclusion_rule": "episode_start<=event_time<t0 and availability_time<=t0",
+          "generation_rule": "last",
+          "canonical_range": [
+            0,
+            40
+          ],
+          "canonical_range_rule": "inclusive; frozen A2 source contracts after A3 unit conversion"
+        }
+      ],
+      "manual_field_units": {
+        "lactate_last": "mmol/L"
+      }
+    },
+    {
+      "id": "inr_last",
+      "source": "extension",
+      "kind": "numeric",
+      "raw_columns": [
+        "inr_last"
+      ],
+      "model_columns": [
+        "inr_last"
+      ],
+      "manual_fields": [
+        "inr_last"
+      ],
+      "manual_field_count": 1,
+      "binary_columns": [],
+      "order": 41,
+      "source_preparation": "Original frozen clinical definition; t0-visible events only; enter existing audited summary, not recomputed alternative.",
+      "missing_option": "explicit null (unavailable, never normal)",
+      "metadata": [
+        {
+          "column": "inr_last",
+          "unit": "ratio",
+          "variable_id": "inr",
+          "legal_range": "0.5<=value<=20",
+          "last_window": "[max(episode_start,t0-48h),t0)",
+          "event_time": "charttime",
+          "availability_time": "greatest(charttime,storetime)",
+          "t0_inclusion_rule": "episode_start<=event_time<t0 and availability_time<=t0",
+          "generation_rule": "last",
+          "canonical_range": [
+            0.5,
+            20
+          ],
+          "canonical_range_rule": "inclusive; frozen A2 source contracts after A3 unit conversion"
+        }
+      ],
+      "manual_field_units": {
+        "inr_last": "ratio"
+      }
+    },
+    {
+      "id": "albumin_last",
+      "source": "extension",
+      "kind": "numeric",
+      "raw_columns": [
+        "albumin_last"
+      ],
+      "model_columns": [
+        "albumin_last"
+      ],
+      "manual_fields": [
+        "albumin_last"
+      ],
+      "manual_field_count": 1,
+      "binary_columns": [],
+      "order": 42,
+      "source_preparation": "Original frozen clinical definition; t0-visible events only; enter existing audited summary, not recomputed alternative.",
+      "missing_option": "explicit null (unavailable, never normal)",
+      "metadata": [
+        {
+          "column": "albumin_last",
+          "unit": "g/dL",
+          "variable_id": "albumin",
+          "legal_range": "0<value<=10",
+          "last_window": "[max(episode_start,t0-48h),t0)",
+          "event_time": "charttime",
+          "availability_time": "greatest(charttime,storetime)",
+          "t0_inclusion_rule": "episode_start<=event_time<t0 and availability_time<=t0",
+          "generation_rule": "last",
+          "canonical_range": [
+            0,
+            10
+          ],
+          "canonical_range_rule": "inclusive; frozen A2 source contracts after A3 unit conversion"
+        }
+      ],
+      "manual_field_units": {
+        "albumin_last": "g/dL"
+      }
+    },
+    {
+      "id": "bilirubin_total_last",
+      "source": "extension",
+      "kind": "numeric",
+      "raw_columns": [
+        "bilirubin_total_last"
+      ],
+      "model_columns": [
+        "bilirubin_total_last"
+      ],
+      "manual_fields": [
+        "bilirubin_total_last"
+      ],
+      "manual_field_count": 1,
+      "binary_columns": [],
+      "order": 43,
+      "source_preparation": "Original frozen clinical definition; t0-visible events only; enter existing audited summary, not recomputed alternative.",
+      "missing_option": "explicit null (unavailable, never normal)",
+      "metadata": [
+        {
+          "column": "bilirubin_total_last",
+          "unit": "mg/dL",
+          "variable_id": "bilirubin_total",
+          "legal_range": "0<=value<=80",
+          "last_window": "[max(episode_start,t0-48h),t0)",
+          "event_time": "charttime",
+          "availability_time": "greatest(charttime,storetime)",
+          "t0_inclusion_rule": "episode_start<=event_time<t0 and availability_time<=t0",
+          "generation_rule": "last",
+          "canonical_range": [
+            0,
+            80
+          ],
+          "canonical_range_rule": "inclusive; frozen A2 source contracts after A3 unit conversion"
+        }
+      ],
+      "manual_field_units": {
+        "bilirubin_total_last": "mg/dL"
+      }
+    }
+  ],
+  "excluded_columns": [
+    {
+      "column": "icp_early",
+      "dictionary_order": 7,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "icp_highest",
+      "dictionary_order": 8,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "icp_delta_last_minus_early",
+      "dictionary_order": 10,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "icp_summary_unavailable",
+      "dictionary_order": 11,
+      "reason": "Trajectory-wide availability is not last-value availability; no replacement flag"
+    },
+    {
+      "column": "icp_last_freshness_hours",
+      "dictionary_order": 12,
+      "reason": "Requires exact historical timestamp/cessation/procedure preparation"
+    },
+    {
+      "column": "hours_since_icp_procedure",
+      "dictionary_order": 13,
+      "reason": "Requires exact historical timestamp/cessation/procedure preparation"
+    },
+    {
+      "column": "icp_procedure_recency_unavailable",
+      "dictionary_order": 14,
+      "reason": "Requires exact historical timestamp/cessation/procedure preparation"
+    },
+    {
+      "column": "hours_since_cranial_operation",
+      "dictionary_order": 15,
+      "reason": "Requires exact historical timestamp/cessation/procedure preparation"
+    },
+    {
+      "column": "cranial_operation_recency_unavailable",
+      "dictionary_order": 16,
+      "reason": "Requires exact historical timestamp/cessation/procedure preparation"
+    },
+    {
+      "column": "hours_since_invasive_vent_end",
+      "dictionary_order": 18,
+      "reason": "Requires exact historical timestamp/cessation/procedure preparation"
+    },
+    {
+      "column": "invasive_vent_end_recency_unavailable",
+      "dictionary_order": 19,
+      "reason": "Requires exact historical timestamp/cessation/procedure preparation"
+    },
+    {
+      "column": "hours_since_vasopressor_end",
+      "dictionary_order": 21,
+      "reason": "Requires exact historical timestamp/cessation/procedure preparation"
+    },
+    {
+      "column": "vasopressor_end_recency_unavailable",
+      "dictionary_order": 22,
+      "reason": "Requires exact historical timestamp/cessation/procedure preparation"
+    },
+    {
+      "column": "heart_rate_early",
+      "dictionary_order": 28,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "heart_rate_minimum",
+      "dictionary_order": 29,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "heart_rate_maximum",
+      "dictionary_order": 30,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "heart_rate_summary_unavailable",
+      "dictionary_order": 32,
+      "reason": "Trajectory-wide availability is not last-value availability; no replacement flag"
+    },
+    {
+      "column": "heart_rate_last_freshness_hours",
+      "dictionary_order": 33,
+      "reason": "Requires exact historical timestamp/cessation/procedure preparation"
+    },
+    {
+      "column": "systolic_bp_early",
+      "dictionary_order": 34,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "systolic_bp_worst",
+      "dictionary_order": 35,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "systolic_bp_delta_last_minus_early",
+      "dictionary_order": 37,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "systolic_bp_summary_unavailable",
+      "dictionary_order": 38,
+      "reason": "Trajectory-wide availability is not last-value availability; no replacement flag"
+    },
+    {
+      "column": "systolic_bp_last_freshness_hours",
+      "dictionary_order": 39,
+      "reason": "Requires exact historical timestamp/cessation/procedure preparation"
+    },
+    {
+      "column": "mean_arterial_pressure_early",
+      "dictionary_order": 40,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "mean_arterial_pressure_worst",
+      "dictionary_order": 41,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "mean_arterial_pressure_delta_last_minus_early",
+      "dictionary_order": 43,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "mean_arterial_pressure_summary_unavailable",
+      "dictionary_order": 44,
+      "reason": "Trajectory-wide availability is not last-value availability; no replacement flag"
+    },
+    {
+      "column": "mean_arterial_pressure_last_freshness_hours",
+      "dictionary_order": 45,
+      "reason": "Requires exact historical timestamp/cessation/procedure preparation"
+    },
+    {
+      "column": "respiratory_rate_early",
+      "dictionary_order": 46,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "respiratory_rate_minimum",
+      "dictionary_order": 47,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "respiratory_rate_maximum",
+      "dictionary_order": 48,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "respiratory_rate_summary_unavailable",
+      "dictionary_order": 50,
+      "reason": "Trajectory-wide availability is not last-value availability; no replacement flag"
+    },
+    {
+      "column": "respiratory_rate_last_freshness_hours",
+      "dictionary_order": 51,
+      "reason": "Requires exact historical timestamp/cessation/procedure preparation"
+    },
+    {
+      "column": "temperature_c_early",
+      "dictionary_order": 52,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "temperature_c_minimum",
+      "dictionary_order": 53,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "temperature_c_maximum",
+      "dictionary_order": 54,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "temperature_c_summary_unavailable",
+      "dictionary_order": 56,
+      "reason": "Trajectory-wide availability is not last-value availability; no replacement flag"
+    },
+    {
+      "column": "temperature_c_last_freshness_hours",
+      "dictionary_order": 57,
+      "reason": "Requires exact historical timestamp/cessation/procedure preparation"
+    },
+    {
+      "column": "spo2_early",
+      "dictionary_order": 58,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "spo2_worst",
+      "dictionary_order": 59,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "spo2_delta_last_minus_early",
+      "dictionary_order": 61,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "spo2_summary_unavailable",
+      "dictionary_order": 62,
+      "reason": "Trajectory-wide availability is not last-value availability; no replacement flag"
+    },
+    {
+      "column": "spo2_last_freshness_hours",
+      "dictionary_order": 63,
+      "reason": "Requires exact historical timestamp/cessation/procedure preparation"
+    },
+    {
+      "column": "fio2_fraction_early",
+      "dictionary_order": 64,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "fio2_fraction_worst",
+      "dictionary_order": 65,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "fio2_fraction_delta_last_minus_early",
+      "dictionary_order": 67,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "fio2_fraction_summary_unavailable",
+      "dictionary_order": 68,
+      "reason": "Trajectory-wide availability is not last-value availability; no replacement flag"
+    },
+    {
+      "column": "fio2_fraction_last_freshness_hours",
+      "dictionary_order": 69,
+      "reason": "Requires exact historical timestamp/cessation/procedure preparation"
+    },
+    {
+      "column": "peep_cmh2o_early",
+      "dictionary_order": 70,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "peep_cmh2o_worst",
+      "dictionary_order": 71,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "peep_cmh2o_delta_last_minus_early",
+      "dictionary_order": 73,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "peep_cmh2o_summary_unavailable",
+      "dictionary_order": 74,
+      "reason": "Trajectory-wide availability is not last-value availability; no replacement flag"
+    },
+    {
+      "column": "peep_cmh2o_last_freshness_hours",
+      "dictionary_order": 75,
+      "reason": "Requires exact historical timestamp/cessation/procedure preparation"
+    },
+    {
+      "column": "hemoglobin_early",
+      "dictionary_order": 76,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "hemoglobin_worst",
+      "dictionary_order": 77,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "hemoglobin_delta_last_minus_early",
+      "dictionary_order": 79,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "hemoglobin_summary_unavailable",
+      "dictionary_order": 80,
+      "reason": "Trajectory-wide availability is not last-value availability; no replacement flag"
+    },
+    {
+      "column": "hemoglobin_last_freshness_hours",
+      "dictionary_order": 81,
+      "reason": "Requires exact historical timestamp/cessation/procedure preparation"
+    },
+    {
+      "column": "wbc_absolute_early",
+      "dictionary_order": 82,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "wbc_absolute_minimum",
+      "dictionary_order": 83,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "wbc_absolute_maximum",
+      "dictionary_order": 84,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "wbc_absolute_summary_unavailable",
+      "dictionary_order": 86,
+      "reason": "Trajectory-wide availability is not last-value availability; no replacement flag"
+    },
+    {
+      "column": "wbc_absolute_last_freshness_hours",
+      "dictionary_order": 87,
+      "reason": "Requires exact historical timestamp/cessation/procedure preparation"
+    },
+    {
+      "column": "platelet_absolute_early",
+      "dictionary_order": 88,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "platelet_absolute_worst",
+      "dictionary_order": 89,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "platelet_absolute_delta_last_minus_early",
+      "dictionary_order": 91,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "platelet_absolute_summary_unavailable",
+      "dictionary_order": 92,
+      "reason": "Trajectory-wide availability is not last-value availability; no replacement flag"
+    },
+    {
+      "column": "platelet_absolute_last_freshness_hours",
+      "dictionary_order": 93,
+      "reason": "Requires exact historical timestamp/cessation/procedure preparation"
+    },
+    {
+      "column": "sodium_early",
+      "dictionary_order": 94,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "sodium_minimum",
+      "dictionary_order": 95,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "sodium_maximum",
+      "dictionary_order": 96,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "sodium_summary_unavailable",
+      "dictionary_order": 98,
+      "reason": "Trajectory-wide availability is not last-value availability; no replacement flag"
+    },
+    {
+      "column": "sodium_last_freshness_hours",
+      "dictionary_order": 99,
+      "reason": "Requires exact historical timestamp/cessation/procedure preparation"
+    },
+    {
+      "column": "potassium_early",
+      "dictionary_order": 100,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "potassium_minimum",
+      "dictionary_order": 101,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "potassium_maximum",
+      "dictionary_order": 102,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "potassium_summary_unavailable",
+      "dictionary_order": 104,
+      "reason": "Trajectory-wide availability is not last-value availability; no replacement flag"
+    },
+    {
+      "column": "potassium_last_freshness_hours",
+      "dictionary_order": 105,
+      "reason": "Requires exact historical timestamp/cessation/procedure preparation"
+    },
+    {
+      "column": "bicarbonate_early",
+      "dictionary_order": 106,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "bicarbonate_minimum",
+      "dictionary_order": 107,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "bicarbonate_maximum",
+      "dictionary_order": 108,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "bicarbonate_summary_unavailable",
+      "dictionary_order": 110,
+      "reason": "Trajectory-wide availability is not last-value availability; no replacement flag"
+    },
+    {
+      "column": "bicarbonate_last_freshness_hours",
+      "dictionary_order": 111,
+      "reason": "Requires exact historical timestamp/cessation/procedure preparation"
+    },
+    {
+      "column": "bun_early",
+      "dictionary_order": 112,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "bun_worst",
+      "dictionary_order": 113,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "bun_delta_last_minus_early",
+      "dictionary_order": 115,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "bun_summary_unavailable",
+      "dictionary_order": 116,
+      "reason": "Trajectory-wide availability is not last-value availability; no replacement flag"
+    },
+    {
+      "column": "bun_last_freshness_hours",
+      "dictionary_order": 117,
+      "reason": "Requires exact historical timestamp/cessation/procedure preparation"
+    },
+    {
+      "column": "creatinine_early",
+      "dictionary_order": 118,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "creatinine_worst",
+      "dictionary_order": 119,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "creatinine_delta_last_minus_early",
+      "dictionary_order": 121,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "creatinine_summary_unavailable",
+      "dictionary_order": 122,
+      "reason": "Trajectory-wide availability is not last-value availability; no replacement flag"
+    },
+    {
+      "column": "creatinine_last_freshness_hours",
+      "dictionary_order": 123,
+      "reason": "Requires exact historical timestamp/cessation/procedure preparation"
+    },
+    {
+      "column": "glucose_early",
+      "dictionary_order": 124,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "glucose_minimum",
+      "dictionary_order": 125,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "glucose_maximum",
+      "dictionary_order": 126,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "glucose_summary_unavailable",
+      "dictionary_order": 128,
+      "reason": "Trajectory-wide availability is not last-value availability; no replacement flag"
+    },
+    {
+      "column": "glucose_last_freshness_hours",
+      "dictionary_order": 129,
+      "reason": "Requires exact historical timestamp/cessation/procedure preparation"
+    },
+    {
+      "column": "lactate_early",
+      "dictionary_order": 130,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "lactate_worst",
+      "dictionary_order": 131,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "lactate_delta_last_minus_early",
+      "dictionary_order": 133,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "lactate_summary_unavailable",
+      "dictionary_order": 134,
+      "reason": "Trajectory-wide availability is not last-value availability; no replacement flag"
+    },
+    {
+      "column": "lactate_last_freshness_hours",
+      "dictionary_order": 135,
+      "reason": "Requires exact historical timestamp/cessation/procedure preparation"
+    },
+    {
+      "column": "inr_early",
+      "dictionary_order": 136,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "inr_worst",
+      "dictionary_order": 137,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "inr_delta_last_minus_early",
+      "dictionary_order": 139,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "inr_summary_unavailable",
+      "dictionary_order": 140,
+      "reason": "Trajectory-wide availability is not last-value availability; no replacement flag"
+    },
+    {
+      "column": "inr_last_freshness_hours",
+      "dictionary_order": 141,
+      "reason": "Requires exact historical timestamp/cessation/procedure preparation"
+    },
+    {
+      "column": "albumin_early",
+      "dictionary_order": 142,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "albumin_worst",
+      "dictionary_order": 143,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "albumin_delta_last_minus_early",
+      "dictionary_order": 145,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "albumin_summary_unavailable",
+      "dictionary_order": 146,
+      "reason": "Trajectory-wide availability is not last-value availability; no replacement flag"
+    },
+    {
+      "column": "albumin_last_freshness_hours",
+      "dictionary_order": 147,
+      "reason": "Requires exact historical timestamp/cessation/procedure preparation"
+    },
+    {
+      "column": "bilirubin_total_early",
+      "dictionary_order": 148,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "bilirubin_total_worst",
+      "dictionary_order": 149,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "bilirubin_total_delta_last_minus_early",
+      "dictionary_order": 151,
+      "reason": "Early/worst/delta trajectory requires additional historical preparation"
+    },
+    {
+      "column": "bilirubin_total_summary_unavailable",
+      "dictionary_order": 152,
+      "reason": "Trajectory-wide availability is not last-value availability; no replacement flag"
+    },
+    {
+      "column": "bilirubin_total_last_freshness_hours",
+      "dictionary_order": 153,
+      "reason": "Requires exact historical timestamp/cessation/procedure preparation"
+    },
+    {
+      "column": "gcsm_freshness_hours",
+      "dictionary_order": 154,
+      "reason": "Requires exact historical timestamp/cessation/procedure preparation"
+    },
+    {
+      "column": "pupil_freshness_hours",
+      "dictionary_order": 155,
+      "reason": "Requires exact historical timestamp/cessation/procedure preparation"
+    },
+    {
+      "column": "wpr_freshness_hours",
+      "dictionary_order": 156,
+      "reason": "Requires exact historical timestamp/cessation/procedure preparation"
+    },
+    {
+      "column": "sofa_rollback_steps",
+      "dictionary_order": 157,
+      "reason": "Observation/rollback metadata requires historical source preparation"
+    },
+    {
+      "column": "sofa_observed_domain_n",
+      "dictionary_order": 158,
+      "reason": "Observation/rollback metadata requires historical source preparation"
+    },
+    {
+      "column": "sofa_all_domains_unobserved_48h",
+      "dictionary_order": 159,
+      "reason": "Observation/rollback metadata requires historical source preparation"
+    }
+  ],
+  "source_contracts_sha256": "87CE9C229078A3479E8C9E59B7214D8F208C47FBA346F24104EE3C7BF9023BB2",
+  "range_authority": "A3 validate_value_extract uses inclusive A2 source-contract min/max after unit conversion; registry prose retained but not narrowed retrospectively.",
+  "range_discrepancies": [
+    {
+      "column": "heart_rate_last",
+      "registry_prose": "0<value<=300",
+      "effective_frozen_source_range": [
+        0,
+        300
+      ],
+      "rule": "A3 implemented A2 inclusive source ranges; preserve existing values/patients"
+    },
+    {
+      "column": "systolic_bp_last",
+      "registry_prose": "0<value<=350",
+      "effective_frozen_source_range": [
+        0,
+        350
+      ],
+      "rule": "A3 implemented A2 inclusive source ranges; preserve existing values/patients"
+    },
+    {
+      "column": "mean_arterial_pressure_last",
+      "registry_prose": "0<value<=300",
+      "effective_frozen_source_range": [
+        0,
+        300
+      ],
+      "rule": "A3 implemented A2 inclusive source ranges; preserve existing values/patients"
+    },
+    {
+      "column": "respiratory_rate_last",
+      "registry_prose": "0<value<=100",
+      "effective_frozen_source_range": [
+        0,
+        100
+      ],
+      "rule": "A3 implemented A2 inclusive source ranges; preserve existing values/patients"
+    },
+    {
+      "column": "fio2_fraction_last",
+      "registry_prose": "0.21<=value<=1",
+      "effective_frozen_source_range": [
+        0,
+        1
+      ],
+      "rule": "A3 implemented A2 inclusive source ranges; preserve existing values/patients"
+    },
+    {
+      "column": "hemoglobin_last",
+      "registry_prose": "0<value<=30",
+      "effective_frozen_source_range": [
+        0,
+        30
+      ],
+      "rule": "A3 implemented A2 inclusive source ranges; preserve existing values/patients"
+    },
+    {
+      "column": "wbc_absolute_last",
+      "registry_prose": "0<value<=500",
+      "effective_frozen_source_range": [
+        0,
+        500
+      ],
+      "rule": "A3 implemented A2 inclusive source ranges; preserve existing values/patients"
+    },
+    {
+      "column": "platelet_absolute_last",
+      "registry_prose": "0<value<=3000",
+      "effective_frozen_source_range": [
+        0,
+        3000
+      ],
+      "rule": "A3 implemented A2 inclusive source ranges; preserve existing values/patients"
+    },
+    {
+      "column": "albumin_last",
+      "registry_prose": "0<value<=10",
+      "effective_frozen_source_range": [
+        0,
+        10
+      ],
+      "rule": "A3 implemented A2 inclusive source ranges; preserve existing values/patients"
+    }
+  ],
+  "core_dictionary_sha256": "7E28C1E2FFC11E4FC1D7DBEF6364E1FB0C7444E9656DBA224ED06324266C5581",
+  "core_matrix_sha256": "24D85AC7539D8B41BECE5846FD3A5A0A59EF8B51A73322BB88E0EC8C0145F282"
+}

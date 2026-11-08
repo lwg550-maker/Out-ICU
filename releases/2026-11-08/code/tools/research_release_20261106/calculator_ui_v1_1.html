@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<title>TBI post-ICU research calculator</title>
+<style>body{font:16px system-ui;max-width:850px;margin:30px auto;padding:0 20px;color:#18222c}label{display:block;margin:16px 0}input,select{font:inherit;max-width:180px;margin-left:12px}small{display:block;color:#455563}.warning{border:2px solid #a33;padding:12px}button{font:inherit;padding:8px}output{display:block;margin:18px 0;white-space:pre-line}</style>
+<h1>TBI post-ICU research calculator</h1>
+<p>Adults with acute traumatic brain injury surviving transfer out of their index ICU episode. Landmark t0: ICU episode transfer/discharge alive. Outcome: all-cause mortality within 90 and 180 days after t0. Scale: native model probability (not recalibrated).</p>
+<p class="warning">Research only. No independent external validation. Do not use to restrict, withdraw, or limit treatment. No individual risk intervals or treatment thresholds are provided.</p>
+<p>Presentation UI v1.1 (initial-GCS window clarification only; unchanged model). Model: corrected-cohort-candidate10-e41b9066ec45. Primary: fixed 10 fields; 14-field model is backup only. All events must occur before t0 and be available by t0; this tool cannot verify EHR timestamps.</p>
+<form id="calculator" autocomplete="off">
+<label>Age at admission (years; ≥18)<input data-manual="age_at_admit" type="number" step="any" required min="18"><small>Index admission age; available at admission.</small></label>
+<label>Prior Charlson, excluding age (points)<input data-manual="charlson_prior_no_age" type="number" step="1" required min="0"><small>Completed prior admissions only: prior discharge &lt; index admission. Never use index-admission diagnoses. No qualifying prior history/mapping = 0; unavailable is not automatically 0.</small></label>
+<label>Terminal motor GCS<select data-manual="gcsm_category" required><option value="">Choose explicitly</option><option>6</option><option>4-5</option><option>1-3</option><option>unassessable</option></select><small>Latest reliable assessment in [t0−6 h,t0); account for treatment interference. Same-time conflict: minimum; earlier search only inside 6 h.</small></label>
+<label>WPR paired WBC (10^9/L)<input data-manual="wpr_wbc" type="number" step="any" min="0"><small>Latest eligible same-specimen CBC pair in [t0−24 h,t0); both positive, both available by t0.</small></label>
+<label>WPR paired platelets (10^9/L)<input data-manual="wpr_platelet" type="number" step="any" min="0"><small>Both WPR fields blank = no eligible pair; a partial pair is rejected.</small></label>
+<label>Initial total GCS (points; 3–15)<input data-manual="initial_gcs_total" type="number" step="1" min="3" max="15"><small>First reliable simultaneous E+V+M in the FIRST 6 HOURS of the ICU episode: [episode_start,min(episode_start+6h,t0)), upper endpoint excluded, available by t0. Do not substitute a later score outside this window. Blank = unavailable when no eligible assessment exists.</small></label>
+<label>Last SpO2 (%)<input data-manual="spo2_last" type="number" step="any" min="0" max="100"><small>Latest eligible value in [max(episode start,t0−48 h),t0), available by t0. Blank = unavailable.</small></label>
+<label>Last hemoglobin (g/dL)<input data-manual="hemoglobin_last" type="number" step="any" min="0" max="30"><small>Same last-value 48 h window. Blank = unavailable; frozen canonical range 0–30 inclusive.</small></label>
+<label>Last absolute WBC (K/uL)<input data-manual="wbc_absolute_last" type="number" step="any" min="0" max="500"><small>Same last-value 48 h window. Blank = unavailable. This can differ from the WPR same-specimen WBC: not interchangeable; never copied automatically.</small></label>
+<label>Last BUN (mg/dL)<input data-manual="bun_last" type="number" step="any" min="0" max="300"><small>Same last-value 48 h window. Blank = unavailable.</small></label>
+<p>Blank is permitted only where explicitly marked unavailable (and both WPR fields together). Missingness follows the original saved training-local preprocessing, not a normal-value substitution. 10^9/L and K/uL are numerically equivalent, but API unit labels must match their specific fields exactly.</p>
+<label><input id="time-confirmation" type="checkbox" required>I confirm the population and that every selected event occurred before t0 and was available by t0, using the field-specific windows above.</label>
+<button type="submit">Calculate research risk</button><button type="reset">Clear inputs and result</button>
+</form><output id="result" aria-live="polite"></output>
+<script>
+const form=document.getElementById('calculator'), result=document.getElementById('result');
+let requestGeneration=0;
+form.addEventListener('reset',()=>{requestGeneration++;result.textContent='';});
+form.addEventListener('submit',async event=>{event.preventDefault();const generation=++requestGeneration;result.textContent='';const inputs={};
+for(const field of form.querySelectorAll('[data-manual]'))inputs[field.dataset.manual]=field.tagName==='SELECT'?field.value:(field.value===''?null:Number(field.value));
+try{const response=await fetch('/predict',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({inputs,event_available_before_t0:document.getElementById('time-confirmation').checked})});const data=await response.json();if(generation !== requestGeneration)return;if(!response.ok)throw Error(data.error);result.textContent=`90-day native mortality probability: ${(100*data.risk_90_days).toFixed(2)}%\n180-day native mortality probability: ${(100*data.risk_180_days).toFixed(2)}%\nResearch only; not externally validated; must not guide treatment limitation.`;}catch(error){if(generation !== requestGeneration)return;result.textContent=error.message;}});
+</script></html>

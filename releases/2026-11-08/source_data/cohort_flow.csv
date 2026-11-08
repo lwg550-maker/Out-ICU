@@ -1,0 +1,8 @@
+﻿stage,label,n,unit
+1,TBI-coded admissions,8217,admissions
+2,With ICU records,3716,admissions
+3,First eligible adult admissions,3590,people
+4,After original exclusions,3245,people
+5,After later brain-death / organ-retrieval exclusion,3244,people
+6,Development,2838,people
+7,Temporal,406,people

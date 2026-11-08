@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "master_seed": 2026102405,
+  "unit": "patient",
+  "stratification": "death_180d",
+  "fold_n": 5,
+  "repeat_n": 1,
+  "outer_context_n": 50,
+  "full_development_context": "A5|2026102405|full_development",
+  "outer_seed_formula": "uint64_be(first16hex(SHA256('A5|2026102405|outer_repeat={r}|outer_fold={k}')))",
+  "model_seed_formula": "uint64_be(first16hex(SHA256('A5MODEL|2026102405|context|model_id|candidate_id|inner_fold_or_final')))",
+  "shared_across_models": true,
+  "outer_assignments_immutable": true
+}

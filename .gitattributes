@@ -1,0 +1,2 @@
+# Preserve released bytes so manifest hashes also verify after checkout.
+releases/2026-11-08/** -text
